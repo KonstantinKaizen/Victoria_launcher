@@ -1,0 +1,1 @@
+start launcher/Resourse/FU.exe Vic2

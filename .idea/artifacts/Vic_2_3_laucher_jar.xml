@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Vic_2_3_laucher:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Vic_2_3_laucher_jar</output-path>
+    <root id="archive" name="Vic_2_3_laucher.jar">
+      <element id="module-output" name="Vic_2_3_laucher" />
+    </root>
+  </artifact>
+</component>
