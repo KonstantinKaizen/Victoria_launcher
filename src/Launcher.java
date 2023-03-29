@@ -425,36 +425,29 @@ public class Launcher extends JPanel implements ActionListener  {
                 Desktop desktop = Desktop.getDesktop();
                 File file = new File("Victoria 2");
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
+               // Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\logs"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map"));
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\map"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\logs"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\map"));
 
 
 
                 try {
-                    Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt"));
+                    //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt"));
 
-                } catch (IOException ex) {
-
-                    throw new RuntimeException(ex);
-                }finally {
+                } finally {
                     try {
-                        Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt"));
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                        //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt"));
                     } finally {
                         try {
-                            Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt"));
-                        } catch (IOException ex) {
-                            throw new RuntimeException(ex);
+                            //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt"));
                         } finally {
 
                         if(file.isDirectory()) {
@@ -490,37 +483,30 @@ public class Launcher extends JPanel implements ActionListener  {
                 Desktop desktop = Desktop.getDesktop();
                 File file = new File("Victoria 2");
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\logs"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map"));
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\map"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\logs"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\map"));
 
 
 
                 try {
-                    Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt"));
+                    //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt"));
 
 
-                } catch (IOException ex) {
-
-                    throw new RuntimeException(ex);
-                }finally {
+                } finally {
                     try {
-                        Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt"));
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                        //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt"));
                     } finally {
                         try {
-                            Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt"));
-                        } catch (IOException ex) {
-                            throw new RuntimeException(ex);
+                            //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt"));
                         } finally {
 
                             if(file.isDirectory()) {
@@ -691,7 +677,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-                String path = new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria 3\\mod\\NVBM";
+                //String path = new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria 3\\mod\\NVBM";
 
                 File file1 = new File("Victoria 3");
                 if (!file1.exists()) {
@@ -699,8 +685,20 @@ public class Launcher extends JPanel implements ActionListener  {
                     return;
                 }
 
+                String canonicalPath;
 
-                File file = new File(path);
+
+                try {
+                    canonicalPath = new File(".").getCanonicalPath();
+
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                canonicalPath = canonicalPath+"\\Victoria 3\\mod\\NVBM";
+                File file = new File(canonicalPath);
+
+
+
                 if (!file.exists()) {
                     JOptionPane.showMessageDialog(Main.frame,"Скачайте мод");
                     return;
@@ -710,7 +708,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-                String string = "{\"enabledMods\":[{\"path\":\""+path+"\"}],\"disabledDLC\":[]}";
+                String string = "{\"enabledMods\":[{\"path\":\""+canonicalPath+"\"}],\"disabledDLC\":[]}";
                 Desktop desktop = Desktop.getDesktop();
 
 
@@ -729,6 +727,17 @@ public class Launcher extends JPanel implements ActionListener  {
             } // run nvmb
 
             if(vic_3_launcher_selected && e.getX()>80 && e.getY()>428 && e.getX()<128 && e.getY() < 474){
+
+
+
+                File file = new File("Victoria 3");
+                if (!file.exists()) {
+                    JOptionPane.showMessageDialog(Main.frame,"Скачайте игру");
+                    return;
+                }
+
+
+
                 Desktop desktop = Desktop.getDesktop();
                 System.out.println("start download nvmb");
                 try {
@@ -890,6 +899,8 @@ public class Launcher extends JPanel implements ActionListener  {
 
             if(vic_3_launcher_selected && e.getX()>126 && e.getY()>633 && e.getX()<390 && e.getY() < 726){
 
+
+
                 if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                     try {
                         Desktop.getDesktop().browse(new URI("https://discord.gg/HuVGesQT5e"));
@@ -899,6 +910,9 @@ public class Launcher extends JPanel implements ActionListener  {
                         throw new RuntimeException(ex);
                     }
                 }
+
+
+
 
             } //  кнопка дискорда
 
