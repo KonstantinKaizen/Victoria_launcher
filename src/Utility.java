@@ -11,6 +11,19 @@ import java.util.zip.ZipFile;
 
 public class Utility {
 
+    private static void copyFile_2(File sourceFile, File destinationFile)
+            throws IOException {
+        try (InputStream in = new FileInputStream(sourceFile);
+             OutputStream out = new FileOutputStream(destinationFile)) {
+            byte[] buf = new byte[1024];
+            int length;
+            while ((length = in.read(buf)) > 0) {
+                out.write(buf, 0, length);
+            }
+        }
+    }
+
+
 
     public static void copyFile(File source, File dest) throws IOException {
         InputStream is = null;
@@ -28,6 +41,23 @@ public class Utility {
             os.close();
         }
     } // копирование файла
+
+
+    public static void copyDirectory(File sourceDirectory, File destinationDirectory) throws IOException {
+        if (!destinationDirectory.exists()) {
+            destinationDirectory.mkdir();
+        }
+        for (String f : sourceDirectory.list()) {
+            copyDirectoryCompatibityMode(new File(sourceDirectory, f), new File(destinationDirectory, f));
+        }
+    }
+    public static void copyDirectoryCompatibityMode(File source, File destination) throws IOException {
+        if (source.isDirectory()) {
+            copyDirectory(source, destination);
+        } else {
+            copyFile_2(source, destination);
+        }
+    }
 
 
 
@@ -221,6 +251,10 @@ public class Utility {
         }
         return result;
     } // прочитать файл
+
+
+
+
 
 
 

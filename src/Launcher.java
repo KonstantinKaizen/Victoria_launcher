@@ -141,6 +141,15 @@ public class Launcher extends JPanel implements ActionListener  {
 
             if(vic_2_launcher_selected && e.getX()>126 && e.getY()>633 && e.getX()<390 && e.getY() < 726){
 
+
+
+
+
+
+
+
+
+
                 if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                     try {
                         Desktop.getDesktop().browse(new URI("https://discord.gg/HuVGesQT5e"));
@@ -150,6 +159,10 @@ public class Launcher extends JPanel implements ActionListener  {
                         throw new RuntimeException(ex);
                     }
                 }
+
+
+
+
 
             } //  кнопка дискорда
 
@@ -164,6 +177,15 @@ public class Launcher extends JPanel implements ActionListener  {
                     JOptionPane.showMessageDialog(Main.frame,"Скачайте игру");
                     return;
                 }
+
+
+                new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx\\flags").mkdirs();
+                try {
+                    Utility.copyDirectory(new File("Victoria 2\\flags"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx\\flags"));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
 
                 //Copying.copying("Victoria 2/3.bat","Victoria 2/time",System.getProperty("user.home") + "/Documents/Paradox Interactive/Victoria II/map/cache/time",System.getProperty("user.home") + "/Documents/Paradox Interactive/Victoria II/map");
                 Copying.copying("Victoria 2/3.bat","Victoria 2/time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() +  "\\Paradox Interactive\\Victoria II\\map\\cache\\time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() +  "\\Paradox Interactive\\Victoria II\\map");
@@ -322,6 +344,16 @@ public class Launcher extends JPanel implements ActionListener  {
                     return;
                 }
 
+                new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx\\flags").mkdirs();
+                try {
+                    Utility.copyDirectory(new File("Victoria 2/mod/STAHL_MOD/flags"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx\\flags"));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
+
+
 
 
                 Copying.copying("Victoria 2/1.bat","Victoria 2/mod/STAHL_MOD/time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map\\cache\\time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map");
@@ -349,7 +381,16 @@ public class Launcher extends JPanel implements ActionListener  {
                 }
 
 
-                Copying.copying("Victoria 2\\2.bat","Victoria 2/time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive/\\Victoria II\\map",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Documents\\Paradox Interactive\\Victoria II");
+                new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx\\flags").mkdirs();
+
+                try {
+                    Utility.copyDirectory(new File("Victoria 2\\mod\\DoDDF\\flags"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx\\flags"));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
+                Copying.copying("Victoria 2\\2.bat","Victoria 2/time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Documents\\Paradox Interactive\\Victoria II");
                 Main.frame.enable();
                 
             } //  запуск мода доддф -------------------------------------------------------------
