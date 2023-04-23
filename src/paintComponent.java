@@ -30,8 +30,8 @@ public class paintComponent {
 
 
             if(!Graphic.delete) {
-                g.drawImage(Graphic.delete_all, 396, 723, launcher);
-            } else g.drawImage(Graphic.delete_all_active, 396, 723, launcher);
+                g.drawImage(Graphic.delete_all, 396, 623, launcher);
+            } else g.drawImage(Graphic.delete_all_active, 396, 623, launcher);
 
 
 
@@ -84,12 +84,12 @@ public class paintComponent {
 
 
             if(!Graphic.discord_button_b) {
-                g.drawImage(Graphic.discord_button, 124, 630, launcher);
-            } else g.drawImage(Graphic.discord_button_selected, 124, 630, launcher);
+                g.drawImage(Graphic.discord_button, 124, 560+50, launcher);
+            } else g.drawImage(Graphic.discord_button_selected, 124, 560+50, launcher);
 
             if(!Graphic.back) {
-                g.drawImage(Graphic.back_vic2, 34, 723, launcher);
-            } else g.drawImage(Graphic.back_vic2_active, 34, 723, launcher);
+                g.drawImage(Graphic.back_vic2, 34, 623, launcher);
+            } else g.drawImage(Graphic.back_vic2_active, 34, 623, launcher);
 
 
 
@@ -138,13 +138,13 @@ public class paintComponent {
 
 
             if(!Graphic.delete) {
-                g.drawImage(Graphic.delete_all, 396, 723, launcher);
-            } else g.drawImage(Graphic.delete_all_active, 396, 723, launcher);
+                g.drawImage(Graphic.delete_all, 396, 623, launcher);
+            } else g.drawImage(Graphic.delete_all_active, 396, 623, launcher);
 
 
             if(!Graphic.back) {
-                g.drawImage(Graphic.back_vic3, 34, 723, launcher);
-            } else g.drawImage(Graphic.back_vic3_active, 34, 723, launcher);
+                g.drawImage(Graphic.back_vic3, 34, 623, launcher);
+            } else g.drawImage(Graphic.back_vic3_active, 34, 623, launcher);
 
             if(!Graphic.play_button_b) {
                 g.drawImage(Graphic.play_button_3, 127, 232, launcher);
@@ -184,8 +184,8 @@ public class paintComponent {
 
 
             if(!Graphic.discord_button_b) {
-                g.drawImage(Graphic.discord_button, 124, 630, launcher);
-            } else g.drawImage(Graphic.discord_button_selected, 124, 630, launcher);
+                g.drawImage(Graphic.discord_button, 124, 560+50, launcher);
+            } else g.drawImage(Graphic.discord_button_selected, 124, 560+50, launcher);
 
             if(Graphic.back) g.drawImage(Graphic.advice_back,Launcher.x,Launcher.y-45,launcher);
             if(Graphic.delete) g.drawImage(Graphic.advice_delete,Launcher.x-130,Launcher.y-50,launcher);

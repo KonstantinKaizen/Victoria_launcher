@@ -16,7 +16,7 @@ public  class Main   {
 
     public static boolean the_choice_is_made = false;
     public static int width = 516;
-    public static int height = 839;
+    public static int height = 783;
     public static JFrame frame;
 
 
@@ -24,7 +24,7 @@ public  class Main   {
 
 
         frame = new JFrame();
-        frame.setTitle("launcher 2/3 "+"19.04.2023v2");
+        frame.setTitle("launcher 2/3 "+"23.04.2023v1");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(width,height);
         frame.setLocationRelativeTo(null);

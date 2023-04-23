@@ -50,8 +50,8 @@ public class Launcher extends JPanel implements ActionListener  {
                 y = e.getY();
 
 
-                Graphic.back_active_1 = e.getY()<393;
-                Graphic.back_active_2 = e.getY()>393;
+                Graphic.back_active_1 = e.getY()<369;
+                Graphic.back_active_2 = e.getY()>369;
 
 
 
@@ -80,11 +80,11 @@ public class Launcher extends JPanel implements ActionListener  {
                 Graphic.advice_b_3 = e.getX() > 80 && e.getY() > 346 && e.getX() < 127 && e.getY() < 393;
 
 
-                Graphic.discord_button_b = e.getX() > 125 && e.getY() > 631 && e.getX() < 373 && e.getY() < 717;
+                Graphic.discord_button_b = e.getX() > 125 && e.getY() > 611 && e.getX() < 373 && e.getY() < 699;
 
-                Graphic.back = e.getX() > 34 && e.getY() > 723 && e.getX() < 94 && e.getY() < 776;
+                Graphic.back = e.getX() > 34 && e.getY() > 623 && e.getX() < 94 && e.getY() < 676;
 
-                Graphic.delete = e.getX() > 407 && e.getY() > 726 && e.getX() < 457 && e.getY() < 775;
+                Graphic.delete = e.getX() > 407 && e.getY() > 626 && e.getX() < 457 && e.getY() < 675;
 
 
 
@@ -139,7 +139,7 @@ public class Launcher extends JPanel implements ActionListener  {
             System.out.println("X : "+e.getX()+"   Y : "+e.getY());
 
 
-            if(vic_2_launcher_selected && e.getX()>126 && e.getY()>633 && e.getX()<390 && e.getY() < 726){
+            if(vic_2_launcher_selected && e.getX()>123 && e.getY()>611 && e.getX()<373 && e.getY() < 699){
 
 
 
@@ -165,6 +165,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
             } //  кнопка дискорда
+
 
 
 
@@ -571,7 +572,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  скачать мод доддф
 
-            if(vic_2_launcher_selected && e.getX()>406 && e.getY()>727 && e.getX()<456 && e.getY() < 774){
+            if(vic_2_launcher_selected && e.getX()>406 && e.getY()>627 && e.getX()<456 && e.getY() < 674){
 
                 Main.frame.disable();
 
@@ -606,7 +607,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-            if((vic_3_launcher_selected || vic_2_launcher_selected) && e.getX()>34 && e.getY()>723 && e.getX()<94 && e.getY() < 776){
+            if((vic_3_launcher_selected || vic_2_launcher_selected) && e.getX()>34 && e.getY()>623 && e.getX()<94 && e.getY() < 676){
 
                 System.out.println("123");
 
@@ -621,7 +622,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-            if(!Main.the_choice_is_made && e.getX()<498 && e.getY()<394) {
+            if(!Main.the_choice_is_made && e.getX()<498 && e.getY()<368) {
                 Main.the_choice_is_made = true;
                 Main.frame.setTitle("Victoria 2");
                 vic_2_launcher_selected = true;
@@ -868,7 +869,7 @@ public class Launcher extends JPanel implements ActionListener  {
                 System.out.println("shesterenka");
             } // gear
 
-            if(vic_3_launcher_selected && e.getX()>406 && e.getY()>727 && e.getX()<456 && e.getY() < 774){
+            if(vic_3_launcher_selected && e.getX()>406 && e.getY()>627 && e.getX()<456 && e.getY() < 674){
 
 
                 int dialogButton = JOptionPane.YES_NO_OPTION;
@@ -938,7 +939,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } // delete all
 
-            if(vic_3_launcher_selected && e.getX()>126 && e.getY()>633 && e.getX()<390 && e.getY() < 726){
+            if(vic_3_launcher_selected && e.getX()>125 && e.getY()>611 && e.getX()<373 && e.getY() < 699){
 
 
 
@@ -955,7 +956,8 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-            } //  кнопка дискорда
+            } //// кнопка дискорда
+
 
 
 
