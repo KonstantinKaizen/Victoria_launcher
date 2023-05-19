@@ -3,6 +3,9 @@ import java.awt.*;
 public class paintComponent {
 
 
+    public static boolean multi_player = false;
+
+
 
     public static void repaint_all(Launcher launcher, Graphics g){
 
@@ -28,6 +31,147 @@ public class paintComponent {
 
             g.drawImage(Graphic.vic_2_background, 0, 0, launcher);
 
+
+            if(!Graphic.back) {
+                g.drawImage(Graphic.back_vic2, 34, 623, launcher);
+            } else g.drawImage(Graphic.back_vic2_active, 34, 623, launcher);
+            g.setFont(new Font("Cambria", Font.ROMAN_BASELINE, 20));
+            g.setColor(Color.ORANGE);
+
+                //******************************
+
+            if(!paintComponent.multi_player ) {
+                if (!Graphic.ip_button) {
+                    g.drawImage(Graphic.IP_Browser_OpenButton, 74, 280, launcher);
+                } else g.drawImage(Graphic.IP_Browser_OpenButton_Active, 74, 280, launcher);
+            }
+
+
+
+            if(multi_player == true){
+
+                g.drawImage(Graphic.IP_Browser_Background,137, 175, launcher);
+
+
+                if (!Graphic.refresh_ip_button) {
+                    g.drawImage(Graphic.IP_Browser_RefreshButton, 209, 648, launcher);
+                } else g.drawImage(Graphic.IP_Browser_RefreshButton_Active, 209, 648, launcher);
+
+
+
+
+                if( layout_mp.page != 0) {
+                    if (!Graphic.ip_button_left) {
+                        g.drawImage(Graphic.IP_Browser_LeftArrow, 143, 650, launcher);
+                    } else g.drawImage(Graphic.IP_Browser_LeftArrow_Active, 143, 650, launcher);
+                }
+                if(layout_mp.list_entity_mp.size()>layout_mp.page+6) {
+                    if (!Graphic.ip_button_right) {
+                        g.drawImage(Graphic.IP_Browser_RightArrow, 323 - 5, 650, launcher);
+                    } else g.drawImage(Graphic.IP_Browser_RightArrow_Active, 323 - 5, 650, launcher);
+                }
+
+
+
+
+
+
+
+
+
+
+
+                if(layout_mp.list_entity_mp.size() > 0 ){
+
+                    if(layout_mp.list_entity_mp.size()>= 0+layout_mp.page) {
+                        if(!Graphic.entry_1) g.drawImage(Graphic.IP_Browser_Entry, 144, 183, launcher);
+                        else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 183, launcher);
+                        if(layout_mp.page == 0){
+                            g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).name.substring(1), 159, 205);
+                        } else g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).name, 159, 205);
+                        g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).ip, 159, 250);
+
+                    }
+
+
+
+                }
+
+                if(layout_mp.list_entity_mp.size() > 1 ){
+
+                    if(layout_mp.list_entity_mp.size()> 1+layout_mp.page) {
+                        if(!Graphic.entry_2) g.drawImage(Graphic.IP_Browser_Entry, 144, 260, launcher);
+                        else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 260, launcher);
+                        g.drawString(layout_mp.list_entity_mp.get(1 + layout_mp.page).name, 159, 260+22);
+                        g.drawString(layout_mp.list_entity_mp.get(1 + layout_mp.page).ip, 159, 260+67);
+                    }
+
+
+
+                }
+
+                if(layout_mp.list_entity_mp.size() > 2 ){
+
+                    if(layout_mp.list_entity_mp.size()> 2+layout_mp.page) {
+                        if(!Graphic.entry_3) g.drawImage(Graphic.IP_Browser_Entry, 144, 337, launcher);
+                        else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 337, launcher);
+                        g.drawString(layout_mp.list_entity_mp.get(2 + layout_mp.page).name, 159, 337+22);
+                        g.drawString(layout_mp.list_entity_mp.get(2 + layout_mp.page).ip, 159, 337+67);
+                    }
+
+
+
+                }
+
+                if(layout_mp.list_entity_mp.size() > 3 ){
+
+                    if(layout_mp.list_entity_mp.size()> 3+layout_mp.page) {
+                        if(!Graphic.entry_4) g.drawImage(Graphic.IP_Browser_Entry, 144, 414, launcher);
+                        else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 414, launcher);
+                        g.drawString(layout_mp.list_entity_mp.get(3 + layout_mp.page).name, 159, 414+22);
+                        g.drawString(layout_mp.list_entity_mp.get(3 + layout_mp.page).ip, 159, 414+67);
+                    }
+
+
+
+                }
+
+                if(layout_mp.list_entity_mp.size() > 4 ){
+
+                    if(layout_mp.list_entity_mp.size()> 4+layout_mp.page) {
+                        if(!Graphic.entry_5) g.drawImage(Graphic.IP_Browser_Entry, 144, 491, launcher);
+                        else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 491, launcher);
+                        g.drawString(layout_mp.list_entity_mp.get(4 + layout_mp.page).name, 159, 491+22);
+                        g.drawString(layout_mp.list_entity_mp.get(4 + layout_mp.page).ip, 159, 491+67);
+                    }
+
+
+
+                }
+
+                if(layout_mp.list_entity_mp.size() > 5 ){
+
+                    if(layout_mp.list_entity_mp.size()> 5+layout_mp.page) {
+                        if(!Graphic.entry_6) g.drawImage(Graphic.IP_Browser_Entry, 144, 568, launcher);
+                        else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 568, launcher);
+                        g.drawString(layout_mp.list_entity_mp.get(5 + layout_mp.page).name, 159, 568+22);
+                        g.drawString(layout_mp.list_entity_mp.get(5 + layout_mp.page).ip, 159, 568+67);
+                    }
+
+
+
+                }
+
+                return;
+            }
+
+
+
+
+
+
+
+            //*********************
 
             if(!Graphic.delete) {
                 g.drawImage(Graphic.delete_all, 396, 623, launcher);
@@ -87,9 +231,7 @@ public class paintComponent {
                 g.drawImage(Graphic.discord_button, 124, 560+50, launcher);
             } else g.drawImage(Graphic.discord_button_selected, 124, 560+50, launcher);
 
-            if(!Graphic.back) {
-                g.drawImage(Graphic.back_vic2, 34, 623, launcher);
-            } else g.drawImage(Graphic.back_vic2_active, 34, 623, launcher);
+
 
 
 

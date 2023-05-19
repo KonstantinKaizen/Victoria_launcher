@@ -7,6 +7,11 @@ import java.nio.file.Paths;
 
 public  class Main   {
 
+    //public static String config = "https://docs.google.com/document/d/1bIfFARjqvdp0f-Tqp8ZPTvRMC_w3EWRgjHHQL0Nojyk/export?format=doc";
+
+
+    public static String config = "https://docs.google.com/document/d/1bIfFARjqvdp0f-Tqp8ZPTvRMC_w3EWRgjHHQL0Nojyk/export?format=txt";
+
     public static String version_on_server = "1";
 
 
@@ -24,7 +29,7 @@ public  class Main   {
 
 
         frame = new JFrame();
-        frame.setTitle("launcher 2/3 "+"23.04.2023v1");
+        frame.setTitle("launcher 2/3 "+"19.05.2023v1");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(width,height);
         frame.setLocationRelativeTo(null);

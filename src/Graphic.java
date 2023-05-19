@@ -4,6 +4,22 @@ import java.awt.*;
 public class Graphic  {
 
     //для вик 2
+
+    public static boolean refresh_ip_button = false;
+
+
+    public static boolean entry_1 = false;
+    public static boolean entry_2 = false;
+    public static boolean entry_3 = false;
+    public static boolean entry_4 = false;
+    public static boolean entry_5 = false;
+    public static boolean entry_6 = false;
+
+
+    public static boolean ip_button = false;
+
+    public static boolean ip_button_left = false;
+    public static boolean ip_button_right = false;
     public static boolean back_active_1 = false; //вик 2 выбрать
 
     public static boolean back_active_2 = false; // вик 3 выбрать
@@ -36,6 +52,8 @@ public class Graphic  {
 
     public static boolean back = false;
     public static boolean delete = false;
+
+
 
     // VICTORIA 3 BOOLEANS
 
@@ -115,6 +133,33 @@ public class Graphic  {
 
     public static Image advice_back = new ImageIcon("launcher/images/advice_back.png").getImage();
     public static Image advice_delete = new ImageIcon("launcher/images/advice_delete.png").getImage();
+    public static Image PH_2 = new ImageIcon("launcher/images/PH_2.png").getImage();
+
+    public static Image IP_Browser_OpenButton = new ImageIcon("launcher/images/IP_Browser_OpenButton.png").getImage();
+
+    public static Image IP_Browser_OpenButton_Active = new ImageIcon("launcher/images/IP_Browser_OpenButton_Active.png").getImage();
+
+    public static Image IP_Browser_Background = new ImageIcon("launcher/images/IP_Browser_Background.png").getImage();
+
+    public static Image IP_Browser_Entry = new ImageIcon("launcher/images/IP_Browser_Entry.png").getImage();
+
+    public static Image IP_Browser_Entry_Active = new ImageIcon("launcher/images/IP_Browser_Entry_Active.png").getImage();
+
+    public static Image IP_Browser_LeftArrow = new ImageIcon("launcher/images/IP_Browser_LeftArrow.png").getImage();
+    public static Image IP_Browser_LeftArrow_Active = new ImageIcon("launcher/images/IP_Browser_LeftArrow_Active.png").getImage();
+    public static Image IP_Browser_RightArrow = new ImageIcon("launcher/images/IP_Browser_RightArrow.png").getImage();
+    public static Image IP_Browser_RightArrow_Active = new ImageIcon("launcher/images/IP_Browser_RightArrow_Active.png").getImage();
+
+    public static Image IP_Browser_RefreshButton = new ImageIcon("launcher/images/IP_Browser_RefreshButton.png").getImage();
+
+    public static Image IP_Browser_RefreshButton_Active = new ImageIcon("launcher/images/IP_Browser_RefreshButton_Active.png").getImage();
+
+
+
+
+
+
+
 
 
 

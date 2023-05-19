@@ -1,12 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Launcher extends JPanel implements ActionListener  {
 
@@ -55,7 +56,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-                Graphic.play_button_b = e.getX() > 126 && e.getY() > 236 && e.getX() < 383 && e.getY() < 334;
+                Graphic.play_button_b = e.getX() > 134 && e.getY() > 236 && e.getX() < 383 && e.getY() < 334;
                 Graphic.install_button_b = e.getX() > 138 && e.getY() > 345 && e.getX() < 382 && e.getY() < 394;
 
                 Graphic.base_mod_launch_button_b = e.getX() > 138 && e.getY() > 426 && e.getX() < 382 && e.getY() < 472;
@@ -85,6 +86,29 @@ public class Launcher extends JPanel implements ActionListener  {
                 Graphic.back = e.getX() > 34 && e.getY() > 623 && e.getX() < 94 && e.getY() < 676;
 
                 Graphic.delete = e.getX() > 407 && e.getY() > 626 && e.getX() < 457 && e.getY() < 675;
+
+                Graphic.ip_button = e.getX() > 74 && e.getY() > 280 && e.getX() < 129 && e.getY() < 329;
+                Graphic.ip_button_left = e.getX() > 143 && e.getY() > 650 && e.getX() < 209 && e.getY() < 684 ;
+                Graphic.ip_button_right = e.getX() > 323-5 && e.getY() > 650 && e.getX() < 383 && e.getY() < 684;
+
+
+                Graphic.entry_1 = e.getX() > 144 && e.getY() > 183 && e.getX() < 382 && e.getY() < 252;
+                Graphic.entry_2 = e.getX() > 144 && e.getY() > 260 && e.getX() < 382 && e.getY() < 330;
+                Graphic.entry_3 = e.getX() > 144 && e.getY() > 337 && e.getX() < 382 && e.getY() < 407;
+                Graphic.entry_4 = e.getX() > 144 && e.getY() > 414 && e.getX() < 382 && e.getY() < 484;
+                Graphic.entry_5 = e.getX() > 144 && e.getY() > 494 && e.getX() < 382 && e.getY() < 560;
+                Graphic.entry_6 = e.getX() > 144 && e.getY() > 568 && e.getX() < 382 && e.getY() < 639;
+
+                Graphic.refresh_ip_button = e.getX() > 209 && e.getY() > 648 && e.getX() < 318 && e.getY() < 683;
+
+
+
+
+
+
+
+
+
 
 
 
@@ -139,7 +163,295 @@ public class Launcher extends JPanel implements ActionListener  {
             System.out.println("X : "+e.getX()+"   Y : "+e.getY());
 
 
-            if(vic_2_launcher_selected && e.getX()>123 && e.getY()>611 && e.getX()<373 && e.getY() < 699){
+
+            if(!paintComponent.multi_player && vic_2_launcher_selected && e.getX()>74 && e.getY()>280 && e.getX()<129 && e.getY() < 329) {
+
+                layout_mp.page = 0;
+
+                System.out.println("123");
+                layout_mp.list_entity_mp.clear();
+
+
+                try {
+                    Utility.download(Main.config,"cfg.txt");
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
+
+                paintComponent.multi_player = true;
+
+
+                try {
+                    File file = new File("cfg.txt");
+                    //FileReader fr = new FileReader(file);
+                    //BufferedReader reader = new BufferedReader(fr);
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+
+                    String line = reader.readLine();
+
+                    while (line != null) {
+                        Pattern pattern = Pattern.compile("^.+?(?=\\_)");
+                        Pattern pattern1 = Pattern.compile("(_\\=?).*$");
+                        Matcher matcher = pattern.matcher(line);
+                        String name = null;
+                        String ip = null;
+                        
+
+                        if (matcher.find())
+                        {
+                            name = matcher.group();
+                        } else System.out.println("no");
+
+                        matcher = pattern1.matcher(line);
+
+                        if (matcher.find())
+                        {
+                            ip = matcher.group().substring(1,matcher.group().length());
+                        } else System.out.println("no");
+
+
+
+
+                        layout_mp.list_entity_mp.add(new entity_mp(name,ip));
+
+                        line = reader.readLine();
+
+                    }
+                } catch (IOException x) {
+                    x.printStackTrace();
+
+            }
+
+
+                for (entity_mp entity:layout_mp.list_entity_mp) {
+
+                    System.out.println(entity.name+" "+entity.ip);
+
+                }
+
+
+                System.out.println(layout_mp.list_entity_mp.size()+"размер");
+
+
+
+
+
+
+
+
+            } //MP IP
+
+
+
+            if(paintComponent.multi_player && vic_2_launcher_selected && e.getX()>209 && e.getY()>648 && e.getX()<318 && e.getY() < 683) {
+
+                System.out.println("REFRESH");
+
+
+
+                layout_mp.page = 0;
+
+                System.out.println("123");
+                layout_mp.list_entity_mp.clear();
+
+
+                try {
+                    Utility.download(Main.config,"cfg.txt");
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
+
+                paintComponent.multi_player = true;
+
+
+                try {
+                    File file = new File("cfg.txt");
+                    //FileReader fr = new FileReader(file);
+                    //BufferedReader reader = new BufferedReader(fr);
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+
+                    String line = reader.readLine();
+
+                    while (line != null) {
+                        Pattern pattern = Pattern.compile("^.+?(?=\\_)");
+                        Pattern pattern1 = Pattern.compile("(_\\=?).*$");
+                        Matcher matcher = pattern.matcher(line);
+                        String name = null;
+                        String ip = null;
+
+
+                        if (matcher.find())
+                        {
+                            name = matcher.group();
+                        } else System.out.println("no");
+
+                        matcher = pattern1.matcher(line);
+
+                        if (matcher.find())
+                        {
+                            ip = matcher.group().substring(1,matcher.group().length());
+                        } else System.out.println("no");
+
+
+
+
+                        layout_mp.list_entity_mp.add(new entity_mp(name,ip));
+
+                        line = reader.readLine();
+
+                    }
+                } catch (IOException x) {
+                    x.printStackTrace();
+
+                }
+
+
+                for (entity_mp entity:layout_mp.list_entity_mp) {
+
+                    System.out.println(entity.name+" "+entity.ip);
+
+                }
+
+
+                System.out.println(layout_mp.list_entity_mp.size()+"размер");
+
+
+
+
+
+
+
+
+            } //refresh
+
+
+            if(vic_2_launcher_selected && e.getX()>323-5 && e.getY()>650 && e.getX()<383 && e.getY() < 684 && paintComponent.multi_player){
+
+                if(layout_mp.list_entity_mp.size()>layout_mp.page+6) {
+
+                    layout_mp.page = layout_mp.page + 6;
+                    System.out.println("next");
+                    System.out.println(layout_mp.page);
+                }
+
+
+
+
+            } // кнопка впереод MP
+
+            if(vic_2_launcher_selected && e.getX()>143 && e.getY()>650 && e.getX()<209 && e.getY() < 684 && paintComponent.multi_player){
+
+
+                if(layout_mp.page != 0) {
+
+                    layout_mp.page = layout_mp.page - 6;
+                    System.out.println("previous");
+                }
+
+
+
+            } // кнопка назад MP
+
+
+
+
+
+
+            if(vic_2_launcher_selected && e.getX()>144 && e.getY()>183 && e.getX()<382 && e.getY() < 252 && paintComponent.multi_player){
+
+
+                if(layout_mp.list_entity_mp.size()>= 0+layout_mp.page) {
+                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"");
+                    System.out.println("file modifed");
+
+
+
+                }
+
+
+            }// кнопка лобби 1
+            if(vic_2_launcher_selected && e.getX()>144 && e.getY()>260 && e.getX()<382 && e.getY() < 330 && paintComponent.multi_player){
+
+
+                if(layout_mp.list_entity_mp.size()>= 1+layout_mp.page) {
+                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"");
+                    System.out.println("file modifed");
+
+
+
+                }
+            }// кнопка лобби 2
+            if(vic_2_launcher_selected && e.getX()>144 && e.getY()>337 && e.getX()<382 && e.getY() < 407 && paintComponent.multi_player){
+
+                if(layout_mp.list_entity_mp.size()>= 2+layout_mp.page) {
+                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"");
+                    System.out.println("file modifed");
+
+
+
+                }
+            }// кнопка лобби 3
+            if(vic_2_launcher_selected && e.getX()>144 && e.getY()>414 && e.getX()<382 && e.getY() < 484 && paintComponent.multi_player){
+
+                if(layout_mp.list_entity_mp.size()>= 3+layout_mp.page) {
+                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"");
+                    System.out.println("file modifed");
+
+
+
+                }
+            }// кнопка лобби 4
+            if(vic_2_launcher_selected && e.getX()>144 && e.getY()>494 && e.getX()<382 && e.getY() < 560 && paintComponent.multi_player){
+
+                if(layout_mp.list_entity_mp.size()>= 4+layout_mp.page) {
+                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"");
+                    System.out.println("file modifed");
+
+
+
+                }
+            }// кнопка лобби 5
+            if(vic_2_launcher_selected && e.getX()>144 && e.getY()>568 && e.getX()<382 && e.getY() < 639 && paintComponent.multi_player){
+
+                if(layout_mp.list_entity_mp.size()>= 5+layout_mp.page) {
+                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"");
+                    System.out.println("file modifed");
+
+
+
+                }
+            }// кнопка лобби 6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            if(vic_2_launcher_selected && e.getX()>123 && e.getY()>611 && e.getX()<373 && e.getY() < 699 && !paintComponent.multi_player){
 
 
 
@@ -169,7 +481,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-            if(vic_2_launcher_selected && e.getX()>138 && e.getY()>235 && e.getX()<383 && e.getY() < 333){
+            if(vic_2_launcher_selected && e.getX()>138 && e.getY()>235 && e.getX()<383 && e.getY() < 333 && !paintComponent.multi_player){
 
 
 
@@ -223,7 +535,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  запуск игры 2 3
 
-            if(vic_2_launcher_selected && e.getX()>137 && e.getY()>347 && e.getX()<383 && e.getY() < 390){
+            if(vic_2_launcher_selected && e.getX()>137 && e.getY()>347 && e.getX()<383 && e.getY() < 390 && !paintComponent.multi_player){
                 Desktop desktop = Desktop.getDesktop();
 
 
@@ -327,7 +639,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  установить игру
 
-            if(vic_2_launcher_selected && e.getX()>138 && e.getY()>427 && e.getX()<383 && e.getY() < 473){
+            if(vic_2_launcher_selected && e.getX()>138 && e.getY()>427 && e.getX()<383 && e.getY() < 473 && !paintComponent.multi_player){
                 System.out.println("запуск мода базы");
 
                 File file1 = new File("Victoria 2/1.bat");
@@ -362,7 +674,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  запуск мода базы ------------------------------------------------------------------
 
-            if(vic_2_launcher_selected && e.getX()>135 && e.getY()>486 && e.getX()<383 && e.getY() < 553){
+            if(vic_2_launcher_selected && e.getX()>135 && e.getY()>486 && e.getX()<383 && e.getY() < 553 && !paintComponent.multi_player){
                 System.out.println("запуск мода доддф");
 
                 File file1 = new File("Victoria 2/2.bat");
@@ -396,7 +708,7 @@ public class Launcher extends JPanel implements ActionListener  {
                 
             } //  запуск мода доддф -------------------------------------------------------------
 
-            if(vic_2_launcher_selected && e.getX()>393 && e.getY()>346 && e.getX()<440 && e.getY() < 393){
+            if(vic_2_launcher_selected && e.getX()>393 && e.getY()>346 && e.getX()<440 && e.getY() < 393 && !paintComponent.multi_player){
                     System.out.println("отчистить_кеш_игры_метла 1");
 
                     Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
@@ -407,7 +719,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  метла_1
 
-            if(vic_2_launcher_selected && e.getX()>391 && e.getY()>425 && e.getX()<440 && e.getY() < 471){
+            if(vic_2_launcher_selected && e.getX()>391 && e.getY()>425 && e.getX()<440 && e.getY() < 471 && !paintComponent.multi_player){
                 System.out.println("отчисттиь мод базы");
 
 
@@ -421,7 +733,7 @@ public class Launcher extends JPanel implements ActionListener  {
                 JOptionPane.showMessageDialog(Main.frame,"Кеш очищен");
             } //  метла_2
 
-            if(vic_2_launcher_selected && e.getX()>393 && e.getY()>486 && e.getX()<442 && e.getY() < 532){
+            if(vic_2_launcher_selected && e.getX()>393 && e.getY()>486 && e.getX()<442 && e.getY() < 532 && !paintComponent.multi_player){
                 System.out.println("отчитисть мод доддф");
 
                 Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx"));
@@ -433,7 +745,7 @@ public class Launcher extends JPanel implements ActionListener  {
                 JOptionPane.showMessageDialog(Main.frame,"Кеш очищен");
             } //  метла_3
 
-            if(vic_2_launcher_selected && e.getX()>79 && e.getY()>347 && e.getX()<129 && e.getY() < 394){
+            if(vic_2_launcher_selected && e.getX()>79 && e.getY()>347 && e.getX()<129 && e.getY() < 394 && !paintComponent.multi_player){
                 System.out.println("сброс_настроек_шестеренка");
 
                 try {
@@ -461,7 +773,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  шестеренка
 
-            if(vic_2_launcher_selected && e.getX()>80 && e.getY()>428 && e.getX()<128 && e.getY() < 474){
+            if(vic_2_launcher_selected && e.getX()>80 && e.getY()>428 && e.getX()<128 && e.getY() < 474 && !paintComponent.multi_player){
                 System.out.println("скачать мод базы");
 
                 Desktop desktop = Desktop.getDesktop();
@@ -519,7 +831,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  скачать мод базы
 
-            if(vic_2_launcher_selected && e.getX()>79 && e.getY()>485 && e.getX()<128 && e.getY() < 532){
+            if(vic_2_launcher_selected && e.getX()>79 && e.getY()>485 && e.getX()<128 && e.getY() < 532 && !paintComponent.multi_player){
                 System.out.println("скачать мод доддф");
 
                 Desktop desktop = Desktop.getDesktop();
@@ -572,7 +884,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  скачать мод доддф
 
-            if(vic_2_launcher_selected && e.getX()>406 && e.getY()>627 && e.getX()<456 && e.getY() < 674){
+            if(vic_2_launcher_selected && e.getX()>406 && e.getY()>627 && e.getX()<456 && e.getY() < 674 && !paintComponent.multi_player){
 
                 Main.frame.disable();
 
@@ -590,7 +902,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } // delete all
 
-            if(vic_2_launcher_selected && e.getX()>419 && e.getY()>138 && e.getX()<484 && e.getY() < 212){
+            if(vic_2_launcher_selected && e.getX()>419 && e.getY()>138 && e.getX()<484 && e.getY() < 212 && !paintComponent.multi_player){
 
 
                 Desktop desktop = Desktop.getDesktop();
@@ -609,6 +921,14 @@ public class Launcher extends JPanel implements ActionListener  {
 
             if((vic_3_launcher_selected || vic_2_launcher_selected) && e.getX()>34 && e.getY()>623 && e.getX()<94 && e.getY() < 676){
 
+                if(paintComponent.multi_player){
+                    paintComponent.multi_player = false;
+                    return;
+
+                }
+
+
+
                 System.out.println("123");
 
 
@@ -619,6 +939,9 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 return;
             }// назад
+
+
+            //------------------------
 
 
 
