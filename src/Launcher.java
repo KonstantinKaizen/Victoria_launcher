@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -101,6 +102,10 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 Graphic.refresh_ip_button = e.getX() > 209 && e.getY() > 648 && e.getX() < 318 && e.getY() < 683;
 
+                Graphic.DLCButton_Vic3_b = e.getX() > 375 && e.getY() > 283 && e.getX() < 435 && e.getY() < 335;
+
+
+
 
 
 
@@ -136,7 +141,11 @@ public class Launcher extends JPanel implements ActionListener  {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        paintComponent.repaint_all(this,g);
+        try {
+            paintComponent.repaint_all(this,g);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }
@@ -165,6 +174,11 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
             if(!paintComponent.multi_player && vic_2_launcher_selected && e.getX()>74 && e.getY()>280 && e.getX()<129 && e.getY() < 329) {
+
+
+                //InetAddress address = InetAddress.getByName("8.8.8.9");
+
+
 
                 layout_mp.page = 0;
 
@@ -233,6 +247,17 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                 System.out.println(layout_mp.list_entity_mp.size()+"размер");
+
+
+                int i = 0;
+
+                for (entity_mp x:layout_mp.list_entity_mp) {
+
+                    ping ping = new ping(i,x.ip);
+                    ping.start();
+                    i++;
+
+                }
 
 
 
@@ -318,6 +343,17 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                 System.out.println(layout_mp.list_entity_mp.size()+"размер");
+                int i = 0;
+
+                for (entity_mp x:layout_mp.list_entity_mp) {
+
+                    ping ping = new ping(i,x.ip);
+                    ping.start();
+                    i++;
+
+                }
+
+
 
 
 
@@ -336,6 +372,10 @@ public class Launcher extends JPanel implements ActionListener  {
                     layout_mp.page = layout_mp.page + 6;
                     System.out.println("next");
                     System.out.println(layout_mp.page);
+
+
+
+
                 }
 
 
@@ -350,6 +390,9 @@ public class Launcher extends JPanel implements ActionListener  {
 
                     layout_mp.page = layout_mp.page - 6;
                     System.out.println("previous");
+
+
+
                 }
 
 
@@ -365,10 +408,13 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                 if(layout_mp.list_entity_mp.size()>= 0+layout_mp.page) {
-                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
                     System.out.println("file modifed");
+                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
 
 
 
@@ -380,10 +426,13 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                 if(layout_mp.list_entity_mp.size()>= 1+layout_mp.page) {
-                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
                     System.out.println("file modifed");
+                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
 
 
 
@@ -392,10 +441,13 @@ public class Launcher extends JPanel implements ActionListener  {
             if(vic_2_launcher_selected && e.getX()>144 && e.getY()>337 && e.getX()<382 && e.getY() < 407 && paintComponent.multi_player){
 
                 if(layout_mp.list_entity_mp.size()>= 2+layout_mp.page) {
-                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
                     System.out.println("file modifed");
+                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
 
 
 
@@ -404,10 +456,13 @@ public class Launcher extends JPanel implements ActionListener  {
             if(vic_2_launcher_selected && e.getX()>144 && e.getY()>414 && e.getX()<382 && e.getY() < 484 && paintComponent.multi_player){
 
                 if(layout_mp.list_entity_mp.size()>= 3+layout_mp.page) {
-                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
                     System.out.println("file modifed");
+                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
 
 
 
@@ -416,10 +471,13 @@ public class Launcher extends JPanel implements ActionListener  {
             if(vic_2_launcher_selected && e.getX()>144 && e.getY()>494 && e.getX()<382 && e.getY() < 560 && paintComponent.multi_player){
 
                 if(layout_mp.list_entity_mp.size()>= 4+layout_mp.page) {
-                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
                     System.out.println("file modifed");
+                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
 
 
 
@@ -428,10 +486,14 @@ public class Launcher extends JPanel implements ActionListener  {
             if(vic_2_launcher_selected && e.getX()>144 && e.getY()>568 && e.getX()<382 && e.getY() < 639 && paintComponent.multi_player){
 
                 if(layout_mp.list_entity_mp.size()>= 5+layout_mp.page) {
-                    System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"");
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
+
                     System.out.println("file modifed");
+                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
 
 
 
@@ -499,6 +561,10 @@ public class Launcher extends JPanel implements ActionListener  {
                     throw new RuntimeException(ex);
                 }
 
+                Thread_close_game thread_close_game = new Thread_close_game();
+                thread_close_game.start();
+
+
 
                 //Copying.copying("Victoria 2/3.bat","Victoria 2/time",System.getProperty("user.home") + "/Documents/Paradox Interactive/Victoria II/map/cache/time",System.getProperty("user.home") + "/Documents/Paradox Interactive/Victoria II/map");
                 Copying.copying("Victoria 2/3.bat","Victoria 2/time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() +  "\\Paradox Interactive\\Victoria II\\map\\cache\\time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() +  "\\Paradox Interactive\\Victoria II\\map");
@@ -506,25 +572,6 @@ public class Launcher extends JPanel implements ActionListener  {
                 System.out.println("запуск игры");
 
 
-                /*
-                File file = new File("Victoria 2");
-
-                if(file.isDirectory()){
-                    System.out.println("123");
-                    try {
-
-                        Desktop desktop = Desktop.getDesktop();
-                        desktop.open(new File("swap_lng_in_game.bat"));
-
-
-                        System.exit(0);
-
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                } else JOptionPane.showMessageDialog(Main.frame,"ОШИБКА - Установите игру");
-
-                 */
 
 
 
@@ -664,6 +711,9 @@ public class Launcher extends JPanel implements ActionListener  {
                     throw new RuntimeException(ex);
                 }
 
+                Thread_close_game thread_close_game = new Thread_close_game();
+                thread_close_game.start();
+
 
 
 
@@ -701,6 +751,9 @@ public class Launcher extends JPanel implements ActionListener  {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+
+                Thread_close_game thread_close_game = new Thread_close_game();
+                thread_close_game.start();
 
 
                 Copying.copying("Victoria 2\\2.bat","Victoria 2/time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Documents\\Paradox Interactive\\Victoria II");
@@ -973,6 +1026,9 @@ public class Launcher extends JPanel implements ActionListener  {
                         return;
                     }
 
+                    Thread_close_game thread_close_game = new Thread_close_game();
+                    thread_close_game.start();
+
                     Desktop desktop = Desktop.getDesktop();
                     try {
                         desktop.open(new File("launcher\\Resourse\\V3s.bat"));
@@ -1068,6 +1124,8 @@ public class Launcher extends JPanel implements ActionListener  {
                     JOptionPane.showMessageDialog(Main.frame,"Скачайте мод");
                     return;
                 }
+                Thread_close_game thread_close_game = new Thread_close_game();
+                thread_close_game.start();
 
 
 
@@ -1280,6 +1338,19 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
             } //// кнопка дискорда
+
+
+            if(vic_3_launcher_selected && e.getX()>375 && e.getY()>283 && e.getX()<435 && e.getY() < 335){
+                System.out.println("dlc");
+
+
+
+
+
+
+
+
+            }
 
 
 

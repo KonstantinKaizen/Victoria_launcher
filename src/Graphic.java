@@ -58,6 +58,11 @@ public class Graphic  {
     // VICTORIA 3 BOOLEANS
 
 
+    public static boolean DLCButton_Vic3_b = false;
+
+
+
+
 
 
 
@@ -153,6 +158,20 @@ public class Graphic  {
     public static Image IP_Browser_RefreshButton = new ImageIcon("launcher/images/IP_Browser_RefreshButton.png").getImage();
 
     public static Image IP_Browser_RefreshButton_Active = new ImageIcon("launcher/images/IP_Browser_RefreshButton_Active.png").getImage();
+
+    public static Image red = new ImageIcon("launcher/images/red.png").getImage();
+    public static Image green = new ImageIcon("launcher/images/green.png").getImage();
+
+    public static Image IPB_Desc = new ImageIcon("launcher/images/IPB_Desc.png").getImage();
+
+    public static Image Discord_Desc = new ImageIcon("launcher/images/Discord_Desc.png").getImage();
+
+    public static Image DLCButton_Active_Vic3 = new ImageIcon("launcher/images/DLCButton_Active_Vic3.png").getImage();
+
+    public static Image DLCButton_Vic3 = new ImageIcon("launcher/images/DLCButton_Vic3.png").getImage();
+
+    public static Image DLC_Desc = new ImageIcon("launcher/images/DLC_Desc.png").getImage();
+
 
 
 

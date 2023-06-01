@@ -1,13 +1,17 @@
 import java.awt.*;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class paintComponent {
+
 
 
     public static boolean multi_player = false;
 
 
 
-    public static void repaint_all(Launcher launcher, Graphics g){
+    public static void repaint_all(Launcher launcher, Graphics g) throws IOException {
 
 
         if(!Main.the_choice_is_made) {
@@ -40,11 +44,7 @@ public class paintComponent {
 
                 //******************************
 
-            if(!paintComponent.multi_player ) {
-                if (!Graphic.ip_button) {
-                    g.drawImage(Graphic.IP_Browser_OpenButton, 74, 280, launcher);
-                } else g.drawImage(Graphic.IP_Browser_OpenButton_Active, 74, 280, launcher);
-            }
+
 
 
 
@@ -91,6 +91,15 @@ public class paintComponent {
                         } else g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).name, 159, 205);
                         g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).ip, 159, 250);
 
+                        //InetAddress address = InetAddress.getByName(layout_mp.list_entity_mp.get(0 + layout_mp.page).ip);
+
+                        if(layout_mp.list_entity_mp.get(0+layout_mp.page).isAvailable){
+                            g.drawImage(Graphic.green,345,209,launcher);
+                        } else g.drawImage(Graphic.red,345,209,launcher);
+
+
+
+
                     }
 
 
@@ -104,6 +113,11 @@ public class paintComponent {
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 260, launcher);
                         g.drawString(layout_mp.list_entity_mp.get(1 + layout_mp.page).name, 159, 260+22);
                         g.drawString(layout_mp.list_entity_mp.get(1 + layout_mp.page).ip, 159, 260+67);
+
+
+                        if(layout_mp.list_entity_mp.get(1+layout_mp.page).isAvailable){
+                            g.drawImage(Graphic.green,345,209+77,launcher);
+                        } else g.drawImage(Graphic.red,345,209+77,launcher);
                     }
 
 
@@ -117,6 +131,10 @@ public class paintComponent {
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 337, launcher);
                         g.drawString(layout_mp.list_entity_mp.get(2 + layout_mp.page).name, 159, 337+22);
                         g.drawString(layout_mp.list_entity_mp.get(2 + layout_mp.page).ip, 159, 337+67);
+
+                        if(layout_mp.list_entity_mp.get(2+layout_mp.page).isAvailable){
+                            g.drawImage(Graphic.green,345,209+77+77,launcher);
+                        } else g.drawImage(Graphic.red,345,209+77+77,launcher);
                     }
 
 
@@ -130,6 +148,10 @@ public class paintComponent {
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 414, launcher);
                         g.drawString(layout_mp.list_entity_mp.get(3 + layout_mp.page).name, 159, 414+22);
                         g.drawString(layout_mp.list_entity_mp.get(3 + layout_mp.page).ip, 159, 414+67);
+
+                        if(layout_mp.list_entity_mp.get(3+layout_mp.page).isAvailable){
+                            g.drawImage(Graphic.green,345,209+77+77+77,launcher);
+                        } else g.drawImage(Graphic.red,345,209+77+77+77,launcher);
                     }
 
 
@@ -143,6 +165,10 @@ public class paintComponent {
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 491, launcher);
                         g.drawString(layout_mp.list_entity_mp.get(4 + layout_mp.page).name, 159, 491+22);
                         g.drawString(layout_mp.list_entity_mp.get(4 + layout_mp.page).ip, 159, 491+67);
+
+                        if(layout_mp.list_entity_mp.get(4+layout_mp.page).isAvailable){
+                            g.drawImage(Graphic.green,345,209+77+77+77+77,launcher);
+                        } else g.drawImage(Graphic.red,345,209+77+77+77+77,launcher);
                     }
 
 
@@ -156,6 +182,10 @@ public class paintComponent {
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 568, launcher);
                         g.drawString(layout_mp.list_entity_mp.get(5 + layout_mp.page).name, 159, 568+22);
                         g.drawString(layout_mp.list_entity_mp.get(5 + layout_mp.page).ip, 159, 568+67);
+
+                        if(layout_mp.list_entity_mp.get(5+layout_mp.page).isAvailable){
+                            g.drawImage(Graphic.green,345,209+77+77+77+77+77,launcher);
+                        } else g.drawImage(Graphic.red,345,209+77+77+77+77+77,launcher);
                     }
 
 
@@ -163,12 +193,15 @@ public class paintComponent {
                 }
 
                 return;
+            } // IP_LOBBY
+
+
+            if (!Graphic.ip_button) {
+                g.drawImage(Graphic.IP_Browser_OpenButton, 70, 280, launcher);
+
+            } else {
+                g.drawImage(Graphic.IP_Browser_OpenButton_Active, 70, 280, launcher);
             }
-
-
-
-
-
 
 
             //*********************
@@ -232,10 +265,15 @@ public class paintComponent {
             } else g.drawImage(Graphic.discord_button_selected, 124, 560+50, launcher);
 
 
+            //подсказки
+            if(Graphic.discord_button_b) g.drawImage(Graphic.Discord_Desc, Launcher.x-150, Launcher.y, launcher);
 
 
 
+            if(Graphic.ip_button) {
+                g.drawImage(Graphic.IPB_Desc, Launcher.x, Launcher.y, launcher);
 
+            }
             if(Graphic.advice_b_1){
 
                 g.drawImage(Graphic.advice,Launcher.x,Launcher.y,launcher);
@@ -253,21 +291,21 @@ public class paintComponent {
 
             if(Graphic.advice_b_4){
 
-                g.drawImage(Graphic.advice_3,Launcher.x-100,Launcher.y,launcher);
+                g.drawImage(Graphic.advice_3,Launcher.x-207,Launcher.y,launcher);
             }
 
             if(Graphic.advice_b_5){
 
-                g.drawImage(Graphic.advice_3,Launcher.x-100,Launcher.y,launcher);
+                g.drawImage(Graphic.advice_3,Launcher.x-207,Launcher.y,launcher);
             }
 
             if(Graphic.advice_b_6){
 
-                g.drawImage(Graphic.advice_3,Launcher.x-100,Launcher.y,launcher);
+                g.drawImage(Graphic.advice_3,Launcher.x-207,Launcher.y,launcher);
             }
 
             if(Graphic.back) g.drawImage(Graphic.advice_back,Launcher.x,Launcher.y-45,launcher);
-            if(Graphic.delete) g.drawImage(Graphic.advice_delete,Launcher.x-130,Launcher.y-50,launcher);
+            if(Graphic.delete) g.drawImage(Graphic.advice_delete,Launcher.x-190,Launcher.y-48,launcher);
 
 
 
@@ -276,6 +314,12 @@ public class paintComponent {
 
         if(Launcher.vic_3_launcher_selected){
            g.drawImage(Graphic.vic_3_background,0,0,launcher);
+
+
+
+            if(!Graphic.DLCButton_Vic3_b) {
+                g.drawImage(Graphic.DLCButton_Vic3, 375, 283, launcher);
+            } else g.drawImage(Graphic.DLCButton_Active_Vic3, 375, 283, launcher);
 
 
 
@@ -304,7 +348,7 @@ public class paintComponent {
                 g.drawImage(Graphic.clean_button_3, 382, 342, launcher);
             } else {
                 g.drawImage(Graphic.clean_button_selected_3, 382, 342, launcher);
-                g.drawImage(Graphic.advice_3,Launcher.x-100,Launcher.y-45,launcher);
+                g.drawImage(Graphic.advice_3,Launcher.x-207,Launcher.y-45,launcher);
 
             }
 
@@ -329,8 +373,12 @@ public class paintComponent {
                 g.drawImage(Graphic.discord_button, 124, 560+50, launcher);
             } else g.drawImage(Graphic.discord_button_selected, 124, 560+50, launcher);
 
+
+
             if(Graphic.back) g.drawImage(Graphic.advice_back,Launcher.x,Launcher.y-45,launcher);
-            if(Graphic.delete) g.drawImage(Graphic.advice_delete,Launcher.x-130,Launcher.y-50,launcher);
+            if(Graphic.delete) g.drawImage(Graphic.advice_delete,Launcher.x-190,Launcher.y-48,launcher);
+            if(Graphic.discord_button_b) g.drawImage(Graphic.Discord_Desc, Launcher.x-150, Launcher.y, launcher);
+            if(Graphic.DLCButton_Vic3_b) g.drawImage(Graphic.DLC_Desc, Launcher.x-216, Launcher.y, launcher);
 
 
         } // лаунчер вик 3

@@ -10,5 +10,6 @@ public class entity_mp {
     public String name;
 
     public String ip;
+    public boolean isAvailable = false;
 
 }
