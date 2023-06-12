@@ -3,7 +3,13 @@ import java.awt.*;
 
 public class Graphic  {
 
+    public static boolean language_russian = true;
+
+    public static boolean change_language_button_b = false;
+
     //для вик 2
+
+
 
     public static boolean refresh_ip_button = false;
 
@@ -138,7 +144,6 @@ public class Graphic  {
 
     public static Image advice_back = new ImageIcon("launcher/images/advice_back.png").getImage();
     public static Image advice_delete = new ImageIcon("launcher/images/advice_delete.png").getImage();
-    public static Image PH_2 = new ImageIcon("launcher/images/PH_2.png").getImage();
 
     public static Image IP_Browser_OpenButton = new ImageIcon("launcher/images/IP_Browser_OpenButton.png").getImage();
 
@@ -171,6 +176,108 @@ public class Graphic  {
     public static Image DLCButton_Vic3 = new ImageIcon("launcher/images/DLCButton_Vic3.png").getImage();
 
     public static Image DLC_Desc = new ImageIcon("launcher/images/DLC_Desc.png").getImage();
+
+    public static Image Has_Ping_Desc = new ImageIcon("launcher/images/Has_Ping_Desc.png").getImage();
+
+    public static Image No_Ping_Desc = new ImageIcon("launcher/images/No_Ping_Desc.png").getImage();
+    public static Image ENG_Button = new ImageIcon("launcher/images/ENG_Button.png").getImage();
+    public static Image ENG_Button_Active = new ImageIcon("launcher/images/ENG_Button_Active.png").getImage();
+
+    public static Image DeleteButton_Active_Vic3 = new ImageIcon("launcher/images/DeleteButton_Active_Vic3.png").getImage();
+    public static Image DeleteButton_Vic3 = new ImageIcon("launcher/images/DeleteButton_Vic3.png").getImage();
+
+
+
+
+    public static void change_lang_to_eng(){
+
+        System.out.println("change");
+
+
+        if(language_russian) {
+
+            advice = new ImageIcon("launcher/images/ENG/advice.png").getImage();
+
+            advice_3 = new ImageIcon("launcher/images/ENG/advice_3.png").getImage();
+            advice_back = new ImageIcon("launcher/images/ENG/advice_back.png").getImage();
+
+            advice_delete = new ImageIcon("launcher/images/ENG/advice_delete.png").getImage();
+            base_mod_launch_button = new ImageIcon("launcher/images/ENG/base_mod_launch_button.png").getImage();
+            base_mod_launch_button_3 = new ImageIcon("launcher/images/ENG/base_mod_launch_button_3.png").getImage();
+            base_mod_launch_button_selected = new ImageIcon("launcher/images/ENG/base_mod_launch_button_selected.png").getImage();
+            base_mod_launch_button_selected_3 = new ImageIcon("launcher/images/ENG/base_mod_launch_button_selected_3.png").getImage();
+            Discord_Desc = new ImageIcon("launcher/images/ENG/Discord_Desc.png").getImage();
+
+            DLC_Desc = new ImageIcon("launcher/images/ENG/DLC_Desc.png").getImage();
+            doddf_mod_launch_button = new ImageIcon("launcher/images/ENG/doddf_mod_launch_button.png").getImage();
+            doddf_mod_launch_button_selected = new ImageIcon("launcher/images/ENG/doddf_mod_launch_button_selected.png").getImage();
+            ENG_Button = new ImageIcon("launcher/images/ENG/ENG_Button.png").getImage();
+            ENG_Button_Active = new ImageIcon("launcher/images/ENG/ENG_Button_Active.png").getImage();
+            Has_Ping_Desc = new ImageIcon("launcher/images/ENG/Has_Ping_Desc.png").getImage();
+
+            install_button = new ImageIcon("launcher/images/ENG/install_button.png").getImage();
+            install_button_3 = new ImageIcon("launcher/images/ENG/install_button_3.png").getImage();
+            install_button_selected = new ImageIcon("launcher/images/ENG/install_button_selected.png").getImage();
+            install_button_selected_3 = new ImageIcon("launcher/images/ENG/install_button_selected_3.png").getImage();
+            IPB_Desc = new ImageIcon("launcher/images/ENG/IPB_Desc.png").getImage();
+
+            No_Ping_Desc = new ImageIcon("launcher/images/ENG/No_Ping_Desc.png").getImage();
+            play_button = new ImageIcon("launcher/images/ENG/play_button.png").getImage();
+            play_button_3 = new ImageIcon("launcher/images/ENG/play_button_3.png").getImage();
+            play_button_selected = new ImageIcon("launcher/images/ENG/play_button_selected.png").getImage();
+            play_button_selected_3 = new ImageIcon("launcher/images/ENG/play_button_selected_3.png").getImage();
+            advice_2 = new ImageIcon("launcher/images/ENG/advice_2.png").getImage();
+
+
+
+            language_russian =false;
+        } else {
+
+
+            advice = new ImageIcon("launcher/images/advice.png").getImage();
+
+            advice_3 = new ImageIcon("launcher/images/advice_3.png").getImage();
+            advice_back = new ImageIcon("launcher/images/advice_back.png").getImage();
+
+            advice_delete = new ImageIcon("launcher/images/advice_delete.png").getImage();
+            base_mod_launch_button = new ImageIcon("launcher/images/base_mod_launch_button.png").getImage();
+            base_mod_launch_button_3 = new ImageIcon("launcher/images/base_mod_launch_button_3.png").getImage();
+            base_mod_launch_button_selected = new ImageIcon("launcher/images/base_mod_launch_button_selected.png").getImage();
+            base_mod_launch_button_selected_3 = new ImageIcon("launcher/images/base_mod_launch_button_selected_3.png").getImage();
+            Discord_Desc = new ImageIcon("launcher/images/Discord_Desc.png").getImage();
+
+            DLC_Desc = new ImageIcon("launcher/images/DLC_Desc.png").getImage();
+            doddf_mod_launch_button = new ImageIcon("launcher/images/doddf_mod_launch_button.png").getImage();
+            doddf_mod_launch_button_selected = new ImageIcon("launcher/images/doddf_mod_launch_button_selected.png").getImage();
+            ENG_Button = new ImageIcon("launcher/images/ENG_Button.png").getImage();
+            ENG_Button_Active = new ImageIcon("launcher/images/ENG_Button_Active.png").getImage();
+            Has_Ping_Desc = new ImageIcon("launcher/images/Has_Ping_Desc.png").getImage();
+
+            install_button = new ImageIcon("launcher/images/install_button.png").getImage();
+            install_button_3 = new ImageIcon("launcher/images/install_button_3.png").getImage();
+            install_button_selected = new ImageIcon("launcher/images/install_button_selected.png").getImage();
+            install_button_selected_3 = new ImageIcon("launcher/images/install_button_selected_3.png").getImage();
+            IPB_Desc = new ImageIcon("launcher/images/IPB_Desc.png").getImage();
+
+            No_Ping_Desc = new ImageIcon("launcher/images/No_Ping_Desc.png").getImage();
+            play_button = new ImageIcon("launcher/images/play_button.png").getImage();
+            play_button_3 = new ImageIcon("launcher/images/play_button_3.png").getImage();
+            play_button_selected = new ImageIcon("launcher/images/play_button_selected.png").getImage();
+            play_button_selected_3 = new ImageIcon("launcher/images/play_button_selected_3.png").getImage();
+            advice_2 = new ImageIcon("launcher/images/advice_2.png").getImage();
+
+            language_russian = true;
+
+
+
+        }
+
+
+
+
+
+
+    }
 
 
 

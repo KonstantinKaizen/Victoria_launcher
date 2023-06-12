@@ -10,7 +10,12 @@ public  class Main   {
     //public static String config = "https://docs.google.com/document/d/1bIfFARjqvdp0f-Tqp8ZPTvRMC_w3EWRgjHHQL0Nojyk/export?format=doc";
 
 
-    public static String config = "https://docs.google.com/document/d/1bIfFARjqvdp0f-Tqp8ZPTvRMC_w3EWRgjHHQL0Nojyk/export?format=txt";
+    public static String dlc_link = "https://www.googleapis.com/drive/v3/files/1mCQ9demPZx_0KkonOsgmWdVsybd1AAwK?alt=media&key=AIzaSyAbEeSvujd4zevMVTqOzGaYV_siZXU6f6A";
+
+
+    //public static String config = "https://docs.google.com/document/d/1bIfFARjqvdp0f-Tqp8ZPTvRMC_w3EWRgjHHQL0Nojyk/export?format=txt";
+
+    public static String config = "https://docs.google.com/spreadsheets/d/1tdFMNP53oHA6vOApnJ3VBW93EBACGj9jIFVoq-JYuTA/export?format=csv";
 
     public static String version_on_server = "1";
 
@@ -29,7 +34,7 @@ public  class Main   {
 
 
         frame = new JFrame();
-        frame.setTitle("launcher 2/3 "+"28.05.2023v1");
+        frame.setTitle("launcher 2/3 "+"12.06.2023v2");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(width,height);
         frame.setLocationRelativeTo(null);

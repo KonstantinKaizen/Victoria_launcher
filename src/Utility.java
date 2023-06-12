@@ -11,7 +11,7 @@ import java.util.zip.ZipFile;
 
 public class Utility {
 
-    private static void copyFile_2(File sourceFile, File destinationFile)
+    public static void copyFile_2(File sourceFile, File destinationFile)
             throws IOException {
         try (InputStream in = new FileInputStream(sourceFile);
              OutputStream out = new FileOutputStream(destinationFile)) {
@@ -251,6 +251,18 @@ public class Utility {
         }
         return result;
     } // прочитать файл
+
+    public static void deleteDir(File file) {
+        File[] contents = file.listFiles();
+        if (contents != null) {
+            for (File f : contents) {
+                if (! Files.isSymbolicLink(f.toPath())) {
+                    deleteDir(f);
+                }
+            }
+        }
+        file.delete();
+    } // удалить дерикторию
 
 
 

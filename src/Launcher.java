@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.net.InetAddress;
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -102,7 +102,10 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 Graphic.refresh_ip_button = e.getX() > 209 && e.getY() > 648 && e.getX() < 318 && e.getY() < 683;
 
-                Graphic.DLCButton_Vic3_b = e.getX() > 375 && e.getY() > 283 && e.getX() < 435 && e.getY() < 335;
+                Graphic.DLCButton_Vic3_b = e.getX() > 74 && e.getY() > 285 && e.getX() < 123 && e.getY() < 335;
+
+                Graphic.change_language_button_b = e.getX()>389 && e.getY()>288 && e.getX()<441 && e.getY() < 330;
+
 
 
 
@@ -189,6 +192,8 @@ public class Launcher extends JPanel implements ActionListener  {
                 try {
                     Utility.download(Main.config,"cfg.txt");
                 } catch (IOException ex) {
+
+                    JOptionPane.showMessageDialog(Main.frame,"Нет подключения");
                     throw new RuntimeException(ex);
                 }
 
@@ -540,6 +545,16 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  кнопка дискорда
 
+            if(vic_2_launcher_selected && e.getX()>389 && e.getY()>288 && e.getX()<441 && e.getY() < 330 && !paintComponent.multi_player){
+
+                System.out.println("change lang");
+
+                Graphic.change_lang_to_eng();
+
+
+
+            }// кнопка смены языка
+
 
 
 
@@ -658,6 +673,15 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                 String url4 = "https://www.googleapis.com/drive/v3/files/1nwHIEFjoTAqGQX7MGnVNHgtknkeu6Qvw?alt=media&key=AIzaSyCB73AF5G290NJnF4kl7Zpju6AynPSmKpc";
+
+                String url4 = "https://www.googleapis.com/drive/v3/files/1mCQ9demPZx_0KkonOsgmWdVsybd1AAwK?alt=media&key=AIzaSyAbEeSvujd4zevMVTqOzGaYV_siZXU6f6A";
+
+
+
+                https://drive.google.com/u/0/uc?id=1mCQ9demPZx_0KkonOsgmWdVsybd1AAwK&export=download
+                AIzaSyAbEeSvujd4zevMVTqOzGaYV_siZXU6f6A
+
+
                 String dest = "123.zip";
 
                 try {
@@ -1012,6 +1036,17 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
             //------------------------
+
+            if(vic_3_launcher_selected && e.getX()>389 && e.getY()>288 && e.getX()<441 && e.getY() < 330 ){
+
+                System.out.println("change lang");
+
+                Graphic.change_lang_to_eng();
+
+
+
+            } // смена языка
+
             if(vic_3_launcher_selected && e.getX()>138 && e.getY()>235 && e.getX()<383 && e.getY() < 333){
 
                 try {
@@ -1340,7 +1375,7 @@ public class Launcher extends JPanel implements ActionListener  {
             } //// кнопка дискорда
 
 
-            if(vic_3_launcher_selected && e.getX()>375 && e.getY()>283 && e.getX()<435 && e.getY() < 335){
+            if(vic_3_launcher_selected && e.getX() > 74 && e.getY() > 285 && e.getX() < 123 && e.getY() < 335){
                 System.out.println("dlc");
 
 
@@ -1350,7 +1385,117 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-            }
+                Thread_download_game thread_download_game = new Thread_download_game();
+                thread_download_game.start();
+
+                try {
+                    int size_dlc = Integer.parseInt((Utility.readFile(Files.newInputStream(new File("launcher\\dlc_size_vic3.txt").toPath()))));
+                    System.out.println(size_dlc);
+
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
+                BigInteger size_final = new BigInteger("2147483648");
+                BigInteger one_persent = size_final.divide(new BigInteger("100"));
+
+
+
+
+
+
+                while(Thread_download_game.is_loading){
+
+
+
+
+
+
+
+                    JOptionPane jop = new JOptionPane();
+                    jop.setMessageType(JOptionPane.PLAIN_MESSAGE);
+                    try {
+
+                        StringBuilder load_indicator = new StringBuilder();
+
+
+
+                        int how_much_persent_loaded = new BigInteger(String.valueOf(Files.size(Paths.get("dlc.zip")))).divide(one_persent).intValue();
+
+                        for (int i = 0; i < how_much_persent_loaded/3; i++) {
+
+                            load_indicator.append("X");
+
+                        }
+
+
+
+                        jop.setMessage(load_indicator.toString() +"\n"+ "                                     "+how_much_persent_loaded + "%");
+
+
+
+
+
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    final JDialog dialog = jop.createDialog(null, "Message");
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Thread.sleep(1000);
+                            } catch (Exception e) {
+                            }
+                            dialog.dispose();
+                        }
+
+                    }).start();
+
+                    dialog.setVisible(true);
+
+
+
+
+                }
+
+
+
+
+                Utility.extractFolder("dlc.zip","dlc");
+
+
+
+                JOptionPane.showMessageDialog(Main.frame,"Разахивация dlc, ожидайте");
+                try {
+
+                    Utility.copyFile_2(new File("dlc\\binaries\\steam_api64.dll"),new File("Victoria 3\\binaries\\steam_api64.dll"));
+                    Utility.copyFile_2(new File("dlc\\binaries\\steamclient64.dll"),new File("Victoria 3\\binaries\\steamclient64.dll"));
+                    Utility.copyFile_2(new File("dlc\\binaries\\flt.ini"),new File("Victoria 3\\binaries\\flt.ini"));
+                    Utility.copyDirectory(new File("dlc\\game\\dlc"),new File("Victoria 3\\game\\dlc"));
+                    Utility.copyDirectory(new File("dlc\\game\\dlc_metadata"),new File("Victoria 3\\game\\dlc_metadata"));
+                    Utility.copyDirectory(new File("dlc\\game\\soundtrack"),new File("Victoria 3\\game\\soundtrack"));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
+
+                Utility.deleteDir(new File("dlc"));
+                Utility.deleteDir(new File("dlc.zip"));
+
+                System.out.println("2");
+
+
+            } // установка DLC
 
 
 

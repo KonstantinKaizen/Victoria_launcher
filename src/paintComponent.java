@@ -42,12 +42,12 @@ public class paintComponent {
             g.setFont(new Font("Cambria", Font.ROMAN_BASELINE, 20));
             g.setColor(Color.ORANGE);
 
-                //******************************
 
 
 
 
 
+            //****************************** IP LOBBY
             if(multi_player == true){
 
                 g.drawImage(Graphic.IP_Browser_Background,137, 175, launcher);
@@ -86,16 +86,19 @@ public class paintComponent {
                     if(layout_mp.list_entity_mp.size()>= 0+layout_mp.page) {
                         if(!Graphic.entry_1) g.drawImage(Graphic.IP_Browser_Entry, 144, 183, launcher);
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 183, launcher);
-                        if(layout_mp.page == 0){
-                            g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).name.substring(1), 159, 205);
-                        } else g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).name, 159, 205);
-                        g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).ip, 159, 250);
+
+
+
+
+                        if(layout_mp.page == 0){ g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).name.substring(1), 159, 205); }
+                        else g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).name, 159, 205);
+                        g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).ip, 159, 248);
 
                         //InetAddress address = InetAddress.getByName(layout_mp.list_entity_mp.get(0 + layout_mp.page).ip);
 
                         if(layout_mp.list_entity_mp.get(0+layout_mp.page).isAvailable){
-                            g.drawImage(Graphic.green,345,209,launcher);
-                        } else g.drawImage(Graphic.red,345,209,launcher);
+                            g.drawImage(Graphic.green,340,209,launcher);
+                        } else g.drawImage(Graphic.red,340,209,launcher);
 
 
 
@@ -112,12 +115,12 @@ public class paintComponent {
                         if(!Graphic.entry_2) g.drawImage(Graphic.IP_Browser_Entry, 144, 260, launcher);
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 260, launcher);
                         g.drawString(layout_mp.list_entity_mp.get(1 + layout_mp.page).name, 159, 260+22);
-                        g.drawString(layout_mp.list_entity_mp.get(1 + layout_mp.page).ip, 159, 260+67);
+                        g.drawString(layout_mp.list_entity_mp.get(1 + layout_mp.page).ip, 159, 260+67-2);
 
 
                         if(layout_mp.list_entity_mp.get(1+layout_mp.page).isAvailable){
-                            g.drawImage(Graphic.green,345,209+77,launcher);
-                        } else g.drawImage(Graphic.red,345,209+77,launcher);
+                            g.drawImage(Graphic.green,340,209+77,launcher);
+                        } else g.drawImage(Graphic.red,340,209+77,launcher);
                     }
 
 
@@ -130,11 +133,11 @@ public class paintComponent {
                         if(!Graphic.entry_3) g.drawImage(Graphic.IP_Browser_Entry, 144, 337, launcher);
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 337, launcher);
                         g.drawString(layout_mp.list_entity_mp.get(2 + layout_mp.page).name, 159, 337+22);
-                        g.drawString(layout_mp.list_entity_mp.get(2 + layout_mp.page).ip, 159, 337+67);
+                        g.drawString(layout_mp.list_entity_mp.get(2 + layout_mp.page).ip, 159, 337+67-2);
 
                         if(layout_mp.list_entity_mp.get(2+layout_mp.page).isAvailable){
-                            g.drawImage(Graphic.green,345,209+77+77,launcher);
-                        } else g.drawImage(Graphic.red,345,209+77+77,launcher);
+                            g.drawImage(Graphic.green,340,209+77+77,launcher);
+                        } else g.drawImage(Graphic.red,340,209+77+77,launcher);
                     }
 
 
@@ -147,11 +150,11 @@ public class paintComponent {
                         if(!Graphic.entry_4) g.drawImage(Graphic.IP_Browser_Entry, 144, 414, launcher);
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 414, launcher);
                         g.drawString(layout_mp.list_entity_mp.get(3 + layout_mp.page).name, 159, 414+22);
-                        g.drawString(layout_mp.list_entity_mp.get(3 + layout_mp.page).ip, 159, 414+67);
+                        g.drawString(layout_mp.list_entity_mp.get(3 + layout_mp.page).ip, 159, 414+67-2);
 
                         if(layout_mp.list_entity_mp.get(3+layout_mp.page).isAvailable){
-                            g.drawImage(Graphic.green,345,209+77+77+77,launcher);
-                        } else g.drawImage(Graphic.red,345,209+77+77+77,launcher);
+                            g.drawImage(Graphic.green,340,209+77+77+77,launcher);
+                        } else g.drawImage(Graphic.red,340,209+77+77+77,launcher);
                     }
 
 
@@ -164,11 +167,11 @@ public class paintComponent {
                         if(!Graphic.entry_5) g.drawImage(Graphic.IP_Browser_Entry, 144, 491, launcher);
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 491, launcher);
                         g.drawString(layout_mp.list_entity_mp.get(4 + layout_mp.page).name, 159, 491+22);
-                        g.drawString(layout_mp.list_entity_mp.get(4 + layout_mp.page).ip, 159, 491+67);
+                        g.drawString(layout_mp.list_entity_mp.get(4 + layout_mp.page).ip, 159, 491+67-2);
 
                         if(layout_mp.list_entity_mp.get(4+layout_mp.page).isAvailable){
-                            g.drawImage(Graphic.green,345,209+77+77+77+77,launcher);
-                        } else g.drawImage(Graphic.red,345,209+77+77+77+77,launcher);
+                            g.drawImage(Graphic.green,340,209+77+77+77+77,launcher);
+                        } else g.drawImage(Graphic.red,340,209+77+77+77+77,launcher);
                     }
 
 
@@ -181,30 +184,85 @@ public class paintComponent {
                         if(!Graphic.entry_6) g.drawImage(Graphic.IP_Browser_Entry, 144, 568, launcher);
                         else g.drawImage(Graphic.IP_Browser_Entry_Active, 144, 568, launcher);
                         g.drawString(layout_mp.list_entity_mp.get(5 + layout_mp.page).name, 159, 568+22);
-                        g.drawString(layout_mp.list_entity_mp.get(5 + layout_mp.page).ip, 159, 568+67);
+                        g.drawString(layout_mp.list_entity_mp.get(5 + layout_mp.page).ip, 159, 568+67-2);
 
                         if(layout_mp.list_entity_mp.get(5+layout_mp.page).isAvailable){
-                            g.drawImage(Graphic.green,345,209+77+77+77+77+77,launcher);
-                        } else g.drawImage(Graphic.red,345,209+77+77+77+77+77,launcher);
+                            g.drawImage(Graphic.green,340,209+77+77+77+77+77,launcher);
+                        } else g.drawImage(Graphic.red,340,209+77+77+77+77+77,launcher);
                     }
 
 
 
                 }
 
+
+                if(Graphic.entry_1  && Launcher.x > 347 && Launcher.x < 380 && Launcher.y > 217 && Launcher.y < 246 ) {
+                    if(layout_mp.list_entity_mp.get(0+layout_mp.page).isAvailable) {
+
+                        g.drawImage(Graphic.Has_Ping_Desc, Launcher.x - 240, Launcher.y, launcher);
+                    } else g.drawImage(Graphic.No_Ping_Desc, Launcher.x - 230, Launcher.y, launcher);
+                }
+
+                if(Graphic.entry_2  && Launcher.x > 348 && Launcher.x < 379 && Launcher.y > 294 && Launcher.y < 323 ) {
+                    if(layout_mp.list_entity_mp.get(1+layout_mp.page).isAvailable) {
+
+                        g.drawImage(Graphic.Has_Ping_Desc, Launcher.x - 240, Launcher.y, launcher);
+                    } else g.drawImage(Graphic.No_Ping_Desc, Launcher.x - 230, Launcher.y, launcher);
+                }
+
+                if(Graphic.entry_3  && Launcher.x > 348 && Launcher.x < 379 && Launcher.y > 371 && Launcher.y < 401 ) {
+                    if(layout_mp.list_entity_mp.get(2+layout_mp.page).isAvailable) {
+
+                        g.drawImage(Graphic.Has_Ping_Desc, Launcher.x - 240, Launcher.y, launcher);
+                    } else g.drawImage(Graphic.No_Ping_Desc, Launcher.x - 230, Launcher.y, launcher);
+                }
+
+                if(Graphic.entry_4  && Launcher.x > 348 && Launcher.x < 379 && Launcher.y > 448 && Launcher.y < 479 ) {
+                    if(layout_mp.list_entity_mp.get(3+layout_mp.page).isAvailable) {
+
+                        g.drawImage(Graphic.Has_Ping_Desc, Launcher.x - 240, Launcher.y, launcher);
+                    } else g.drawImage(Graphic.No_Ping_Desc, Launcher.x - 230, Launcher.y, launcher);
+                }
+
+                if(Graphic.entry_5  && Launcher.x > 348 && Launcher.x < 379 && Launcher.y > 527 && Launcher.y < 555 ) {
+                    if(layout_mp.list_entity_mp.get(4+layout_mp.page).isAvailable) {
+
+                        g.drawImage(Graphic.Has_Ping_Desc, Launcher.x - 240, Launcher.y, launcher);
+                    } else g.drawImage(Graphic.No_Ping_Desc, Launcher.x - 230, Launcher.y, launcher);
+                }
+
+                if(Graphic.entry_6  && Launcher.x > 348 && Launcher.x < 379 && Launcher.y > 603 && Launcher.y < 632 ) {
+                    if(layout_mp.list_entity_mp.get(5+layout_mp.page).isAvailable) {
+
+                        g.drawImage(Graphic.Has_Ping_Desc, Launcher.x - 240, Launcher.y, launcher);
+                    } else g.drawImage(Graphic.No_Ping_Desc, Launcher.x - 230, Launcher.y, launcher);
+                }
+
+
+
+
                 return;
             } // IP_LOBBY
+            //*******************************************
 
 
             if (!Graphic.ip_button) {
-                g.drawImage(Graphic.IP_Browser_OpenButton, 70, 280, launcher);
+                g.drawImage(Graphic.IP_Browser_OpenButton, 69, 283, launcher);
 
             } else {
-                g.drawImage(Graphic.IP_Browser_OpenButton_Active, 70, 280, launcher);
+                g.drawImage(Graphic.IP_Browser_OpenButton_Active, 69, 283, launcher);
             }
 
 
             //*********************
+
+
+            if(!Graphic.change_language_button_b) {
+                g.drawImage(Graphic.ENG_Button, 382, 283, launcher);
+            } else g.drawImage(Graphic.ENG_Button_Active, 382, 283, launcher);
+
+
+
 
             if(!Graphic.delete) {
                 g.drawImage(Graphic.delete_all, 396, 623, launcher);
@@ -317,15 +375,23 @@ public class paintComponent {
 
 
 
+
+
+            if(!Graphic.change_language_button_b) {
+                g.drawImage(Graphic.ENG_Button, 375, 283, launcher);
+            } else g.drawImage(Graphic.ENG_Button_Active, 375, 283, launcher);
+
+
+
             if(!Graphic.DLCButton_Vic3_b) {
-                g.drawImage(Graphic.DLCButton_Vic3, 375, 283, launcher);
-            } else g.drawImage(Graphic.DLCButton_Active_Vic3, 375, 283, launcher);
+                g.drawImage(Graphic.DLCButton_Vic3, 63, 282, launcher);
+            } else g.drawImage(Graphic.DLCButton_Active_Vic3, 63, 282, launcher);
 
 
 
             if(!Graphic.delete) {
-                g.drawImage(Graphic.delete_all, 396, 623, launcher);
-            } else g.drawImage(Graphic.delete_all_active, 396, 623, launcher);
+                g.drawImage(Graphic.DeleteButton_Vic3, 396, 623, launcher);
+            } else g.drawImage(Graphic.DeleteButton_Active_Vic3, 396, 623, launcher);
 
 
             if(!Graphic.back) {
@@ -378,7 +444,7 @@ public class paintComponent {
             if(Graphic.back) g.drawImage(Graphic.advice_back,Launcher.x,Launcher.y-45,launcher);
             if(Graphic.delete) g.drawImage(Graphic.advice_delete,Launcher.x-190,Launcher.y-48,launcher);
             if(Graphic.discord_button_b) g.drawImage(Graphic.Discord_Desc, Launcher.x-150, Launcher.y, launcher);
-            if(Graphic.DLCButton_Vic3_b) g.drawImage(Graphic.DLC_Desc, Launcher.x-216, Launcher.y, launcher);
+            if(Graphic.DLCButton_Vic3_b) g.drawImage(Graphic.DLC_Desc, Launcher.x, Launcher.y, launcher);
 
 
         } // лаунчер вик 3

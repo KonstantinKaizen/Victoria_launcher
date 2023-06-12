@@ -15,3 +15,5 @@ public class Thread_close_game extends Thread{
 
     }
 }
+
+
