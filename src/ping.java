@@ -30,12 +30,6 @@ public class ping extends Thread{
 
 
 
-
-
-
-            System.out.println("ip confirmed");
-
-
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

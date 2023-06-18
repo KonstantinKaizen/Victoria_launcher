@@ -1,3 +1,6 @@
+import com.sun.media.sound.FFT;
+import javafx.scene.shape.Path;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -11,6 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Launcher extends JPanel implements ActionListener  {
+
+    public static BigInteger size_final;
+
+
+    public static BigInteger one_persent;
+
+
 
 
 
@@ -161,7 +171,7 @@ public class Launcher extends JPanel implements ActionListener  {
     class mouseListener extends MouseAdapter implements MouseMotionListener {
 
         @Override
-        public void mousePressed(MouseEvent e) {
+        public void mousePressed(final MouseEvent e) {
 
 
             //super.mouseClicked(e);
@@ -175,103 +185,109 @@ public class Launcher extends JPanel implements ActionListener  {
             System.out.println("X : "+e.getX()+"   Y : "+e.getY());
 
 
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
 
-            if(!paintComponent.multi_player && vic_2_launcher_selected && e.getX()>74 && e.getY()>280 && e.getX()<129 && e.getY() < 329) {
-
-
-                //InetAddress address = InetAddress.getByName("8.8.8.9");
-
-
-
-                layout_mp.page = 0;
-
-                System.out.println("123");
-                layout_mp.list_entity_mp.clear();
+                    if(!paintComponent.multi_player && vic_2_launcher_selected && e.getX()>74 && e.getY()>280 && e.getX()<129 && e.getY() < 329) {
 
 
-                try {
-                    Utility.download(Main.config,"cfg.txt");
-                } catch (IOException ex) {
+                        //InetAddress address = InetAddress.getByName("8.8.8.9");
+                        paintComponent.multi_player = true;
 
-                    JOptionPane.showMessageDialog(Main.frame,"Нет подключения");
-                    throw new RuntimeException(ex);
+
+
+                        layout_mp.page = 0;
+
+                        System.out.println("123");
+                        layout_mp.list_entity_mp.clear();
+
+
+                        try {
+                            Utility.download(Main.config,"cfg.txt");
+                        } catch (IOException ex) {
+
+                            JOptionPane.showMessageDialog(Main.frame,"Нет подключения");
+                            throw new RuntimeException(ex);
+                        }
+
+
+
+
+
+
+                        try {
+                            File file = new File("cfg.txt");
+                            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+
+                            String line = reader.readLine();
+
+                            while (line != null) {
+                                Pattern pattern = Pattern.compile("^.+?(?=\\_)");
+                                Pattern pattern1 = Pattern.compile("(_\\=?).*$");
+                                Matcher matcher = pattern.matcher(line);
+                                String name = null;
+                                String ip = null;
+
+
+                                if (matcher.find())
+                                {
+                                    name = matcher.group();
+                                } else System.out.println("no");
+
+                                matcher = pattern1.matcher(line);
+
+                                if (matcher.find())
+                                {
+                                    ip = matcher.group().substring(1,matcher.group().length());
+                                } else System.out.println("no");
+
+
+
+
+                                layout_mp.list_entity_mp.add(new entity_mp(name,ip));
+
+                                line = reader.readLine();
+
+                            }
+                        } catch (IOException x) {
+                            x.printStackTrace();
+
+                        }
+
+
+
+
+
+
+                        int i = 0;
+
+                        for (entity_mp x:layout_mp.list_entity_mp) {
+
+                            ping ping = new ping(i,x.ip);
+                            ping.start();
+                            i++;
+
+
+                        }
+
+
+
+
+
+
+
+
+                    } //MP IP
+
+
                 }
 
-
-
-                paintComponent.multi_player = true;
-
-
-                try {
-                    File file = new File("cfg.txt");
-                    //FileReader fr = new FileReader(file);
-                    //BufferedReader reader = new BufferedReader(fr);
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
-
-                    String line = reader.readLine();
-
-                    while (line != null) {
-                        Pattern pattern = Pattern.compile("^.+?(?=\\_)");
-                        Pattern pattern1 = Pattern.compile("(_\\=?).*$");
-                        Matcher matcher = pattern.matcher(line);
-                        String name = null;
-                        String ip = null;
-                        
-
-                        if (matcher.find())
-                        {
-                            name = matcher.group();
-                        } else System.out.println("no");
-
-                        matcher = pattern1.matcher(line);
-
-                        if (matcher.find())
-                        {
-                            ip = matcher.group().substring(1,matcher.group().length());
-                        } else System.out.println("no");
+            }).start();
 
 
 
 
-                        layout_mp.list_entity_mp.add(new entity_mp(name,ip));
-
-                        line = reader.readLine();
-
-                    }
-                } catch (IOException x) {
-                    x.printStackTrace();
-
-            }
-
-
-                for (entity_mp entity:layout_mp.list_entity_mp) {
-
-                    System.out.println(entity.name+" "+entity.ip);
-
-                }
-
-
-                System.out.println(layout_mp.list_entity_mp.size()+"размер");
-
-
-                int i = 0;
-
-                for (entity_mp x:layout_mp.list_entity_mp) {
-
-                    ping ping = new ping(i,x.ip);
-                    ping.start();
-                    i++;
-
-                }
-
-
-
-
-
-
-
-
-            } //MP IP
 
 
 
@@ -633,12 +649,52 @@ public class Launcher extends JPanel implements ActionListener  {
                             throw new RuntimeException(ex);
                         } finally {
 
-                            try {
-                                System.out.println("start download");
-                                desktop.open(new File("launcher\\Resourse\\Vic 2.bat"));
-                            } catch (IOException ex) {
-                                throw new RuntimeException(ex);
-                            }
+                            System.out.println("starting load victoria 2");
+
+
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+
+
+                                    new Main(Main.victoria_2_link, "Victoria2.zip", "Victoria 2");
+
+
+                                    Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_2_link, "Victoria2.zip");
+                                    thread_download_game.start();
+
+
+                                    try {
+                                        Thread.sleep(3000);
+                                    } catch (InterruptedException ex) {
+                                        throw new RuntimeException(ex);
+                                    }
+
+
+                                    while (Thread_download_game.is_loading) {
+
+                                        try {
+                                            Thread.sleep(1000);
+                                        } catch (InterruptedException ex) {
+                                            throw new RuntimeException(ex);
+                                        }
+                                    }
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException ex) {
+                                        throw new RuntimeException(ex);
+                                    }
+
+
+                                }
+
+                            }).start();
+
+
+                            //System.out.println("start download");
+                            //desktop.open(new File("launcher\\Resourse\\Vic 2.bat"));
+
 
                         }
                     }
@@ -1359,6 +1415,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
+                /*
                 if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                     try {
                         Desktop.getDesktop().browse(new URI("https://discord.gg/HuVGesQT5e"));
@@ -1369,90 +1426,92 @@ public class Launcher extends JPanel implements ActionListener  {
                     }
                 }
 
+                 */
+
+                //System.out.println(Utility.getUrlSize(Main.victoria_2_link));
+
+                //System.out.println(Utility.getUrlSize("http://194.147.148.18/index.php/s/ins9foQyRGsE7HR/download/nvbm.zip"));
+
+                //System.out.println(Utility.getUrlSize("http://46.8.29.39/index.php/s/9wDwAPbaxk7oPBm/download/DLCc.zip"));
+
+                //System.out.println(Utility.getUrlSize("http://194.147.148.18/index.php/s/ins9foQyRGsE7HR/download/nvbm.zip"));
+
+                System.out.println(Utility.getUrlSize("http://194.147.148.18/index.php/s/9dwLH3WzgTtjMjc/download"));
+
+
+
+
+
+
+
 
 
 
             } //// кнопка дискорда
 
 
-            if(vic_3_launcher_selected && e.getX() > 74 && e.getY() > 285 && e.getX() < 123 && e.getY() < 335){
-                System.out.println("dlc");
+            if (vic_3_launcher_selected && e.getX() > 74 && e.getY() > 285 && e.getX() < 123 && e.getY() < 335) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
 
 
+                        try {
 
 
+                            System.out.println("dlc");
+
+                            Main.frame.disable();
 
 
+                            new Main(Main.dlc_link, "dlc.zip", "dlc");
 
 
-                Thread_download_game thread_download_game = new Thread_download_game();
-                thread_download_game.start();
-
-                try {
-                    int size_dlc = Integer.parseInt((Utility.readFile(Files.newInputStream(new File("launcher\\dlc_size_vic3.txt").toPath()))));
-                    System.out.println(size_dlc);
-
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+                            Thread_download_game thread_download_game = new Thread_download_game(Main.dlc_link, "dlc.zip");
+                            thread_download_game.start();
 
 
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
-                }
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                throw new RuntimeException(ex);
+                            }
 
 
-                BigInteger size_final = new BigInteger("2147483648");
-                BigInteger one_persent = size_final.divide(new BigInteger("100"));
+                            while (Thread_download_game.is_loading) {
+
+                                Thread.sleep(1000);
+                            }
+
+                            Thread.sleep(1000);
 
 
-
-
-
-
-                while(Thread_download_game.is_loading){
-
-
-
-
-
-
+/*
+               while(Thread_download_game.is_loading){
 
                     JOptionPane jop = new JOptionPane();
                     jop.setMessageType(JOptionPane.PLAIN_MESSAGE);
                     try {
 
                         StringBuilder load_indicator = new StringBuilder();
-
-
-
                         int how_much_persent_loaded = new BigInteger(String.valueOf(Files.size(Paths.get("dlc.zip")))).divide(one_persent).intValue();
-
                         for (int i = 0; i < how_much_persent_loaded/3; i++) {
 
-                            load_indicator.append("X");
+                            load_indicator.append("|");
 
                         }
-
-
-
                         jop.setMessage(load_indicator.toString() +"\n"+ "                                     "+how_much_persent_loaded + "%");
-
-
-
-
-
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
+
                     final JDialog dialog = jop.createDialog(null, "Message");
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             try {
-                                Thread.sleep(1000);
+
+                                //Thread.sleep(1500);
                             } catch (Exception e) {
                             }
                             dialog.dispose();
@@ -1467,35 +1526,51 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 }
 
+ */
+
+                            Utility.extractFolder("dlc.zip", "dlc");
+
+
+                            try {
+                                System.out.println("COPYING");
+                                Utility.copyFile_2(new File("dlc\\binaries\\steam_api64.dll"), new File("Victoria 3\\binaries\\steam_api64.dll"));
+                                Utility.copyFile_2(new File("dlc\\binaries\\steamclient64.dll"), new File("Victoria 3\\binaries\\steamclient64.dll"));
+                                Utility.copyFile_2(new File("dlc\\binaries\\flt.ini"), new File("Victoria 3\\binaries\\flt.ini"));
+                                Utility.copyDirectory(new File("dlc\\game\\dlc"), new File("Victoria 3\\game\\dlc"));
+                                Utility.copyDirectory(new File("dlc\\game\\dlc_metadata"), new File("Victoria 3\\game\\dlc_metadata"));
+                                Utility.copyDirectory(new File("dlc\\game\\soundtrack"), new File("Victoria 3\\game\\soundtrack"));
+                                System.out.println("ONE");
+                            } catch (IOException ex) {
+                                System.out.println("ERROR");
+                                throw new RuntimeException(ex);
+                            }
+
+
+                            Utility.deleteDir(new File("dlc"));
+                            Utility.deleteDir(new File("dlc.zip"));
+
+
+                        } catch (Exception c) {
+                            System.out.println("ERROR");
+
+                        } finally {
+                            Main.load_frame.dispose();
+                            Main.frame.enable();
+                        }
+                        System.out.println("COMPLETED");
+                    }
+
+                }).start();
+            } //DLC установка
 
 
 
-                Utility.extractFolder("dlc.zip","dlc");
 
 
 
-                JOptionPane.showMessageDialog(Main.frame,"Разахивация dlc, ожидайте");
-                try {
-
-                    Utility.copyFile_2(new File("dlc\\binaries\\steam_api64.dll"),new File("Victoria 3\\binaries\\steam_api64.dll"));
-                    Utility.copyFile_2(new File("dlc\\binaries\\steamclient64.dll"),new File("Victoria 3\\binaries\\steamclient64.dll"));
-                    Utility.copyFile_2(new File("dlc\\binaries\\flt.ini"),new File("Victoria 3\\binaries\\flt.ini"));
-                    Utility.copyDirectory(new File("dlc\\game\\dlc"),new File("Victoria 3\\game\\dlc"));
-                    Utility.copyDirectory(new File("dlc\\game\\dlc_metadata"),new File("Victoria 3\\game\\dlc_metadata"));
-                    Utility.copyDirectory(new File("dlc\\game\\soundtrack"),new File("Victoria 3\\game\\soundtrack"));
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
 
 
 
-                Utility.deleteDir(new File("dlc"));
-                Utility.deleteDir(new File("dlc.zip"));
-
-                System.out.println("2");
-
-
-            } // установка DLC
 
 
 

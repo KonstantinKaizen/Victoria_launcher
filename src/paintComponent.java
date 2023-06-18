@@ -90,7 +90,7 @@ public class paintComponent {
 
 
 
-                        if(layout_mp.page == 0){ g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).name.substring(1), 159, 205); }
+                        if(layout_mp.page == 0){ g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).name.substring(0), 159, 205); }
                         else g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).name, 159, 205);
                         g.drawString(layout_mp.list_entity_mp.get(0 + layout_mp.page).ip, 159, 248);
 

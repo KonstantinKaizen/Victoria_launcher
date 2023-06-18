@@ -1,11 +1,19 @@
+import javafx.scene.shape.Path;
+
 import javax.swing.*;
 import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Enumeration;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -93,6 +101,8 @@ public class Utility {
 
     public static void extractFolder(String zipFile,String extractFolder) // разархивировать
     {
+
+        System.out.println("extraction started");
         try
         {
             int BUFFER = 2048;
@@ -153,6 +163,7 @@ public class Utility {
             throw new RuntimeException(e);
 
         }
+        System.out.println("extraction ended");
 
     }
 
@@ -263,6 +274,63 @@ public class Utility {
         }
         file.delete();
     } // удалить дерикторию
+
+
+    public static void dwnldFile(String url,String output){
+
+        System.out.println("123");
+
+
+
+        try (BufferedInputStream in = new BufferedInputStream(new URL(url).openStream());
+             FileOutputStream fileOutputStream = new FileOutputStream(output)) {
+            byte dataBuffer[] = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
+                fileOutputStream.write(dataBuffer, 0, bytesRead);
+            }
+        } catch (Exception e) {
+
+            System.out.println("exc");
+        }
+
+
+
+    }
+
+    public static long folderSize(File directory) {
+        long length = 0;
+        for (File file : directory.listFiles()) {
+            if (file.isFile())
+                length += file.length();
+            else
+                length += folderSize(file);
+        }
+        return length;
+    }
+
+    public static long getUrlSize(String s){
+
+
+
+        try {
+            URL url = new URL(s);
+            URLConnection conn = url.openConnection();
+            conn.connect();
+            return conn.getHeaderFieldLong("Content-Length",-1);
+
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+
+
 
 
 
