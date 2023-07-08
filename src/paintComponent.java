@@ -258,8 +258,13 @@ public class paintComponent {
 
 
             if(!Graphic.change_language_button_b) {
-                g.drawImage(Graphic.ENG_Button, 382, 283, launcher);
-            } else g.drawImage(Graphic.ENG_Button_Active, 382, 283, launcher);
+                g.drawImage(Graphic.Prefab_60x60_Button, 394, 235, launcher);
+                g.drawImage(Graphic.Lang_Icon_RUS, 394, 235, launcher);
+            } else {
+                g.drawImage(Graphic.Prefab_60x60_Button_Active, 394, 235, launcher);
+                g.drawImage(Graphic.Lang_Icon_RUS, 394, 235, launcher);
+
+            }
 
 
 
@@ -272,8 +277,13 @@ public class paintComponent {
 
 
             if(!Graphic.play_button_b) {
-                g.drawImage(Graphic.play_button, 127, 232, launcher);
-            } else g.drawImage(Graphic.play_button_selected, 127, 232, launcher);
+
+                g.drawImage(Graphic.Prefab_260x120_Button, 127, 179, launcher);
+                g.drawImage(Graphic.Launchgame_Text_RUS, 127, 179, launcher);
+            } else {
+                g.drawImage(Graphic.Prefab_260x120_Button_Active, 127, 179, launcher);
+                g.drawImage(Graphic.Launchgame_Text_RUS, 127, 179, launcher);
+            }
 
 
             if(!Graphic.install_button_b) {

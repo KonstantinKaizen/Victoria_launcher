@@ -43,9 +43,8 @@ public class Load_Indicator extends JPanel implements ActionListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //g.drawImage(Graphic.DLCButton_Vic3,0,0,this);
 
-        int how_much_persent_loaded;
+        BigInteger how_much_persent_loaded = new BigInteger("0");
 
 
 
@@ -53,41 +52,37 @@ public class Load_Indicator extends JPanel implements ActionListener {
         try {
             if(Thread_download_game.is_loading) {
 
-                how_much_persent_loaded = (int) ((int) Files.size(Paths.get(zip_location)) / (file_size / 100));
+
+                how_much_persent_loaded = new BigInteger(String.valueOf(Files.size(Paths.get(zip_location)))).divide(BigInteger.valueOf((file_size / 100)));
+                System.out.println(Files.size(Paths.get(zip_location))+" "+(file_size / 100)+" "+how_much_persent_loaded);
             } else {
 
-                how_much_persent_loaded = (int) ((int) Utility.folderSize(new File(folder_location)) / (file_size / 100));
+                if(Files.exists(Paths.get(folder_location))) {
+
+                    how_much_persent_loaded = new BigInteger(String.valueOf(Utility.folderSize(new File(folder_location)))).divide(BigInteger.valueOf((file_size / 100)));
+                }
             }
 
-            System.out.println(how_much_persent_loaded);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        g.drawRect(4,4,300-8+10,52);
+        g.drawImage(Graphic.Loading_Screen,0,0,this);
+
         g.setColor(Color.GREEN);
-        g.drawRect(5,5, how_much_persent_loaded * 3,50);
-        g.fillRect(5,5,how_much_persent_loaded * 3,50);
+        if(how_much_persent_loaded.intValue()>100){
+            g.drawImage(Graphic.Loading_Progressbar,19,53,this);
 
+        } else {
+            g.drawImage(Graphic.Loading_Progressbar,19,53, (int) (how_much_persent_loaded.intValue() * 2.5),36,this);
 
-        g.setColor(Color.BLACK);
-        g.setFont(new Font("Cambria", Font.BOLD, 16));
+        }
         try {
 
             if(Thread_download_game.is_loading) {
+                g.drawImage(Graphic.Quote_Downloading,0,0,this);
 
-
-                //String b = String.valueOf(new BigInteger(String.valueOf(Files.size(Paths.get("dlc.zip")))).divide(new BigInteger("1000000")));
-
-                g.drawString("Загрузка",100,75);
-
-                g.drawString(how_much_persent_loaded +" %", 125, 100);
             } else {
-
-
-
-                //g.drawString(String.valueOf(Utility.folderSize(new File("dlc"))/1000000), 125, 100);
-
-                g.drawString("Разархивация",100,75);
+                g.drawImage(Graphic.Quote_Unzipping,0,0,this);
 
             }
 

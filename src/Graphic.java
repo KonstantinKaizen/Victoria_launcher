@@ -5,6 +5,10 @@ public class Graphic  {
 
     public static boolean language_russian = true;
 
+    public static boolean change_lang = true;
+
+
+
     public static boolean change_language_button_b = false;
 
     //для вик 2
@@ -68,6 +72,23 @@ public class Graphic  {
 
 
 
+
+
+    //VIC 2 new BUTTONS
+
+    //prefabs
+
+    public static Image Prefab_260x120_Button = new ImageIcon("launcher/images/new/prefabs/Prefab_260x120_Button.png").getImage();
+    public static Image Prefab_260x120_Button_Active = new ImageIcon("launcher/images/new/prefabs/Prefab_260x120_Button_Active.png").getImage();
+
+
+    public static Image Prefab_60x60_Button = new ImageIcon("launcher/images/new/prefabs/Prefab_60x60_Button.png").getImage();
+    public static Image Prefab_60x60_Button_Active = new ImageIcon("launcher/images/new/prefabs/Prefab_60x60_Button_Active.png").getImage();
+
+    //text
+
+    public static Image Launchgame_Text_RUS = new ImageIcon("launcher/images/new/text_1/RUS/Launchgame_Text_RUS.png").getImage();
+    public static Image Lang_Icon_RUS = new ImageIcon("launcher/images/new/icons/Lang_Icon_RUS.png").getImage();
 
 
 
@@ -185,6 +206,11 @@ public class Graphic  {
 
     public static Image DeleteButton_Active_Vic3 = new ImageIcon("launcher/images/DeleteButton_Active_Vic3.png").getImage();
     public static Image DeleteButton_Vic3 = new ImageIcon("launcher/images/DeleteButton_Vic3.png").getImage();
+    public static Image Loading_Screen = new ImageIcon("launcher/images/Loading_Screen.png").getImage();
+    public static Image Loading_Progressbar = new ImageIcon("launcher/images/Loading_Progressbar.png").getImage();
+
+    public static Image Quote_Downloading = new ImageIcon("launcher/images/Quote_Downloading.png").getImage();
+    public static Image Quote_Unzipping = new ImageIcon("launcher/images/Quote_Unzipping.png").getImage();
 
 
 
@@ -194,7 +220,7 @@ public class Graphic  {
         System.out.println("change");
 
 
-        if(language_russian) {
+        if(language_russian || change_lang) {
 
             advice = new ImageIcon("launcher/images/ENG/advice.png").getImage();
 
@@ -228,9 +254,14 @@ public class Graphic  {
             play_button_selected_3 = new ImageIcon("launcher/images/ENG/play_button_selected_3.png").getImage();
             advice_2 = new ImageIcon("launcher/images/ENG/advice_2.png").getImage();
 
+            Quote_Downloading = new ImageIcon("launcher/images/ENG/Quote_Downloading.png").getImage();
+            Quote_Unzipping = new ImageIcon("launcher/images/ENG/Quote_Unzipping.png").getImage();
+
 
 
             language_russian =false;
+            Utility.givenWritingStringToFile_whenUsingFileOutputStream_thenCorrect("eng","launcher\\lang.txt");
+            Graphic.change_lang = false;
         } else {
 
 
@@ -266,7 +297,12 @@ public class Graphic  {
             play_button_selected_3 = new ImageIcon("launcher/images/play_button_selected_3.png").getImage();
             advice_2 = new ImageIcon("launcher/images/advice_2.png").getImage();
 
+
+            Quote_Downloading = new ImageIcon("launcher/images/Quote_Downloading.png").getImage();
+            Quote_Unzipping = new ImageIcon("launcher/images/Quote_Unzipping.png").getImage();
+
             language_russian = true;
+            Utility.givenWritingStringToFile_whenUsingFileOutputStream_thenCorrect("rus","launcher\\lang.txt");
 
 
 

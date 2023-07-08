@@ -15,12 +15,6 @@ import java.util.regex.Pattern;
 
 public class Launcher extends JPanel implements ActionListener  {
 
-    public static BigInteger size_final;
-
-
-    public static BigInteger one_persent;
-
-
 
 
 
@@ -185,91 +179,171 @@ public class Launcher extends JPanel implements ActionListener  {
             System.out.println("X : "+e.getX()+"   Y : "+e.getY());
 
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
+
 
                     if(!paintComponent.multi_player && vic_2_launcher_selected && e.getX()>74 && e.getY()>280 && e.getX()<129 && e.getY() < 329) {
 
 
-                        //InetAddress address = InetAddress.getByName("8.8.8.9");
-                        paintComponent.multi_player = true;
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                System.out.println("123");
+
+                                try {
+
+
+                                    if (!Files.exists(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt").toPath())) {
+                                        System.out.println("start default");
+
+                                        try {
+
+                                            Utility.copyFile(new File("Victoria 2\\settings.txt"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt"));
+                                            System.out.println("default end");
+                                        } catch (IOException ex) {
+
+
+                                        }
+                                    }
+
+                                } finally {
+
+                                    try {
+
+
+                                        if (!Files.exists(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt").toPath())) {
+                                            System.out.println("BDSHFM start");
+
+                                            try {
+
+                                                Utility.copyFile(new File("Victoria 2\\mod\\STAHL_MOD\\settings.txt"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt"));
+                                                System.out.println("BDSHFM end");
+                                            } catch (IOException ex) {
+
+
+                                            }
+                                        }
+
+                                    } finally {
+                                        try {
+
+
+                                            if (!Files.exists(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt").toPath())) {
+                                                System.out.println("DoDDF start");
+
+                                                try {
+
+                                                    Utility.copyFile(new File("Victoria 2\\mod\\DoDDF\\settings.txt"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt"));
+                                                    System.out.println("DoDDF end");
+                                                } catch (IOException ex) {
+
+
+                                                }
+                                            }
+
+                                        } finally {
+
+
+                                            paintComponent.multi_player = true;
 
 
 
-                        layout_mp.page = 0;
+                                            layout_mp.page = 0;
 
-                        System.out.println("123");
-                        layout_mp.list_entity_mp.clear();
-
-
-                        try {
-                            Utility.download(Main.config,"cfg.txt");
-                        } catch (IOException ex) {
-
-                            JOptionPane.showMessageDialog(Main.frame,"Нет подключения");
-                            throw new RuntimeException(ex);
-                        }
+                                            System.out.println("123");
+                                            layout_mp.list_entity_mp.clear();
 
 
+                                            try {
+                                                Utility.download(Main.config,"cfg.txt");
+                                            } catch (IOException ex) {
 
-
-
-
-                        try {
-                            File file = new File("cfg.txt");
-                            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
-
-                            String line = reader.readLine();
-
-                            while (line != null) {
-                                Pattern pattern = Pattern.compile("^.+?(?=\\_)");
-                                Pattern pattern1 = Pattern.compile("(_\\=?).*$");
-                                Matcher matcher = pattern.matcher(line);
-                                String name = null;
-                                String ip = null;
-
-
-                                if (matcher.find())
-                                {
-                                    name = matcher.group();
-                                } else System.out.println("no");
-
-                                matcher = pattern1.matcher(line);
-
-                                if (matcher.find())
-                                {
-                                    ip = matcher.group().substring(1,matcher.group().length());
-                                } else System.out.println("no");
-
-
-
-
-                                layout_mp.list_entity_mp.add(new entity_mp(name,ip));
-
-                                line = reader.readLine();
-
-                            }
-                        } catch (IOException x) {
-                            x.printStackTrace();
-
-                        }
+                                                Utility.alert("Нет подключения","No connection");
+                                                throw new RuntimeException(ex);
+                                            }
 
 
 
 
 
 
-                        int i = 0;
+                                            try {
+                                                File file = new File("cfg.txt");
+                                                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
 
-                        for (entity_mp x:layout_mp.list_entity_mp) {
+                                                String line = reader.readLine();
 
-                            ping ping = new ping(i,x.ip);
-                            ping.start();
-                            i++;
+                                                while (line != null) {
+                                                    Pattern pattern = Pattern.compile("^.+?(?=\\_)");
+                                                    Pattern pattern1 = Pattern.compile("(_\\=?).*$");
+                                                    Matcher matcher = pattern.matcher(line);
+                                                    String name = null;
+                                                    String ip = null;
 
 
-                        }
+                                                    if (matcher.find())
+                                                    {
+                                                        name = matcher.group();
+                                                    } else System.out.println("no");
+
+                                                    matcher = pattern1.matcher(line);
+
+                                                    if (matcher.find())
+                                                    {
+                                                        ip = matcher.group().substring(1,matcher.group().length());
+                                                    } else System.out.println("no");
+
+
+
+
+                                                    layout_mp.list_entity_mp.add(new entity_mp(name,ip));
+
+                                                    line = reader.readLine();
+
+                                                }
+                                            } catch (IOException x) {
+                                                x.printStackTrace();
+
+                                            }
+
+
+
+
+
+
+                                            int i = 0;
+
+                                            for (entity_mp x:layout_mp.list_entity_mp) {
+
+                                                ping ping = new ping(i,x.ip);
+                                                ping.start();
+                                                i++;
+
+
+                                            }
+
+
+
+
+                                        }
+                                    }
+                                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    }}).start();
 
 
 
@@ -281,9 +355,7 @@ public class Launcher extends JPanel implements ActionListener  {
                     } //MP IP
 
 
-                }
 
-            }).start();
 
 
 
@@ -547,7 +619,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                     try {
-                        Desktop.getDesktop().browse(new URI("https://discord.gg/HuVGesQT5e"));
+                        Desktop.getDesktop().browse(new URI("https://discord.gg/victoria-2-3-738309426905219155"));
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     } catch (URISyntaxException ex) {
@@ -566,6 +638,9 @@ public class Launcher extends JPanel implements ActionListener  {
                 System.out.println("change lang");
 
                 Graphic.change_lang_to_eng();
+                Language.sync_language("Victoria 2\\localisation\\");
+                Language.sync_language("Victoria 2\\mod\\DoDDF\\localisation\\");
+                Language.sync_language("Victoria 2\\mod\\STAHL_MOD\\localisation\\");
 
 
 
@@ -580,7 +655,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 File file = new File("Victoria 2/3.bat");
                 if (!file.exists()) {
-                    JOptionPane.showMessageDialog(Main.frame,"Скачайте игру");
+                    Utility.alert("Скачайте игру","Download game");
                     return;
                 }
 
@@ -652,15 +727,29 @@ public class Launcher extends JPanel implements ActionListener  {
                             System.out.println("starting load victoria 2");
 
 
+                            try {
+                                desktop.open(new File("launcher\\V2_Clear.bat"));
+                            } catch (IOException ex) {
+                                throw new RuntimeException(ex);
+                            }
+
+
+
+
+
                             new Thread(new Runnable() {
                                 @Override
                                 public void run() {
 
+                                    Utility.deleteDir(new File("Victoria 2"));
 
-                                    new Main(Main.victoria_2_link, "Victoria2.zip", "Victoria 2");
 
 
-                                    Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_2_link, "Victoria2.zip");
+
+                                    new Main(Main.victoria_2_link, "Victoria 2.zip", "Victoria 2");
+
+
+                                    Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_2_link, "Victoria 2.zip");
                                     thread_download_game.start();
 
 
@@ -685,6 +774,22 @@ public class Launcher extends JPanel implements ActionListener  {
                                     } catch (InterruptedException ex) {
                                         throw new RuntimeException(ex);
                                     }
+
+                                    Utility.extractFolder("Victoria 2.zip", "Victoria 2");
+                                    /*
+                                    try {
+                                        Utility.copyDirectory(new File("Victoria 2 temp\\Victoria 2"),new File("Victoria 2"));
+                                    } catch (IOException ex) {
+                                        throw new RuntimeException(ex);
+                                    }
+
+                                     */
+                                    //Utility.deleteDir(new File("Victoria 2 temp"));
+                                    Utility.deleteDir(new File("Victoria 2.zip"));
+
+
+                                    Main.load_frame.dispose();
+
 
 
                                 }
@@ -772,7 +877,8 @@ public class Launcher extends JPanel implements ActionListener  {
                 File file1 = new File("Victoria 2/1.bat");
                 if (!file1.exists()) {
 
-                    JOptionPane.showMessageDialog(Main.frame,"ОШИБКА - Переустановите мод или игру");
+
+                    Utility.alert("ОШИБКА - Переустановите мод или игру","ERROR - reinstall game or mod");
                     return;
                 }
 
@@ -780,7 +886,8 @@ public class Launcher extends JPanel implements ActionListener  {
                 File file = new File("Victoria 2/mod/STAHL_MOD");
                 if(!file.isDirectory()){
 
-                    JOptionPane.showMessageDialog(Main.frame,"ОШИБКА - Установите мод");
+
+                    Utility.alert("ОШИБКА - Установите мод","ERROR - install mod first");
                     return;
                 }
 
@@ -809,8 +916,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 File file1 = new File("Victoria 2/2.bat");
                 if (!file1.exists()) {
-
-                    JOptionPane.showMessageDialog(Main.frame,"ОШИБКА - Переустановите мод или игру");
+                    Utility.alert("ОШИБКА - Переустановите мод или игру","ERROR - reinstall game or mod");
                     return;
                 }
 
@@ -819,7 +925,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 if(!file.isDirectory()){
 
-                    JOptionPane.showMessageDialog(Main.frame,"ОШИБКА - Установите мод");
+                    Utility.alert("ОШИБКА - Установите мод","ERROR - install mod first");
                     return;
                 }
 
@@ -848,7 +954,7 @@ public class Launcher extends JPanel implements ActionListener  {
                     Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
                     Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
 
-                    JOptionPane.showMessageDialog(Main.frame,"Кеш очищен");
+                    Utility.alert("Кеш очищен","cache cleared");
 
             } //  метла_1
 
@@ -863,7 +969,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-                JOptionPane.showMessageDialog(Main.frame,"Кеш очищен");
+                Utility.alert("Кеш очищен","cache cleared");
             } //  метла_2
 
             if(vic_2_launcher_selected && e.getX()>393 && e.getY()>486 && e.getX()<442 && e.getY() < 532 && !paintComponent.multi_player){
@@ -875,7 +981,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-                JOptionPane.showMessageDialog(Main.frame,"Кеш очищен");
+                Utility.alert("Кеш очищен","cache cleared");
             } //  метла_3
 
             if(vic_2_launcher_selected && e.getX()>79 && e.getY()>347 && e.getX()<129 && e.getY() < 394 && !paintComponent.multi_player){
@@ -898,7 +1004,8 @@ public class Launcher extends JPanel implements ActionListener  {
                         } catch (IOException ex) {
                             throw new RuntimeException(ex);
                         } finally {
-                            JOptionPane.showMessageDialog(Main.frame,"Настройки сброшены");
+
+                            Utility.alert("Настройки сброшены","settings reseted");
                         }
                     }
 
@@ -911,6 +1018,15 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 Desktop desktop = Desktop.getDesktop();
                 File file = new File("Victoria 2");
+
+
+                try {
+                    desktop.open(new File("launcher\\V2_Clear.bat"));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
 
                 //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
                 //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
@@ -940,12 +1056,70 @@ public class Launcher extends JPanel implements ActionListener  {
                         if(file.isDirectory()) {
 
 
-                    try {
-                        desktop.open(new File("launcher\\Resourse\\Base S.bat"));
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                } else JOptionPane.showMessageDialog(Main.frame,"ОШИБКА - Установите игру");
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+
+
+
+
+                                    new Main(Main.victoria_2_BASE, "BASE.zip", "Victoria 2\\mod\\STAHL_MOD");
+
+
+                                    Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_2_BASE, "BASE.zip");
+                                    thread_download_game.start();
+
+
+                                    try {
+                                        Thread.sleep(3000);
+                                    } catch (InterruptedException ex) {
+                                        throw new RuntimeException(ex);
+                                    }
+
+
+                                    while (Thread_download_game.is_loading) {
+
+                                        try {
+                                            Thread.sleep(1000);
+                                            System.out.println("is loading");
+                                        } catch (InterruptedException ex) {
+                                            throw new RuntimeException(ex);
+                                        }
+                                    }
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException ex) {
+                                        throw new RuntimeException(ex);
+
+                                    }
+                                    System.out.println("START EXTRACTION");
+                                    Utility.extractFolder("BASE.zip", "tmp");
+                                    System.out.println("COMPLETE EXTRACTION");
+
+                                    try {
+                                            new File("Victoria 2\\mod").mkdirs();
+                                            Utility.deleteDirectory(new File("Victoria 2\\mod\\STAHL_MOD"));
+                                            Utility.copyDirectory(new File("tmp\\STAHL_MOD"),new File("Victoria 2\\mod\\STAHL_MOD"));
+                                            Utility.copyFile(new File("tmp\\STAHL_MOD.mod"),new File("Victoria 2\\mod\\STAHL_MOD.mod"));
+
+                                    } catch (IOException ex) {
+                                        throw new RuntimeException(ex);
+                                    }
+
+
+                                    Utility.deleteDir(new File("tmp"));
+                                    Utility.deleteDir(new File("BASE.zip"));
+
+
+                                    Main.load_frame.dispose();
+
+
+
+                                }
+
+                            }).start();
+                        } else Utility.alert("ОШИБКА - Установите игру","ERROR - Install game first");
 
 
 
@@ -969,6 +1143,12 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 Desktop desktop = Desktop.getDesktop();
                 File file = new File("Victoria 2");
+
+                try {
+                    desktop.open(new File("launcher\\V2_Clear.bat"));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
 
                 //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
                 //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
@@ -998,12 +1178,66 @@ public class Launcher extends JPanel implements ActionListener  {
 
                             if(file.isDirectory()) {
 
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+
+
+
+                                        new Main(Main.victoria_2_DoDF, "DoDDF.zip", "Victoria 2\\mod\\DoDDF");
+
+
+                                        Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_2_DoDF, "DoDDF.zip");
+                                        thread_download_game.start();
+
+
+                                        try {
+                                            Thread.sleep(3000);
+                                        } catch (InterruptedException ex) {
+                                            throw new RuntimeException(ex);
+                                        }
+
+
+                                        while (Thread_download_game.is_loading) {
+
+                                            try {
+                                                Thread.sleep(1000);
+                                            } catch (InterruptedException ex) {
+                                                throw new RuntimeException(ex);
+                                            }
+                                        }
+
+                                        try {
+                                            Thread.sleep(1000);
+                                        } catch (InterruptedException ex) {
+                                            throw new RuntimeException(ex);
+                                        }
+
+                                        Utility.extractFolder("DoDDF.zip", "tmp");
+
                                 try {
-                                    desktop.open(new File("launcher\\Resourse\\dod.bat"));
+                                    new File("Victoria 2\\mod").mkdirs();
+                                    Utility.deleteDirectory(new File("Victoria 2\\mod\\DoDDF"));
+                                    Utility.copyDirectory(new File("tmp\\DoDDF"),new File("Victoria 2\\mod\\DoDDF"));
+                                    Utility.copyFile(new File("tmp\\DoDDF.mod"),new File("Victoria 2\\mod\\DoDDF.mod"));
                                 } catch (IOException ex) {
                                     throw new RuntimeException(ex);
                                 }
-                            } else JOptionPane.showMessageDialog(Main.frame,"ОШИБКА - Установите игру");
+
+
+                                        Utility.deleteDir(new File("tmp"));
+                                        Utility.deleteDir(new File("DoDDF.zip"));
+
+
+                                        Main.load_frame.dispose();
+
+
+
+                                    }
+
+                                }).start();
+                            } else Utility.alert("ОШИБКА - Установите игру","ERROR - Install game first");
 
                         }
                     }
@@ -1028,7 +1262,7 @@ public class Launcher extends JPanel implements ActionListener  {
                 Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
                 Main.frame.enable();
 
-                JOptionPane.showMessageDialog(Main.frame,"Раздел удален");
+                Utility.alert("Раздел удален","section removed");
 
 
 
@@ -1098,6 +1332,9 @@ public class Launcher extends JPanel implements ActionListener  {
                 System.out.println("change lang");
 
                 Graphic.change_lang_to_eng();
+                Language.sync_language("Victoria 2\\localisation\\");
+                Language.sync_language("Victoria 2\\mod\\DoDDF\\localisation\\");
+                Language.sync_language("Victoria 2\\mod\\STAHL_MOD\\localisation\\");
 
 
 
@@ -1113,7 +1350,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
                     File file = new File("Victoria 3");
                     if (!file.exists()) {
-                        JOptionPane.showMessageDialog(Main.frame,"Скачайте игру");
+                        Utility.alert("Скачайте игру","Download game");
                         return;
                     }
 
@@ -1139,6 +1376,17 @@ public class Launcher extends JPanel implements ActionListener  {
 
             if(vic_3_launcher_selected && e.getX()>137 && e.getY()>347 && e.getX()<383 && e.getY() < 390){
 
+                Desktop desktop = Desktop.getDesktop();
+                File file = new File("Victoria 2");
+
+                try {
+                    desktop.open(new File("launcher\\V3_Clear.bat"));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
+
                 int dialogButton = JOptionPane.YES_NO_OPTION;
                 int dialogResult = JOptionPane.showConfirmDialog(null, "Игра будет установлена в папку где находится лаунчер и займёт около 15 гигов. Запустить установку?", "Warning", dialogButton);
                 if(dialogResult == 0) {
@@ -1151,16 +1399,105 @@ public class Launcher extends JPanel implements ActionListener  {
                 }
 
 
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        Utility.deleteDir(new File("Victoria 3"));
+
+                        new Main(Main.victoria_3_link, "Victoria 3.zip", "Victoria 3");
 
 
 
-                Desktop desktop = Desktop.getDesktop();
-                System.out.println("start download");
-                try {
-                    desktop.open(new File("launcher\\Resourse\\Vic 3.bat"));
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+                        Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_3_link, "Victoria 3.zip");
+                        thread_download_game.start();
+
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+
+                        while (Thread_download_game.is_loading) {
+
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                        }
+
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+
+/*
+               while(Thread_download_game.is_loading){
+
+                    JOptionPane jop = new JOptionPane();
+                    jop.setMessageType(JOptionPane.PLAIN_MESSAGE);
+                    try {
+
+                        StringBuilder load_indicator = new StringBuilder();
+                        int how_much_persent_loaded = new BigInteger(String.valueOf(Files.size(Paths.get("dlc.zip")))).divide(one_persent).intValue();
+                        for (int i = 0; i < how_much_persent_loaded/3; i++) {
+
+                            load_indicator.append("|");
+
+                        }
+                        jop.setMessage(load_indicator.toString() +"\n"+ "                                     "+how_much_persent_loaded + "%");
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                    final JDialog dialog = jop.createDialog(null, "Message");
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+
+                                //Thread.sleep(1500);
+                            } catch (Exception e) {
+                            }
+                            dialog.dispose();
+                        }
+
+                    }).start();
+
+                    dialog.setVisible(true);
+
+
+
+
                 }
+
+ */
+
+                        Utility.extractFolder("Victoria 3.zip", "Victoria 3");
+
+
+
+
+                        Utility.deleteDir(new File("Victoria 3.zip"));
+
+                        Main.load_frame.dispose();
+                        System.out.println("vic 3 download ended");
+
+
+
+                    }
+
+                }).start();
+
+
+
+
+
+
                 System.out.println("install");
 
             } //vic 3 download
@@ -1179,7 +1516,7 @@ public class Launcher extends JPanel implements ActionListener  {
                 Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria 3\\player"));
                 Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria 3\\pops_filestorage"));
                 Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria 3\\shadercache"));
-                JOptionPane.showMessageDialog(Main.frame,"Кеш очищен");
+                Utility.alert("Кеш очищен","Cache cleared");
                 System.out.println("metla 1");
             } // metla 1
 
@@ -1193,7 +1530,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 File file1 = new File("Victoria 3");
                 if (!file1.exists()) {
-                    JOptionPane.showMessageDialog(Main.frame,"Скачайте игру");
+                    Utility.alert("Скачайте игру","Download game");
                     return;
                 }
 
@@ -1212,7 +1549,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                 if (!file.exists()) {
-                    JOptionPane.showMessageDialog(Main.frame,"Скачайте мод");
+                    Utility.alert("Скачайте мод","Download mod");
                     return;
                 }
                 Thread_close_game thread_close_game = new Thread_close_game();
@@ -1238,29 +1575,87 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                 System.out.println("NVBM");
-            } // run nvmb
+            } // run NVMB
 
             if(vic_3_launcher_selected && e.getX()>80 && e.getY()>428 && e.getX()<128 && e.getY() < 474){
+
+                Desktop desktop = Desktop.getDesktop();
+
+                try {
+                    desktop.open(new File("launcher\\V3_Clear.bat"));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
 
 
 
                 File file = new File("Victoria 3");
                 if (!file.exists()) {
-                    JOptionPane.showMessageDialog(Main.frame,"Скачайте игру");
+                    Utility.alert("Скачайте игру","Download game");
                     return;
                 }
 
 
 
-                Desktop desktop = Desktop.getDesktop();
                 System.out.println("start download nvmb");
-                try {
-                    desktop.open(new File("launcher\\Resourse\\VIC3M.bat"));
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
 
-/*
+
+
+
+                        new Main(Main.victoria_3_nvmb, "NVMB.zip", "Victoria 3\\mod\\NVMB");
+
+
+                        Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_3_nvmb, "NVMB.zip");
+                        thread_download_game.start();
+
+
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+
+                        while (Thread_download_game.is_loading) {
+
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                        }
+
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+                        Utility.extractFolder("NVMB.zip", "Victoria 3\\mod\\NVBM");
+                            /*
+                            try {
+                                Utility.copyDirectory(new File("Victoria 2 temp\\Victoria 2"),new File("Victoria 2"));
+                            } catch (IOException ex) {
+                                throw new RuntimeException(ex);
+                            }
+
+                             */
+                        //Utility.deleteDir(new File("Victoria 2 temp"));
+                        Utility.deleteDir(new File("NVMB.zip"));
+
+
+                        Main.load_frame.dispose();
+
+
+
+                    }
+
+                }).start();
+
+                /*
 
 
 
@@ -1320,7 +1715,8 @@ public class Launcher extends JPanel implements ActionListener  {
                                                 } catch (IOException ex) {
                                                     throw new RuntimeException(ex);
                                                 } finally {
-                                                    JOptionPane.showMessageDialog(Main.frame,"Настройки сброшены");
+
+                                                    Utility.alert("Настройки сброшены","Settings cleared");
                                                 }
 
                                             }
@@ -1343,9 +1739,25 @@ public class Launcher extends JPanel implements ActionListener  {
 
             if(vic_3_launcher_selected && e.getX()>406 && e.getY()>627 && e.getX()<456 && e.getY() < 674){
 
+                String s;
+                String s2;
+
+                if(Graphic.language_russian) {
+
+                    s = "Вы действительно хотите удалить игру?";
+                     s2 = "Удалить папку мода с игрой?";
+                } else {
+                     s = "Are you sure you want to uninstall the game?";
+                     s2 = "Delete game mod folder?";
+
+                }
+
+
+
+
 
                 int dialogButton = JOptionPane.YES_NO_OPTION;
-                int dialogResult = JOptionPane.showConfirmDialog(null, "Вы действительно хотите удалить игру?", "Warning", dialogButton);
+                int dialogResult = JOptionPane.showConfirmDialog(null, s, "Warning", dialogButton);
                 if(dialogResult == 0) {
                     System.out.println("Yes option");
 
@@ -1356,7 +1768,7 @@ public class Launcher extends JPanel implements ActionListener  {
                 }
 
                 int dialogButton1 = JOptionPane.YES_NO_OPTION;
-                int dialogResult1 = JOptionPane.showConfirmDialog(null, "Удалить папку мода с игрой?", "Warning", dialogButton1);
+                int dialogResult1 = JOptionPane.showConfirmDialog(null, s2, "Warning", dialogButton1);
                 if(dialogResult1 == 0) {
                     System.out.println("Yes option");
                     Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria 3\\mod"));
@@ -1396,7 +1808,7 @@ public class Launcher extends JPanel implements ActionListener  {
                     Utility.vic_3_giga_try();
                 } finally {
                     Main.frame.enable();
-                    JOptionPane.showMessageDialog(Main.frame,"Раздел удален");
+                    Utility.alert("Раздел удален","Section removed");
 
                 }
 
@@ -1415,10 +1827,12 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-                /*
+
+
+
                 if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                     try {
-                        Desktop.getDesktop().browse(new URI("https://discord.gg/HuVGesQT5e"));
+                        Desktop.getDesktop().browse(new URI("https://discord.gg/victoria-2-3-738309426905219155"));
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     } catch (URISyntaxException ex) {
@@ -1426,31 +1840,23 @@ public class Launcher extends JPanel implements ActionListener  {
                     }
                 }
 
-                 */
-
-                //System.out.println(Utility.getUrlSize(Main.victoria_2_link));
-
-                //System.out.println(Utility.getUrlSize("http://194.147.148.18/index.php/s/ins9foQyRGsE7HR/download/nvbm.zip"));
-
-                //System.out.println(Utility.getUrlSize("http://46.8.29.39/index.php/s/9wDwAPbaxk7oPBm/download/DLCc.zip"));
-
-                //System.out.println(Utility.getUrlSize("http://194.147.148.18/index.php/s/ins9foQyRGsE7HR/download/nvbm.zip"));
-
-                System.out.println(Utility.getUrlSize("http://194.147.148.18/index.php/s/9dwLH3WzgTtjMjc/download"));
-
-
-
-
-
-
-
-
 
 
             } //// кнопка дискорда
 
 
             if (vic_3_launcher_selected && e.getX() > 74 && e.getY() > 285 && e.getX() < 123 && e.getY() < 335) {
+
+
+                File file = new File("Victoria 3");
+                if (!file.exists()) {
+                    Utility.alert("Скачайте игру","Download game");
+                    return;
+                }
+
+
+
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -1458,10 +1864,17 @@ public class Launcher extends JPanel implements ActionListener  {
 
                         try {
 
+                            Desktop desktop = Desktop.getDesktop();
+
+                            try {
+                                desktop.open(new File("launcher\\V3_Clear.bat"));
+                            } catch (IOException ex) {
+                                throw new RuntimeException(ex);
+                            }
+
 
                             System.out.println("dlc");
 
-                            Main.frame.disable();
 
 
                             new Main(Main.dlc_link, "dlc.zip", "dlc");
@@ -1562,6 +1975,18 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 }).start();
             } //DLC установка
+
+
+
+
+
+            /*
+            new Thread(new Runnable() {
+                @Override
+                public void run() {    }
+
+            }).start();
+             */
 
 
 

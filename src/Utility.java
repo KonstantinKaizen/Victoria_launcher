@@ -3,21 +3,49 @@ import javafx.scene.shape.Path;
 import javax.swing.*;
 import java.io.*;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
+import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 
 public class Utility {
+
+    public static void alert(String rus_text,String eng_text){
+
+
+        if(Graphic.language_russian) {
+            JOptionPane.showMessageDialog(Main.frame, rus_text);
+        } else JOptionPane.showMessageDialog(Main.frame, eng_text);
+
+    }
+
+
+
+    public static void givenWritingStringToFile_whenUsingFileOutputStream_thenCorrect(String content,String path) {
+
+
+
+        try {
+            String str = content;
+            FileOutputStream outputStream = new FileOutputStream(path);
+            byte[] strToBytes = str.getBytes();
+            outputStream.write(strToBytes);
+            outputStream.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
     public static void copyFile_2(File sourceFile, File destinationFile)
             throws IOException {
@@ -45,8 +73,16 @@ public class Utility {
                 os.write(buffer, 0, length);
             }
         } finally {
-            is.close();
-            os.close();
+            if(is != null) {
+
+                is.close();
+
+            }
+
+            if(os != null){
+
+                os.close();
+            }
         }
     } // копирование файла
 
@@ -56,6 +92,7 @@ public class Utility {
             destinationDirectory.mkdir();
         }
         for (String f : sourceDirectory.list()) {
+            System.out.println("copying");
             copyDirectoryCompatibityMode(new File(sourceDirectory, f), new File(destinationDirectory, f));
         }
     }
@@ -276,27 +313,7 @@ public class Utility {
     } // удалить дерикторию
 
 
-    public static void dwnldFile(String url,String output){
 
-        System.out.println("123");
-
-
-
-        try (BufferedInputStream in = new BufferedInputStream(new URL(url).openStream());
-             FileOutputStream fileOutputStream = new FileOutputStream(output)) {
-            byte dataBuffer[] = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
-                fileOutputStream.write(dataBuffer, 0, bytesRead);
-            }
-        } catch (Exception e) {
-
-            System.out.println("exc");
-        }
-
-
-
-    }
 
     public static long folderSize(File directory) {
         long length = 0;
@@ -327,6 +344,9 @@ public class Utility {
 
 
     }
+
+
+
 
 
 

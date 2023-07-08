@@ -22,9 +22,17 @@ public  class Main   {
 
     //public static String dlc_link = "http://46.8.29.39/index.php/s/azz3xbxbNWQocKJ/download";
 
-    public static String dlc_link = "http://46.8.29.39/index.php/s/9wDwAPbaxk7oPBm/download/DLCc.zip";
+    public static String dlc_link = "http://194.147.148.18/index.php/s/DLC/download/DLC.zip";
 
-    public static String victoria_2_link = "http://194.147.148.18/index.php/s/dndXX5kCM2jEEMo/download/Victoria%202.zip";
+    public static String victoria_2_link = "http://194.147.148.18/index.php/s/Victoria2/download/Victoria2.zip";
+
+    public static String victoria_3_link = "http://194.147.148.18/index.php/s/Victoria3/download/Victoria3.zip";
+    public static String victoria_2_DoDF = "http://194.147.148.18/index.php/s/DoDDF/download/DoDDF.zip";
+    public static String victoria_2_BASE = "http://194.147.148.18/index.php/s/Base/download/Base.zip";
+
+    public static String victoria_3_nvmb = "http://194.147.148.18/index.php/s/NVBM/download/NVBM.zip";
+
+
 
 
 
@@ -42,7 +50,7 @@ public  class Main   {
     public static String version_url = "https://drive.google.com/u/0/uc?id=1PudDy3G76z64qRBhfCVuf4SDZpqBttuC&export=download";
 
     public static boolean the_choice_is_made = false;
-    public static int width = 516;
+    public static int width = 516-8;
     public static int height = 783;
     public static JFrame frame;
     public static JFrame load_frame;
@@ -52,13 +60,41 @@ public  class Main   {
 
 
         frame = new JFrame();
-        frame.setTitle("launcher 2/3 "+"16.06.2023v1");
+        frame.setTitle("launcher 2/3 "+"02.07.2023v1");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(width,height);
         frame.setLocationRelativeTo(null);
         frame.add(new Launcher());
         frame.setVisible(true);
         frame.setResizable(false);
+
+
+        try {
+            String s = Utility.readFile(Files.newInputStream(new File("launcher\\lang.txt").toPath()));
+
+            if(s.equals("rus")) {
+                System.out.println("rus");
+                Graphic.change_lang = true;
+            }
+            if(s.equals("eng")) {
+                System.out.println("eng");
+                Graphic.change_lang = false;
+                Graphic.change_lang_to_eng();
+            }
+
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        Language.sync_language("Victoria 2\\localisation\\");
+        Language.sync_language("Victoria 2\\mod\\DoDDF\\localisation\\");
+        Language.sync_language("Victoria 2\\mod\\STAHL_MOD\\localisation\\");
+
+
+
     }
     public Main(String link,String zip ,String folder){
 
@@ -66,14 +102,14 @@ public  class Main   {
 
         load_frame = new JFrame("");
         load_frame.setLocationByPlatform(true);
-        load_frame.setAlwaysOnTop(true);
+        //load_frame.setAlwaysOnTop(true);
 
         load_frame.setUndecorated(true);
 
 
         load_frame.add(new Load_Indicator(Utility.getUrlSize(link),zip,folder));
         load_frame.setResizable(false);
-        load_frame.setSize(325, 125);
+        load_frame.setSize(290, 96);
         load_frame.setLocationRelativeTo(null);
         load_frame.setVisible(true);
 
