@@ -34,4 +34,25 @@ public class ping extends Thread{
             throw new RuntimeException(ex);
         }
     }
+
+    public static boolean check_server_ping(){
+
+        String server_ip = "194.147.148.18";
+        try {
+
+
+            InetAddress address = InetAddress.getByName(server_ip);
+            return address.isReachable(100);
+        } catch (Exception e){
+
+            return false;
+
+        }
+
+
+
+
+
+
+    }
 }

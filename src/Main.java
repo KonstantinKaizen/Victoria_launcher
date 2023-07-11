@@ -24,13 +24,20 @@ public  class Main   {
 
     public static String dlc_link = "http://194.147.148.18/index.php/s/DLC/download/DLC.zip";
 
-    public static String victoria_2_link = "http://194.147.148.18/index.php/s/Victoria2/download/Victoria2.zip";
-
     public static String victoria_3_link = "http://194.147.148.18/index.php/s/Victoria3/download/Victoria3.zip";
-    public static String victoria_2_DoDF = "http://194.147.148.18/index.php/s/DoDDF/download/DoDDF.zip";
-    public static String victoria_2_BASE = "http://194.147.148.18/index.php/s/Base/download/Base.zip";
 
     public static String victoria_3_nvmb = "http://194.147.148.18/index.php/s/NVBM/download/NVBM.zip";
+
+
+
+
+    public static String victoria_2_link = "http://194.147.148.18/index.php/s/Victoria2/download/000.zip";
+    public static String victoria_2_1_mod = "http://194.147.148.18/index.php/s/001/download/001.zip";
+    public static String victoria_2_2_mod = "http://194.147.148.18/index.php/s/002/download/002.zip";
+
+    public static String victoria_2_3_mod = "http://194.147.148.18/index.php/s/003/download/003.zip";
+
+
 
 
 
@@ -60,7 +67,7 @@ public  class Main   {
 
 
         frame = new JFrame();
-        frame.setTitle("launcher 2/3 "+"02.07.2023v1");
+        frame.setTitle("launcher 2/3 "+"11.07.2023|12:00");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(width,height);
         frame.setLocationRelativeTo(null);
@@ -104,14 +111,15 @@ public  class Main   {
         load_frame.setLocationByPlatform(true);
         //load_frame.setAlwaysOnTop(true);
 
-        load_frame.setUndecorated(true);
+        //load_frame.setUndecorated(true);
 
 
         load_frame.add(new Load_Indicator(Utility.getUrlSize(link),zip,folder));
         load_frame.setResizable(false);
-        load_frame.setSize(290, 96);
+        load_frame.setSize(290+17, 96+40);
         load_frame.setLocationRelativeTo(null);
         load_frame.setVisible(true);
+        load_frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
 

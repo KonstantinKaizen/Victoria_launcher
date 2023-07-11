@@ -1,11 +1,8 @@
-import com.sun.media.sound.FFT;
-import javafx.scene.shape.Path;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.math.BigInteger;
+import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -61,29 +58,39 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-                Graphic.play_button_b = e.getX() > 134 && e.getY() > 236 && e.getX() < 383 && e.getY() < 334;
-                Graphic.install_button_b = e.getX() > 138 && e.getY() > 345 && e.getX() < 382 && e.getY() < 394;
+                Graphic.play_button_b = e.getX() > 140 && e.getY() > 180 && e.getX() < 386 && e.getY() < 288;
+                Graphic.install_button_b = e.getX() > 140 && e.getY() > 295 && e.getX() < 388 && e.getY() < 344;
 
-                Graphic.base_mod_launch_button_b = e.getX() > 138 && e.getY() > 426 && e.getX() < 382 && e.getY() < 472;
-                Graphic.doddf_mod_launch_button_b = e.getX() > 138 && e.getY() > 484 && e.getX() < 382 && e.getY() < 532;
+                Graphic.mod_1_launch_b = e.getX() > 140 && e.getY() > 410 && e.getX() < 387 && e.getY() < 461;
+                Graphic.mod_2_launch_b = e.getX() > 141 && e.getY() > 469 && e.getX() < 386 && e.getY() < 516;
+                Graphic.mod_3_launch_b = e.getX() > 141 && e.getY() > 527 && e.getX() < 387 && e.getY() < 575;
 
-                Graphic.download_button_1_b = e.getX() > 79 && e.getY() > 424 && e.getX() < 127 && e.getY() < 473;
-                Graphic.advice_b_1 = e.getX() > 79 && e.getY() > 424 && e.getX() < 127 && e.getY() < 473;
+                Graphic.download_button_1_b = e.getX() > 83 && e.getY() > 411 && e.getX() < 132 && e.getY() < 459;
+                Graphic.advice_b_1 = e.getX() > 83 && e.getY() > 411 && e.getX() < 132 && e.getY() < 459;
 
-                Graphic.download_button_2_b = e.getX() > 79 && e.getY() > 484 && e.getX() < 127 && e.getY() < 532;
-                Graphic.advice_b_2 = e.getX() > 79 && e.getY() > 484 && e.getX() < 127 && e.getY() < 532;
+                Graphic.download_button_2_b = e.getX() > 83 && e.getY() > 469 && e.getX() < 132 && e.getY() < 518;
+                Graphic.advice_b_2 = e.getX() > 83 && e.getY() > 469 && e.getX() < 132 && e.getY() < 518;
 
-                Graphic.clean_button_1_b = e.getX() > 393 && e.getY() > 345 && e.getX() < 440 && e.getY() < 394;
-                Graphic.advice_b_4 = e.getX() > 393 && e.getY() > 345 && e.getX() < 440 && e.getY() < 394;
+                Graphic.download_button_3_b = e.getX() > 82 && e.getY() > 526 && e.getX() < 131 && e.getY() < 576;
 
-                Graphic.clean_button_2_b = e.getX() > 393 && e.getY() > 425 && e.getX() < 440 && e.getY() < 472;
-                Graphic.advice_b_5 = e.getX() > 393 && e.getY() > 425 && e.getX() < 440 && e.getY() < 472;
+                Graphic.clean_button_1_b = e.getX() > 395 && e.getY() > 294 && e.getX() < 445 && e.getY() < 344;
+                Graphic.advice_b_4 = e.getX() > 395 && e.getY() > 294 && e.getX() < 445 && e.getY() < 344;
 
-                Graphic.clean_button_3_b = e.getX() > 393 && e.getY() > 484 && e.getX() < 440 && e.getY() < 530;
-                Graphic.advice_b_6 = e.getX() > 393 && e.getY() > 484 && e.getX() < 440 && e.getY() < 530;
+                Graphic.clean_button_2_b = e.getX() > 395 && e.getY() > 410 && e.getX() < 445 && e.getY() < 459;
+                Graphic.advice_b_5 = e.getX() > 395 && e.getY() > 410 && e.getX() < 445 && e.getY() < 459;
 
-                Graphic.reset_button_b = e.getX() > 80 && e.getY() > 346 && e.getX() < 127 && e.getY() < 393;
-                Graphic.advice_b_3 = e.getX() > 80 && e.getY() > 346 && e.getX() < 127 && e.getY() < 393;
+
+
+                Graphic.clean_button_3_b = e.getX() > 397 && e.getY() > 469 && e.getX() < 445 && e.getY() < 518;
+                Graphic.advice_b_6 = e.getX() > 397 && e.getY() > 469 && e.getX() < 445 && e.getY() < 518;
+
+                Graphic.clean_button_4_b = e.getX() > 395 && e.getY() > 526 && e.getX() < 446 && e.getY() < 577;
+
+
+                Graphic.reset_button_b = e.getX() > 83 && e.getY() > 295 && e.getX() < 132 && e.getY() < 344;
+                Graphic.advice_b_3 = e.getX() > 83 && e.getY() > 295 && e.getX() < 132 && e.getY() < 344;
+
+
 
 
                 Graphic.discord_button_b = e.getX() > 125 && e.getY() > 611 && e.getX() < 373 && e.getY() < 699;
@@ -92,7 +99,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 Graphic.delete = e.getX() > 407 && e.getY() > 626 && e.getX() < 457 && e.getY() < 675;
 
-                Graphic.ip_button = e.getX() > 74 && e.getY() > 280 && e.getX() < 129 && e.getY() < 329;
+                Graphic.ip_button = e.getX() > 83 && e.getY() > 237 && e.getX() < 131 && e.getY() < 285;
                 Graphic.ip_button_left = e.getX() > 143 && e.getY() > 650 && e.getX() < 209 && e.getY() < 684 ;
                 Graphic.ip_button_right = e.getX() > 323-5 && e.getY() > 650 && e.getX() < 383 && e.getY() < 684;
 
@@ -108,7 +115,29 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 Graphic.DLCButton_Vic3_b = e.getX() > 74 && e.getY() > 285 && e.getX() < 123 && e.getY() < 335;
 
-                Graphic.change_language_button_b = e.getX()>389 && e.getY()>288 && e.getX()<441 && e.getY() < 330;
+                Graphic.change_language_button_b = e.getX()>395 && e.getY()>237 && e.getX()<443 && e.getY() < 284;
+
+
+                //------------------Vic 3
+
+                   Graphic.download_mod_b_3 = e.getX()>72 && e.getY()>427 && e.getX()<121 && e.getY() < 475;
+
+                   Graphic.reset_gear_b_3 = e.getX()>72 && e.getY()>346 && e.getX()<122 && e.getY() < 394;
+
+                   Graphic.clean_cache_b_3 = e.getX()>386 && e.getY()>347 && e.getX()<434 && e.getY() < 394;
+
+                   Graphic.launch_game_b_3 = e.getX()>131 && e.getY()>236 && e.getX()<376 && e.getY() < 333;
+
+                   Graphic.install_game_b_3 = e.getX()>131 && e.getY()>345 && e.getX()<375 && e.getY() < 391;
+
+                   Graphic.launch_mode_b_3 = e.getX()>131 && e.getY()>427 && e.getX()<376 && e.getY() < 475;
+
+                Graphic.lang_button_b_3 = e.getX()>386 && e.getY()>287 && e.getX()<435 && e.getY() < 335;
+
+
+
+
+
 
 
 
@@ -181,7 +210,8 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-                    if(!paintComponent.multi_player && vic_2_launcher_selected && e.getX()>74 && e.getY()>280 && e.getX()<129 && e.getY() < 329) {
+            if(!paintComponent.multi_player && vic_2_launcher_selected && e.getX()>83 && e.getY()>237 && e.getX()<131 && e.getY() < 285) {
+                        paintComponent.multi_player = true;
 
 
                         new Thread(new Runnable() {
@@ -193,12 +223,13 @@ public class Launcher extends JPanel implements ActionListener  {
                                 try {
 
 
-                                    if (!Files.exists(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt").toPath())) {
+
+                                    if (!Files.exists(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0\\settings.txt").toPath())) {
                                         System.out.println("start default");
 
                                         try {
 
-                                            Utility.copyFile(new File("Victoria 2\\settings.txt"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt"));
+                                            Utility.copyFile(new File("Victoria 2\\mod\\0\\settings.txt"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0\\settings.txt"));
                                             System.out.println("default end");
                                         } catch (IOException ex) {
 
@@ -211,12 +242,14 @@ public class Launcher extends JPanel implements ActionListener  {
                                     try {
 
 
-                                        if (!Files.exists(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt").toPath())) {
+
+
+                                        if (!Files.exists(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\settings.txt").toPath())) {
                                             System.out.println("BDSHFM start");
 
                                             try {
 
-                                                Utility.copyFile(new File("Victoria 2\\mod\\STAHL_MOD\\settings.txt"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt"));
+                                                Utility.copyFile(new File("Victoria 2\\mod\\1\\settings.txt"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\settings.txt"));
                                                 System.out.println("BDSHFM end");
                                             } catch (IOException ex) {
 
@@ -228,12 +261,12 @@ public class Launcher extends JPanel implements ActionListener  {
                                         try {
 
 
-                                            if (!Files.exists(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt").toPath())) {
+                                            if (!Files.exists(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\settings.txt").toPath())) {
                                                 System.out.println("DoDDF start");
 
                                                 try {
 
-                                                    Utility.copyFile(new File("Victoria 2\\mod\\DoDDF\\settings.txt"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt"));
+                                                    Utility.copyFile(new File("Victoria 2\\mod\\2\\settings.txt"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\settings.txt"));
                                                     System.out.println("DoDDF end");
                                                 } catch (IOException ex) {
 
@@ -243,66 +276,86 @@ public class Launcher extends JPanel implements ActionListener  {
 
                                         } finally {
 
-
-                                            paintComponent.multi_player = true;
-
-
-
-                                            layout_mp.page = 0;
-
-                                            System.out.println("123");
-                                            layout_mp.list_entity_mp.clear();
-
-
                                             try {
-                                                Utility.download(Main.config,"cfg.txt");
-                                            } catch (IOException ex) {
-
-                                                Utility.alert("Нет подключения","No connection");
-                                                throw new RuntimeException(ex);
-                                            }
 
 
+                                                if (!Files.exists(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\3\\settings.txt").toPath())) {
+                                                    System.out.println("DoDDF start");
+
+                                                    try {
+
+                                                        Utility.copyFile(new File("Victoria 2\\mod\\3\\settings.txt"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\3\\settings.txt"));
+                                                        System.out.println("DoDDF end");
+                                                    } catch (IOException ex) {
+
+
+                                                    }
+                                                }
+                                            } finally {
+                                                layout_mp.page = 0;
+
+                                                System.out.println("123");
+                                                layout_mp.list_entity_mp.clear();
+
+
+                                                try {
+                                                    Utility.download(Main.config,"cfg.txt");
+                                                } catch (IOException ex) {
+
+                                                    Utility.alert("Нет подключения","No connection");
+                                                    throw new RuntimeException(ex);
+                                                }
+
+
+                                                try {
+                                                    File file = new File("cfg.txt");
+                                                    BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+
+                                                    String line = reader.readLine();
+
+                                                    while (line != null) {
+                                                        Pattern pattern = Pattern.compile("^.+?(?=\\_)");
+                                                        Pattern pattern1 = Pattern.compile("(_\\=?).*$");
+                                                        Matcher matcher = pattern.matcher(line);
+                                                        String name = null;
+                                                        String ip = null;
+
+
+                                                        if (matcher.find())
+                                                        {
+                                                            name = matcher.group();
+                                                        } else System.out.println("no");
+
+                                                        matcher = pattern1.matcher(line);
+
+                                                        if (matcher.find())
+                                                        {
+                                                            ip = matcher.group().substring(1,matcher.group().length());
+                                                        } else System.out.println("no");
 
 
 
 
-                                            try {
-                                                File file = new File("cfg.txt");
-                                                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+                                                        layout_mp.list_entity_mp.add(new entity_mp(name,ip));
 
-                                                String line = reader.readLine();
+                                                        line = reader.readLine();
 
-                                                while (line != null) {
-                                                    Pattern pattern = Pattern.compile("^.+?(?=\\_)");
-                                                    Pattern pattern1 = Pattern.compile("(_\\=?).*$");
-                                                    Matcher matcher = pattern.matcher(line);
-                                                    String name = null;
-                                                    String ip = null;
-
-
-                                                    if (matcher.find())
-                                                    {
-                                                        name = matcher.group();
-                                                    } else System.out.println("no");
-
-                                                    matcher = pattern1.matcher(line);
-
-                                                    if (matcher.find())
-                                                    {
-                                                        ip = matcher.group().substring(1,matcher.group().length());
-                                                    } else System.out.println("no");
-
-
-
-
-                                                    layout_mp.list_entity_mp.add(new entity_mp(name,ip));
-
-                                                    line = reader.readLine();
+                                                    }
+                                                } catch (IOException x) {
+                                                    x.printStackTrace();
 
                                                 }
-                                            } catch (IOException x) {
-                                                x.printStackTrace();
+
+                                                int i = 0;
+
+                                                for (entity_mp x:layout_mp.list_entity_mp) {
+
+                                                    ping ping = new ping(i,x.ip);
+                                                    ping.start();
+                                                    i++;
+
+
+                                                }
 
                                             }
 
@@ -311,16 +364,8 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-                                            int i = 0;
-
-                                            for (entity_mp x:layout_mp.list_entity_mp) {
-
-                                                ping ping = new ping(i,x.ip);
-                                                ping.start();
-                                                i++;
 
 
-                                            }
 
 
 
@@ -353,15 +398,6 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                     } //MP IP
-
-
-
-
-
-
-
-
-
 
             if(paintComponent.multi_player && vic_2_launcher_selected && e.getX()>209 && e.getY()>648 && e.getX()<318 && e.getY() < 683) {
 
@@ -457,7 +493,6 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //refresh
 
-
             if(vic_2_launcher_selected && e.getX()>323-5 && e.getY()>650 && e.getX()<383 && e.getY() < 684 && paintComponent.multi_player){
 
                 if(layout_mp.list_entity_mp.size()>layout_mp.page+6) {
@@ -494,20 +529,22 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-
-
-
             if(vic_2_launcher_selected && e.getX()>144 && e.getY()>183 && e.getX()<382 && e.getY() < 252 && paintComponent.multi_player){
 
 
                 if(layout_mp.list_entity_mp.size()>= 0+layout_mp.page) {
 
+                    System.out.println(layout_mp.list_entity_mp.get(0).ip);
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
+
+
+
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\0\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
                     System.out.println("file modifed");
-                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
+                    Utility.alert("IP изменен","IP changed");
 
 
 
@@ -521,11 +558,12 @@ public class Launcher extends JPanel implements ActionListener  {
                 if(layout_mp.list_entity_mp.size()>= 1+layout_mp.page) {
 
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\0\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
                     System.out.println("file modifed");
-                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
+                    Utility.alert("IP изменен","IP changed");
 
 
 
@@ -536,11 +574,12 @@ public class Launcher extends JPanel implements ActionListener  {
                 if(layout_mp.list_entity_mp.size()>= 2+layout_mp.page) {
 
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\0\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
                     System.out.println("file modifed");
-                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
+                    Utility.alert("IP изменен","IP changed");
 
 
 
@@ -551,11 +590,12 @@ public class Launcher extends JPanel implements ActionListener  {
                 if(layout_mp.list_entity_mp.size()>= 3+layout_mp.page) {
 
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\0\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
                     System.out.println("file modifed");
-                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
+                    Utility.alert("IP изменен","IP changed");
 
 
 
@@ -566,11 +606,12 @@ public class Launcher extends JPanel implements ActionListener  {
                 if(layout_mp.list_entity_mp.size()>= 4+layout_mp.page) {
 
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\0\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
                     System.out.println("file modifed");
-                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
+                    Utility.alert("IP изменен","IP changed");
 
 
 
@@ -581,27 +622,17 @@ public class Launcher extends JPanel implements ActionListener  {
                 if(layout_mp.list_entity_mp.size()>= 5+layout_mp.page) {
 
 
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt");
-                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt");
-
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\0\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
                     System.out.println("file modifed");
-                    JOptionPane.showMessageDialog(Main.frame,"IP изменен");
+                    Utility.alert("IP изменен","IP changed");
 
 
 
                 }
             }// кнопка лобби 6
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -633,25 +664,26 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  кнопка дискорда
 
-            if(vic_2_launcher_selected && e.getX()>389 && e.getY()>288 && e.getX()<441 && e.getY() < 330 && !paintComponent.multi_player){
+            if(vic_2_launcher_selected && e.getX()>396 && e.getY()>237 && e.getX()<444 && e.getY() < 284 && !paintComponent.multi_player){
 
                 System.out.println("change lang");
 
                 Graphic.change_lang_to_eng();
+
                 Language.sync_language("Victoria 2\\localisation\\");
-                Language.sync_language("Victoria 2\\mod\\DoDDF\\localisation\\");
-                Language.sync_language("Victoria 2\\mod\\STAHL_MOD\\localisation\\");
+                Language.sync_language("Victoria 2\\mod\\0\\localisation\\");
+                Language.sync_language("Victoria 2\\mod\\1\\localisation\\");
+                Language.sync_language("Victoria 2\\mod\\2\\localisation\\");
+                Language.sync_language("Victoria 2\\mod\\3\\localisation\\");
+
 
 
 
             }// кнопка смены языка
 
+            if(vic_2_launcher_selected && e.getX()>140 && e.getY()>180 && e.getX()<386 && e.getY() < 288 && !paintComponent.multi_player){
 
-
-
-            if(vic_2_launcher_selected && e.getX()>138 && e.getY()>235 && e.getX()<383 && e.getY() < 333 && !paintComponent.multi_player){
-
-
+                /*
 
                 File file = new File("Victoria 2/3.bat");
                 if (!file.exists()) {
@@ -677,6 +709,45 @@ public class Launcher extends JPanel implements ActionListener  {
                 Main.frame.enable();
                 System.out.println("запуск игры");
 
+                 */
+
+
+                try {
+
+
+                    File file1 = new File("Victoria 2/0.bat");
+                    if (!file1.exists()) {
+                        Utility.alert("ОШИБКА - Переустановите мод или игру", "ERROR - reinstall game or mod");
+                        return;
+                    }
+
+
+                    Desktop desktop = Desktop.getDesktop();
+                    File file = new File("Victoria 2/mod/0");
+                    if (!file.isDirectory()) {
+                        Utility.alert("ОШИБКА - Установите мод", "ERROR - install mod first");
+                        return;
+                    }
+
+
+                    new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0\\gfx\\flags").mkdirs();
+                    try {
+                        Utility.copyDirectory(new File("Victoria 2/mod/0/flags"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0\\gfx\\flags"));
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    } finally {
+
+                        Thread_close_game thread_close_game = new Thread_close_game();
+                        thread_close_game.start();
+
+                        Copying.copying("Victoria 2/0.bat", "Victoria 2/mod/0/time", new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0\\map\\cache\\time", new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0\\map");
+                        Main.frame.enable();
+
+                    }
+                } finally {
+                    Main.frame.enable();
+                    Utility.alert("Ошибка загрузки","Download error");
+                }
 
 
 
@@ -686,23 +757,67 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-            } //  запуск игры 2 3
 
-            if(vic_2_launcher_selected && e.getX()>137 && e.getY()>347 && e.getX()<383 && e.getY() < 390 && !paintComponent.multi_player){
+
+
+            } //  запуск игры 0
+
+            if(vic_2_launcher_selected && e.getX()>140 && e.getY()>295 && e.getX()<388 && e.getY() < 344 && !paintComponent.multi_player){
                 Desktop desktop = Desktop.getDesktop();
 
+                Main.frame.enable(false);
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
+                if(!ping.check_server_ping()){
+                    Main.frame.enable(true);
+                    Utility.alert("Проверьте соединение с сетью или используйте VPN.","Check your network connection or use a VPN.");
+                    return;
+                }
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map"));
+                Utility.deleteDirectory(new File("Victoria 2"));
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\map"));
+
+
+                if (!new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II").exists()) {
+
+                    System.out.println("vic 2 dir not exist");
+
+                    new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II").mkdirs();
+
+                }
+
+                if (!new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0").exists()) {
+
+                    System.out.println("vic 2 dir not exist");
+
+                    new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0").mkdirs();
+
+                }
+                if (!new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1").exists()) {
+
+                    System.out.println("vic 2 dir not exist");
+
+                    new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1").mkdirs();
+
+                }
+                if (!new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2").exists()) {
+
+                    System.out.println("vic 2 dir not exist");
+
+                    new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2").mkdirs();
+
+                }
+                if (!new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\3").exists()) {
+
+                    System.out.println("vic 2 dir not exist");
+
+                    new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\3").mkdirs();
+
+                }
+
+
+
+
+
 
 
 
@@ -728,7 +843,8 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                             try {
-                                desktop.open(new File("launcher\\V2_Clear.bat"));
+                                Runtime.getRuntime().exec("taskkill /F /IM v2game.exe");
+                                //desktop.open(new File("launcher\\V2_Clear.bat"));
                             } catch (IOException ex) {
                                 throw new RuntimeException(ex);
                             }
@@ -741,7 +857,7 @@ public class Launcher extends JPanel implements ActionListener  {
                                 @Override
                                 public void run() {
 
-                                    Utility.deleteDir(new File("Victoria 2"));
+                                    //Utility.deleteDir(new File("Victoria 2"));
 
 
 
@@ -789,6 +905,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                                     Main.load_frame.dispose();
+                                    Main.frame.enable(true);
 
 
 
@@ -804,8 +921,33 @@ public class Launcher extends JPanel implements ActionListener  {
                         }
                     }
 
-
+                    Main.frame.enable(true);
                 } // шестеренка
+                System.out.println("enable frame");
+                Main.frame.enable(true);
+
+                //File file1 = new File("Victoria 2/1.bat");
+
+
+
+
+
+
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
+
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\gfx"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\logs"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\map"));
+
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\gfx"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\logs"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\map"));
+
+
+
+
 
 
 
@@ -871,48 +1013,120 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  установить игру
 
-            if(vic_2_launcher_selected && e.getX()>138 && e.getY()>427 && e.getX()<383 && e.getY() < 473 && !paintComponent.multi_player){
-                System.out.println("запуск мода базы");
+            if(vic_2_launcher_selected && e.getX()>141 && e.getY()>411 && e.getX()<385 && e.getY() < 460 && !paintComponent.multi_player){
 
                 File file1 = new File("Victoria 2/1.bat");
                 if (!file1.exists()) {
+                    Utility.alert("ОШИБКА - Переустановите мод или игру","ERROR - reinstall game or mod");
+                    return;
+                }
 
 
+                Desktop desktop = Desktop.getDesktop();
+                File file = new File("Victoria 2/mod/1");
+                if(!file.isDirectory()){
+                    Utility.alert("ОШИБКА - Установите мод","ERROR - install mod first");
+                    return;
+                }
+
+
+                new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\gfx\\flags").mkdirs();
+                try {
+                    Utility.copyDirectory(new File("Victoria 2/mod/1/flags"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\gfx\\flags"));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } finally {
+
+                    Thread_close_game thread_close_game = new Thread_close_game();
+                    thread_close_game.start();
+
+                    Copying.copying("Victoria 2/1.bat","Victoria 2/mod/1/time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\map\\cache\\time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\map");
+                    Main.frame.enable();
+
+                }
+
+
+
+            } //  запуск мода 1
+
+            if(vic_2_launcher_selected && e.getX()>141 && e.getY()>469 && e.getX()<384 && e.getY() < 516 && !paintComponent.multi_player){
+                System.out.println("запуск мода 2");
+
+                File file1 = new File("Victoria 2/2.bat");
+                if (!file1.exists()) {
                     Utility.alert("ОШИБКА - Переустановите мод или игру","ERROR - reinstall game or mod");
                     return;
                 }
 
                 Desktop desktop = Desktop.getDesktop();
-                File file = new File("Victoria 2/mod/STAHL_MOD");
-                if(!file.isDirectory()){
+                File file = new File("Victoria 2/mod/2");
 
+                if(!file.isDirectory()){
 
                     Utility.alert("ОШИБКА - Установите мод","ERROR - install mod first");
                     return;
                 }
 
-                new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx\\flags").mkdirs();
+
+                new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\gfx\\flags").mkdirs();
+
                 try {
-                    Utility.copyDirectory(new File("Victoria 2/mod/STAHL_MOD/flags"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx\\flags"));
+                    Utility.copyDirectory(new File("Victoria 2\\mod\\2\\flags"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\gfx\\flags"));
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
+                } finally {
+
+                    Thread_close_game thread_close_game = new Thread_close_game();
+                    thread_close_game.start();
+
+
+                    Copying.copying("Victoria 2\\2.bat","Victoria 2/time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Documents\\Paradox Interactive\\Victoria II");
+                    Main.frame.enable();
+
                 }
 
-                Thread_close_game thread_close_game = new Thread_close_game();
-                thread_close_game.start();
+
+                
+            } //  запуск мода 2
+
+            if(vic_2_launcher_selected && e.getX()>140 && e.getY()>527 && e.getX()<384 && e.getY() < 575 && !paintComponent.multi_player){
+
+                try {
+                    System.out.println("запуск мода 3");
+                    File file1 = new File("Victoria 2/3.bat");
+                    if (!file1.exists()) {
+                        Utility.alert("ОШИБКА - Переустановите мод или игру", "ERROR - reinstall game or mod");
+                        return;
+                    }
+
+                    Desktop desktop = Desktop.getDesktop();
+                    File file = new File("Victoria 2/mod/3");
+
+                    if (!file.isDirectory()) {
+
+                        Utility.alert("ОШИБКА - Установите мод", "ERROR - install mod first");
+                        return;
+                    }
 
 
+                    new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\3\\gfx\\flags").mkdirs();
+
+                    try {
+                        Utility.copyDirectory(new File("Victoria 2\\mod\\3\\flags"), new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\3\\gfx\\flags"));
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    } finally {
+
+                        Thread_close_game thread_close_game = new Thread_close_game();
+                        thread_close_game.start();
 
 
+                        Copying.copying("Victoria 2\\3.bat", "Victoria 2/time", new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map", new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Documents\\Paradox Interactive\\Victoria II");
+                        Main.frame.enable();
 
+                    }
 
-                Copying.copying("Victoria 2/1.bat","Victoria 2/mod/STAHL_MOD/time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map\\cache\\time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map");
-                Main.frame.enable();
-
-            } //  запуск мода базы ------------------------------------------------------------------
-
-            if(vic_2_launcher_selected && e.getX()>135 && e.getY()>486 && e.getX()<383 && e.getY() < 553 && !paintComponent.multi_player){
-                System.out.println("запуск мода доддф");
+                /*
 
                 File file1 = new File("Victoria 2/2.bat");
                 if (!file1.exists()) {
@@ -944,47 +1158,68 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 Copying.copying("Victoria 2\\2.bat","Victoria 2/time",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map",new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Documents\\Paradox Interactive\\Victoria II");
                 Main.frame.enable();
-                
-            } //  запуск мода доддф -------------------------------------------------------------
 
-            if(vic_2_launcher_selected && e.getX()>393 && e.getY()>346 && e.getX()<440 && e.getY() < 393 && !paintComponent.multi_player){
+                 */
+                } finally {
+                    Main.frame.enable();
+                    Utility.alert("Ошибка загрузки","Download error");
+                }
+
+            } //  запуск мода 3
+
+            if(vic_2_launcher_selected && e.getX()>395 && e.getY()>294 && e.getX()<445 && e.getY() < 344 && !paintComponent.multi_player){
                     System.out.println("отчистить_кеш_игры_метла 1");
 
-                    Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
-                    Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
-                    Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0\\gfx"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0\\logs"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0\\map"));
 
                     Utility.alert("Кеш очищен","cache cleared");
 
             } //  метла_1
 
-            if(vic_2_launcher_selected && e.getX()>391 && e.getY()>425 && e.getX()<440 && e.getY() < 471 && !paintComponent.multi_player){
+            if(vic_2_launcher_selected && e.getX()>395 && e.getY()>411 && e.getX()<446 && e.getY() < 461 && !paintComponent.multi_player){
                 System.out.println("отчисттиь мод базы");
 
 
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\gfx"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\logs"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\map"));
 
 
 
                 Utility.alert("Кеш очищен","cache cleared");
             } //  метла_2
 
-            if(vic_2_launcher_selected && e.getX()>393 && e.getY()>486 && e.getX()<442 && e.getY() < 532 && !paintComponent.multi_player){
+            if(vic_2_launcher_selected && e.getX()>396 && e.getY()>469 && e.getX()<445 && e.getY() < 517 && !paintComponent.multi_player){
                 System.out.println("отчитисть мод доддф");
 
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\logs"));
-                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\map"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\gfx"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\logs"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\map"));
 
 
 
                 Utility.alert("Кеш очищен","cache cleared");
             } //  метла_3
 
-            if(vic_2_launcher_selected && e.getX()>79 && e.getY()>347 && e.getX()<129 && e.getY() < 394 && !paintComponent.multi_player){
+            if(vic_2_launcher_selected && e.getX()>394 && e.getY()>527 && e.getX()<445 && e.getY() < 575 && !paintComponent.multi_player){
+                System.out.println("отчитисть мод 3");
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\3\\gfx"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\3\\logs"));
+                Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\3\\map"));
+
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\logs"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\map"));
+
+
+
+                Utility.alert("Кеш очищен","cache cleared");
+            } //  метла_4
+
+            if(vic_2_launcher_selected && e.getX()>83 && e.getY()>295 && e.getX()<132 && e.getY() < 344 && !paintComponent.multi_player){
                 System.out.println("сброс_настроек_шестеренка");
 
                 try {
@@ -1013,24 +1248,269 @@ public class Launcher extends JPanel implements ActionListener  {
 
             } //  шестеренка
 
-            if(vic_2_launcher_selected && e.getX()>80 && e.getY()>428 && e.getX()<128 && e.getY() < 474 && !paintComponent.multi_player){
-                System.out.println("скачать мод базы");
+            if(vic_2_launcher_selected && e.getX()>84 && e.getY()>413 && e.getX()<132 && e.getY() < 460 && !paintComponent.multi_player){
+
+
+
+
+                    System.out.println("скачать мод базы");
+
+                    Main.frame.enable(false);
+
+                if(!ping.check_server_ping()){
+                    Main.frame.enable(true);
+                    Utility.alert("Проверьте соединение с сетью или используйте VPN.","Check your network connection or use a VPN.");
+                    return;
+                }
+
+                    Desktop desktop = Desktop.getDesktop();
+                    File file = new File("Victoria 2");
+                    Utility.deleteDirectory(new File("Victoria 2\\mod\\3"));
+
+                    try {
+                        //desktop.open(new File("launcher\\V2_Clear.bat"));
+                        Runtime.getRuntime().exec("taskkill /F /IM v2game.exe");
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                    try {
+                        //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt"));
+                    } finally {
+                        try {
+                            //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt"));
+                        } finally {
+                            try {
+                                //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt"));
+                            } finally {
+
+                                if (file.isDirectory()) {
+
+
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+
+
+                                            new Main(Main.victoria_2_1_mod, "1.zip", "Victoria 2\\mod\\1");
+
+
+                                            Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_2_1_mod, "1.zip");
+                                            thread_download_game.start();
+
+
+                                            try {
+                                                Thread.sleep(3000);
+                                            } catch (InterruptedException ex) {
+                                                throw new RuntimeException(ex);
+                                            }
+
+
+                                            while (Thread_download_game.is_loading) {
+
+                                                try {
+                                                    Thread.sleep(1000);
+                                                    System.out.println("is loading");
+                                                } catch (InterruptedException ex) {
+                                                    throw new RuntimeException(ex);
+                                                }
+                                            }
+
+                                            try {
+                                                Thread.sleep(1000);
+                                            } catch (InterruptedException ex) {
+                                                throw new RuntimeException(ex);
+
+                                            }
+                                            System.out.println("START EXTRACTION");
+                                            Utility.extractFolder("1.zip", "tmp");
+                                            System.out.println("COMPLETE EXTRACTION");
+
+                                            try {
+                                                new File("Victoria 2\\mod").mkdirs();
+                                                Utility.deleteDirectory(new File("Victoria 2\\mod\\2"));
+                                                Utility.copyDirectory(new File("tmp\\1"), new File("Victoria 2\\mod\\1"));
+                                                Utility.copyFile(new File("tmp\\1.mod"), new File("Victoria 2\\mod\\1.mod"));
+
+                                            } catch (IOException ex) {
+                                                throw new RuntimeException(ex);
+                                            }
+
+
+                                            Utility.deleteDir(new File("tmp"));
+                                            Utility.deleteDir(new File("1.zip"));
+
+
+                                            Main.load_frame.dispose();
+                                            Main.frame.enable();
+
+
+                                        }
+
+                                    }).start();
+                                } else Utility.alert("ОШИБКА - Установите игру", "ERROR - Install game first");
+
+
+                            }
+                        }
+
+                    } // шестеренка + запуск скачки мода
+
+
+
+
+            } //  скачать мод 1
+
+            if(vic_2_launcher_selected && e.getX()>85 && e.getY()>470 && e.getX()<131 && e.getY() < 516 && !paintComponent.multi_player){
+
+
+                    System.out.println("скачать 2");
+                    Main.frame.enable(false);
+                    if(!ping.check_server_ping()){
+                        Main.frame.enable(true);
+                        Utility.alert("Проверьте соединение с сетью или используйте VPN.","Check your network connection or use a VPN.");
+                        return;
+                    }
+
+                    Desktop desktop = Desktop.getDesktop();
+                    File file = new File("Victoria 2");
+                    Utility.deleteDirectory(new File("Victoria 2\\mod\\2"));
+
+                    try {
+                        //desktop.open(new File("launcher\\V2_Clear.bat"));
+                        Runtime.getRuntime().exec("taskkill /F /IM v2game.exe");
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                    //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
+                    //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
+                    //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
+
+                    //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx"));
+                    //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\logs"));
+                    //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\map"));
+
+                    //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\gfx"));
+                    //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\logs"));
+                    //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\map"));
+
+
+                    try {
+                        //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt"));
+
+
+                    } finally {
+                        try {
+                            //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt"));
+                        } finally {
+                            try {
+                                //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt"));
+                            } finally {
+
+                                if (file.isDirectory()) {
+
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+
+
+                                            new Main(Main.victoria_2_2_mod, "2.zip", "Victoria 2\\mod\\2");
+
+
+                                            Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_2_2_mod, "2.zip");
+                                            thread_download_game.start();
+
+
+                                            try {
+                                                Thread.sleep(3000);
+                                            } catch (InterruptedException ex) {
+                                                throw new RuntimeException(ex);
+                                            }
+
+
+                                            while (Thread_download_game.is_loading) {
+
+                                                try {
+                                                    Thread.sleep(1000);
+                                                } catch (InterruptedException ex) {
+                                                    throw new RuntimeException(ex);
+                                                }
+                                            }
+
+                                            try {
+                                                Thread.sleep(1000);
+                                            } catch (InterruptedException ex) {
+                                                throw new RuntimeException(ex);
+                                            }
+
+                                            Utility.extractFolder("2.zip", "tmp");
+
+                                            try {
+                                                new File("Victoria 2\\mod").mkdirs();
+                                                Utility.deleteDirectory(new File("Victoria 2\\mod\\2"));
+                                                Utility.copyDirectory(new File("tmp\\2"), new File("Victoria 2\\mod\\2"));
+                                                Utility.copyFile(new File("tmp\\2.mod"), new File("Victoria 2\\mod\\2.mod"));
+                                            } catch (IOException ex) {
+                                                throw new RuntimeException(ex);
+                                            }
+
+
+                                            Utility.deleteDir(new File("tmp"));
+                                            Utility.deleteDir(new File("2.zip"));
+
+
+                                            Main.load_frame.dispose();
+                                            Main.frame.enable(true);
+
+
+                                        }
+
+                                    }).start();
+                                } else Utility.alert("ОШИБКА - Установите игру", "ERROR - Install game first");
+
+                            }
+                        }
+
+                    } // шестеренка + установка мода додф
+
+
+
+
+
+
+
+            } //  скачать мод 2
+
+            if(vic_2_launcher_selected && e.getX()>83 && e.getY()>529 && e.getX()<131 && e.getY() < 575 && !paintComponent.multi_player){
+
+                Main.frame.enable(false);
+
+                if(!ping.check_server_ping()){
+                    Main.frame.enable(true);
+                    Utility.alert("Проверьте соединение с сетью или используйте VPN.","Check your network connection or use a VPN.");
+                    return;
+                }
+
+                System.out.println("скачать мод 3");
+
+
 
                 Desktop desktop = Desktop.getDesktop();
                 File file = new File("Victoria 2");
 
-
                 try {
-                    desktop.open(new File("launcher\\V2_Clear.bat"));
+                    //desktop.open(new File("launcher\\V2_Clear.bat"));
+                    Runtime.getRuntime().exec("taskkill /F /IM v2game.exe");
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
 
-
+                Utility.deleteDirectory(new File("Victoria 2\\mod\\3"));
 
                 //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\gfx"));
                 //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\logs"));
-               // Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\map"));
 
                 //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\gfx"));
                 //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\logs"));
@@ -1045,6 +1525,7 @@ public class Launcher extends JPanel implements ActionListener  {
                 try {
                     //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt"));
 
+
                 } finally {
                     try {
                         //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt"));
@@ -1053,93 +1534,78 @@ public class Launcher extends JPanel implements ActionListener  {
                             //Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt"));
                         } finally {
 
-                        if(file.isDirectory()) {
+                            if(file.isDirectory()) {
+
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
 
 
-                            new Thread(new Runnable() {
-                                @Override
-                                public void run() {
 
 
+                                        new Main(Main.victoria_2_3_mod, "3.zip", "Victoria 2\\mod\\3");
 
 
-                                    new Main(Main.victoria_2_BASE, "BASE.zip", "Victoria 2\\mod\\STAHL_MOD");
+                                        Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_2_3_mod, "3.zip");
+                                        thread_download_game.start();
 
-
-                                    Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_2_BASE, "BASE.zip");
-                                    thread_download_game.start();
-
-
-                                    try {
-                                        Thread.sleep(3000);
-                                    } catch (InterruptedException ex) {
-                                        throw new RuntimeException(ex);
-                                    }
-
-
-                                    while (Thread_download_game.is_loading) {
 
                                         try {
-                                            Thread.sleep(1000);
-                                            System.out.println("is loading");
+                                            Thread.sleep(3000);
                                         } catch (InterruptedException ex) {
                                             throw new RuntimeException(ex);
                                         }
-                                    }
 
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException ex) {
-                                        throw new RuntimeException(ex);
 
-                                    }
-                                    System.out.println("START EXTRACTION");
-                                    Utility.extractFolder("BASE.zip", "tmp");
-                                    System.out.println("COMPLETE EXTRACTION");
+                                        while (Thread_download_game.is_loading) {
 
-                                    try {
+                                            try {
+                                                Thread.sleep(1000);
+                                            } catch (InterruptedException ex) {
+                                                throw new RuntimeException(ex);
+                                            }
+                                        }
+
+                                        try {
+                                            Thread.sleep(1000);
+                                        } catch (InterruptedException ex) {
+                                            throw new RuntimeException(ex);
+                                        }
+                                        Main.frame.enable(false);
+
+                                        Utility.extractFolder("3.zip", "tmp");
+
+                                        try {
                                             new File("Victoria 2\\mod").mkdirs();
-                                            Utility.deleteDirectory(new File("Victoria 2\\mod\\STAHL_MOD"));
-                                            Utility.copyDirectory(new File("tmp\\STAHL_MOD"),new File("Victoria 2\\mod\\STAHL_MOD"));
-                                            Utility.copyFile(new File("tmp\\STAHL_MOD.mod"),new File("Victoria 2\\mod\\STAHL_MOD.mod"));
+                                            Utility.deleteDirectory(new File("Victoria 2\\mod\\3"));
+                                            Utility.copyDirectory(new File("tmp\\3"),new File("Victoria 2\\mod\\3"));
+                                            Utility.copyFile(new File("tmp\\3.mod"),new File("Victoria 2\\mod\\3.mod"));
+                                        } catch (IOException ex) {
+                                            throw new RuntimeException(ex);
+                                        }
 
-                                    } catch (IOException ex) {
-                                        throw new RuntimeException(ex);
+
+                                        Utility.deleteDir(new File("tmp"));
+                                        Utility.deleteDir(new File("3.zip"));
+
+
+                                        Main.load_frame.dispose();
+                                        Main.frame.enable(true);
+
+
+
                                     }
 
-
-                                    Utility.deleteDir(new File("tmp"));
-                                    Utility.deleteDir(new File("BASE.zip"));
-
-
-                                    Main.load_frame.dispose();
-
-
-
-                                }
-
-                            }).start();
-                        } else Utility.alert("ОШИБКА - Установите игру","ERROR - Install game first");
-
-
+                                }).start();
+                            } else Utility.alert("ОШИБКА - Установите игру","ERROR - Install game first");
 
                         }
                     }
 
-                } // шестеренка + запуск скачки мода
+                } // шестеренка + установка мода додф
 
 
-
-
-
-
-
-
-
-            } //  скачать мод базы
-
-            if(vic_2_launcher_selected && e.getX()>79 && e.getY()>485 && e.getX()<128 && e.getY() < 532 && !paintComponent.multi_player){
-                System.out.println("скачать мод доддф");
+                /*
 
                 Desktop desktop = Desktop.getDesktop();
                 File file = new File("Victoria 2");
@@ -1216,14 +1682,14 @@ public class Launcher extends JPanel implements ActionListener  {
 
                                         Utility.extractFolder("DoDDF.zip", "tmp");
 
-                                try {
-                                    new File("Victoria 2\\mod").mkdirs();
-                                    Utility.deleteDirectory(new File("Victoria 2\\mod\\DoDDF"));
-                                    Utility.copyDirectory(new File("tmp\\DoDDF"),new File("Victoria 2\\mod\\DoDDF"));
-                                    Utility.copyFile(new File("tmp\\DoDDF.mod"),new File("Victoria 2\\mod\\DoDDF.mod"));
-                                } catch (IOException ex) {
-                                    throw new RuntimeException(ex);
-                                }
+                                        try {
+                                            new File("Victoria 2\\mod").mkdirs();
+                                            Utility.deleteDirectory(new File("Victoria 2\\mod\\DoDDF"));
+                                            Utility.copyDirectory(new File("tmp\\DoDDF"),new File("Victoria 2\\mod\\DoDDF"));
+                                            Utility.copyFile(new File("tmp\\DoDDF.mod"),new File("Victoria 2\\mod\\DoDDF.mod"));
+                                        } catch (IOException ex) {
+                                            throw new RuntimeException(ex);
+                                        }
 
 
                                         Utility.deleteDir(new File("tmp"));
@@ -1244,12 +1710,14 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 } // шестеренка + установка мода додф
 
+                 */
 
 
 
 
 
-            } //  скачать мод доддф
+
+            } //  скачать мод 3
 
             if(vic_2_launcher_selected && e.getX()>406 && e.getY()>627 && e.getX()<456 && e.getY() < 674 && !paintComponent.multi_player){
 
@@ -1285,7 +1753,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
-
+            //----------------------------------------------------------------------------------------------------------------------------------------------------
             if((vic_3_launcher_selected || vic_2_launcher_selected) && e.getX()>34 && e.getY()>623 && e.getX()<94 && e.getY() < 676){
 
                 if(paintComponent.multi_player){
@@ -1307,11 +1775,6 @@ public class Launcher extends JPanel implements ActionListener  {
                 return;
             }// назад
 
-
-            //------------------------
-
-
-
             if(!Main.the_choice_is_made && e.getX()<498 && e.getY()<368) {
                 Main.the_choice_is_made = true;
                 Main.frame.setTitle("Victoria 2");
@@ -1323,9 +1786,8 @@ public class Launcher extends JPanel implements ActionListener  {
                 vic_3_launcher_selected = true;
                 return;
             }
+            //----------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-            //------------------------
 
             if(vic_3_launcher_selected && e.getX()>389 && e.getY()>288 && e.getX()<441 && e.getY() < 330 ){
 
@@ -1843,7 +2305,6 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
             } //// кнопка дискорда
-
 
             if (vic_3_launcher_selected && e.getX() > 74 && e.getY() > 285 && e.getX() < 123 && e.getY() < 335) {
 

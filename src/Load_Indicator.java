@@ -10,6 +10,10 @@ import java.nio.file.Paths;
 
 public class Load_Indicator extends JPanel implements ActionListener {
 
+    public static int debug_percent = 0;
+
+    public static int debug_percent_count;
+
     public static long file_size;
 
     public static String zip_location;
@@ -91,6 +95,31 @@ public class Load_Indicator extends JPanel implements ActionListener {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        /*
+
+
+
+
+        if(debug_percent == how_much_persent_loaded.intValue()) {
+            debug_percent_count++;
+            System.out.println(debug_percent_count);
+
+        } else {
+            debug_percent_count = 0;
+        }
+
+        debug_percent = how_much_persent_loaded.intValue();
+
+        if(debug_percent_count>200){
+
+            Main.load_frame.dispose();
+            Main.frame.enable(true);
+            Utility.alert("Ошибка загрузки","Download error");
+        }
+
+         */ // ошибка загрузки
+
 
 
 

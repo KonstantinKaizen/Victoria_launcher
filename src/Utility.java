@@ -106,6 +106,33 @@ public class Utility {
 
 
 
+    public static void deleteDirectory(File directory,String not_delete,String not_delete_2) {
+
+
+
+        // if the file is directory or not
+        System.out.println(directory.getName()+"  --first");
+        if (directory.isDirectory() && !directory.getName().equals(not_delete_2)) {
+            File[] files = directory.listFiles();
+
+            // if the directory contains any file
+            if (files != null) {
+                for (File file : files) {
+
+                    // recursive call if the subdirectory is non-empty
+                    System.out.println(directory.getName()+"  --second");
+
+                    if(!directory.getName().equals(not_delete_2)) {
+                        deleteDirectory(file, "mod", "mod");
+                    }
+                }
+            }
+        }
+
+
+        directory.delete();
+    } // удалить дерикторию рекурсивно
+
     public static void deleteDirectory(File directory) {
 
         // if the file is directory or not
@@ -126,14 +153,19 @@ public class Utility {
 
 
     public static void download(String urlStr, String file) throws IOException {
-        System.out.println("download started");
-        URL url = new URL(urlStr);
-        ReadableByteChannel rbc = Channels.newChannel(url.openStream());
-        FileOutputStream fos = new FileOutputStream(file);
-        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-        fos.close();
-        rbc.close();
-        System.out.println("download compeleted");
+
+
+
+
+            System.out.println("download started");
+            URL url = new URL(urlStr);
+            ReadableByteChannel rbc = Channels.newChannel(url.openStream());
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+            fos.close();
+            rbc.close();
+            System.out.println("download compeleted");
+
     } // скачать
 
     public static void extractFolder(String zipFile,String extractFolder) // разархивировать

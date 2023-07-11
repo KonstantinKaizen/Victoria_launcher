@@ -50,14 +50,37 @@ public class Graphic  {
     public static boolean play_button_b = false;
     public static boolean discord_button_b = false;
     public static boolean install_button_b = false;
-    public static boolean base_mod_launch_button_b = false;
-    public static boolean doddf_mod_launch_button_b = false;
+    public static boolean mod_1_launch_b = false;
+    public static boolean mod_2_launch_b = false;
+    public static boolean mod_3_launch_b = false;
     public static boolean clean_button_1_b = false;
     public static boolean clean_button_2_b = false;
     public static boolean clean_button_3_b = false;
+    public static boolean clean_button_4_b = false;
+
+
+
     public static boolean reset_button_b = false;
     public static boolean download_button_1_b = false;
     public static boolean download_button_2_b = false;
+    public static boolean download_button_3_b = false;
+
+    public static boolean download_mod_b_3 = false;
+
+    public static boolean reset_gear_b_3 = false;
+
+    public static boolean clean_cache_b_3 = false;
+
+    public static boolean launch_game_b_3 = false;
+
+    public static boolean launch_mode_b_3 = false;
+
+    public static boolean install_game_b_3 = false;
+
+    public static boolean lang_button_b_3 = false;
+
+
+
 
 
     public static boolean back = false;
@@ -78,17 +101,12 @@ public class Graphic  {
 
     //prefabs
 
-    public static Image Prefab_260x120_Button = new ImageIcon("launcher/images/new/prefabs/Prefab_260x120_Button.png").getImage();
-    public static Image Prefab_260x120_Button_Active = new ImageIcon("launcher/images/new/prefabs/Prefab_260x120_Button_Active.png").getImage();
-
-
-    public static Image Prefab_60x60_Button = new ImageIcon("launcher/images/new/prefabs/Prefab_60x60_Button.png").getImage();
-    public static Image Prefab_60x60_Button_Active = new ImageIcon("launcher/images/new/prefabs/Prefab_60x60_Button_Active.png").getImage();
+    public static Image Prefab_260x120_Button = new ImageIcon("launcher/images/new/Vic2/LaunchG_RUS.png").getImage();
+    public static Image Prefab_260x120_Button_Active = new ImageIcon("launcher/images/new/Vic2/LaunchG_RUS_Active.png").getImage();
 
     //text
-
-    public static Image Launchgame_Text_RUS = new ImageIcon("launcher/images/new/text_1/RUS/Launchgame_Text_RUS.png").getImage();
-    public static Image Lang_Icon_RUS = new ImageIcon("launcher/images/new/icons/Lang_Icon_RUS.png").getImage();
+    public static Image Lang_Icon = new ImageIcon("launcher/images/new/Vic2/ENG_Button.png").getImage();
+    public static Image Lang_Icon_Active = new ImageIcon("launcher/images/new/Vic2/ENG_Button_Active.png").getImage();
 
 
 
@@ -111,19 +129,22 @@ public class Graphic  {
     public static Image play_button_selected = new ImageIcon("launcher/images/play_button_selected.png").getImage();
     public static Image discord_button = new ImageIcon("launcher/images/discord.png").getImage();
     public static Image discord_button_selected = new ImageIcon("launcher/images/discord_selected.png").getImage();
-    public static Image install_button = new ImageIcon("launcher/images/install_button.png").getImage();
-    public static Image install_button_selected = new ImageIcon("launcher/images/install_button_selected.png").getImage();
-    public static Image clean_button = new ImageIcon("launcher/images/clean_button.png").getImage();
-    public static Image clean_button_selected = new ImageIcon("launcher/images/clean_button_selected.png").getImage();
-    public static Image download_button = new ImageIcon("launcher/images/download_button.png").getImage();
+    public static Image install_button = new ImageIcon("launcher/images/new/Vic2/InstallTBT_RUS.png").getImage();
+    public static Image install_button_selected = new ImageIcon("launcher/images/new/Vic2/InstallTBT_RUS_Active.png").getImage();
+    public static Image clean_button = new ImageIcon("launcher/images/new/Vic2/CleanCache_Button.png").getImage();
+    public static Image clean_button_selected = new ImageIcon("launcher/images/new/Vic2/CleanCache_Button_Active.png").getImage();
+    public static Image download_button = new ImageIcon("launcher/images/new/Vic2/Download_Button.png").getImage();
 
-    public static Image download_button_selected = new ImageIcon("launcher/images/download_button_selected.png").getImage();
-    public static Image base_mod_launch_button = new ImageIcon("launcher/images/base_mod_launch_button.png").getImage();
-    public static Image base_mod_launch_button_selected = new ImageIcon("launcher/images/base_mod_launch_button_selected.png").getImage();
-    public static Image doddf_mod_launch_button = new ImageIcon("launcher/images/doddf_mod_launch_button.png").getImage();
-    public static Image doddf_mod_launch_button_selected = new ImageIcon("launcher/images/doddf_mod_launch_button_selected.png").getImage();
-    public static Image reset_button = new ImageIcon("launcher/images/reset_button.png").getImage();
-    public static Image reset_button_selected = new ImageIcon("launcher/images/reset_button_selected.png").getImage();
+    public static Image download_button_selected = new ImageIcon("launcher/images/new/Vic2/Download_Button_Active.png").getImage();
+    public static Image mod_1_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_1_RUS.png").getImage();
+    public static Image mod_1_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_1_RUS_Active.png").getImage();
+    public static Image mod_2_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_2_RUS.png").getImage();
+    public static Image mod_2_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_2_RUS_Active.png").getImage();
+
+    public static Image mod_3_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_3_RUS.png").getImage();
+    public static Image mod_3_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_3_RUS_Active.png").getImage();
+    public static Image reset_button = new ImageIcon("launcher/images/new/Vic2/ResetSettings_Button.png").getImage();
+    public static Image reset_button_selected = new ImageIcon("launcher/images/new/Vic2/ResetSettings_Button_Active.png").getImage();
 
     public static Image advice = new ImageIcon("launcher/images/advice.png").getImage();
 
@@ -133,42 +154,42 @@ public class Graphic  {
 
     //VIC 3 BUTTONS
 
-    public static Image play_button_3 = new ImageIcon("launcher/images/play_button_3.png").getImage();
+    public static Image play_button_3 = new ImageIcon("launcher/images/new/Vic3/LaunchG_Vic3_RUS.png").getImage();
 
-    public static Image play_button_selected_3 = new ImageIcon("launcher/images/play_button_selected_3.png").getImage();
+    public static Image play_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/LaunchG_Vic3_RU_ActiveS.png").getImage();
 
-    public static Image install_button_3 = new ImageIcon("launcher/images/install_button_3.png").getImage();
-    public static Image install_button_selected_3 = new ImageIcon("launcher/images/install_button_selected_3.png").getImage();
+    public static Image install_button_3 = new ImageIcon("launcher/images/new/Vic3/InstallTBT_Vic3_RUS.png").getImage();
+    public static Image install_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/InstallTBT_Vic3_RUS_Active.png").getImage();
 
-    public static Image base_mod_launch_button_3 = new ImageIcon("launcher/images/base_mod_launch_button_3.png").getImage();
-    public static Image base_mod_launch_button_selected_3 = new ImageIcon("launcher/images/base_mod_launch_button_selected_3.png").getImage();
+    public static Image base_mod_launch_button_3 = new ImageIcon("launcher/images/new/Vic3/RunNVBMTBT_RUS.png").getImage();
+    public static Image base_mod_launch_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/RunNVBMTBT_RUS_Active.png").getImage();
 
-    public static Image clean_button_3 = new ImageIcon("launcher/images/clean_button_3.png").getImage();
-    public static Image clean_button_selected_3 = new ImageIcon("launcher/images/clean_button_selected_3.png").getImage();
+    public static Image clean_button_3 = new ImageIcon("launcher/images/new/Vic3/CleanCache_Button_Vic3.png").getImage();
+    public static Image clean_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/CleanCache_Button_Active_Vic3.png").getImage();
 
-    public static Image reset_button_3 = new ImageIcon("launcher/images/reset_button_3.png").getImage();
-    public static Image reset_button_selected_3 = new ImageIcon("launcher/images/reset_button_selected_3.png").getImage();
+    public static Image reset_button_3 = new ImageIcon("launcher/images/new/Vic3/ResetSettings_Button_Vic3.png").getImage();
+    public static Image reset_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/ResetSettings_Button_Active_Vic3.png").getImage();
 
-    public static Image download_button_3 = new ImageIcon("launcher/images/download_button_3.png").getImage();
+    public static Image download_button_3 = new ImageIcon("launcher/images/new/Vic3/Download_Button_Vic3.png").getImage();
 
-    public static Image download_button_selected_3 = new ImageIcon("launcher/images/download_button_selected_3.png").getImage();
+    public static Image download_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/Download_Button_Active_Vic3.png").getImage();
 
 
-    public static Image back_vic2 = new ImageIcon("launcher/images/back_vic2.png").getImage();
-    public static Image back_vic2_active = new ImageIcon("launcher/images/back_vic2_active.png").getImage();
+    public static Image back_vic2 = new ImageIcon("launcher/images/new/Vic2/Back_Button.png").getImage();
+    public static Image back_vic2_active = new ImageIcon("launcher/images/new/Vic2/Back_Button_Active.png").getImage();
 
     public static Image back_vic3 = new ImageIcon("launcher/images/back_vic3.png").getImage();
     public static Image back_vic3_active = new ImageIcon("launcher/images/back_vic3_active.png").getImage();
 
-    public static Image delete_all = new ImageIcon("launcher/images/delete_all.png").getImage();
-    public static Image delete_all_active = new ImageIcon("launcher/images/delete_all_active.png").getImage();
+    public static Image delete_all = new ImageIcon("launcher/images/new/Vic2/Delete_Button.png").getImage();
+    public static Image delete_all_active = new ImageIcon("launcher/images/new/Vic2/Delete_Button_Active.png").getImage();
 
     public static Image advice_back = new ImageIcon("launcher/images/advice_back.png").getImage();
     public static Image advice_delete = new ImageIcon("launcher/images/advice_delete.png").getImage();
 
-    public static Image IP_Browser_OpenButton = new ImageIcon("launcher/images/IP_Browser_OpenButton.png").getImage();
+    public static Image IP_Browser_OpenButton = new ImageIcon("launcher/images/new/Vic2/IPB_Button.png").getImage();
 
-    public static Image IP_Browser_OpenButton_Active = new ImageIcon("launcher/images/IP_Browser_OpenButton_Active.png").getImage();
+    public static Image IP_Browser_OpenButton_Active = new ImageIcon("launcher/images/new/Vic2/IPB_Button_Active.png").getImage();
 
     public static Image IP_Browser_Background = new ImageIcon("launcher/images/IP_Browser_Background.png").getImage();
 
@@ -192,20 +213,22 @@ public class Graphic  {
 
     public static Image Discord_Desc = new ImageIcon("launcher/images/Discord_Desc.png").getImage();
 
-    public static Image DLCButton_Active_Vic3 = new ImageIcon("launcher/images/DLCButton_Active_Vic3.png").getImage();
+    public static Image DLCButton_Vic3 = new ImageIcon("launcher/images/new/Vic3/DLC_Button_Vic3.png").getImage();
 
-    public static Image DLCButton_Vic3 = new ImageIcon("launcher/images/DLCButton_Vic3.png").getImage();
+    public static Image DLCButton_Active_Vic3 = new ImageIcon("launcher/images/new/Vic3/DLC_Button_Active_Vic3.png").getImage();
+
+
 
     public static Image DLC_Desc = new ImageIcon("launcher/images/DLC_Desc.png").getImage();
 
     public static Image Has_Ping_Desc = new ImageIcon("launcher/images/Has_Ping_Desc.png").getImage();
 
     public static Image No_Ping_Desc = new ImageIcon("launcher/images/No_Ping_Desc.png").getImage();
-    public static Image ENG_Button = new ImageIcon("launcher/images/ENG_Button.png").getImage();
-    public static Image ENG_Button_Active = new ImageIcon("launcher/images/ENG_Button_Active.png").getImage();
+    public static Image ENG_Button = new ImageIcon("launcher/images/new/Vic3/ENG_Button_Vic3.png").getImage();
+    public static Image ENG_Button_Active = new ImageIcon("launcher/images/new/Vic3/ENG_Button_Active_Vic3.png").getImage();
 
-    public static Image DeleteButton_Active_Vic3 = new ImageIcon("launcher/images/DeleteButton_Active_Vic3.png").getImage();
-    public static Image DeleteButton_Vic3 = new ImageIcon("launcher/images/DeleteButton_Vic3.png").getImage();
+    public static Image DeleteButton_Active_Vic3 = new ImageIcon("launcher/images/new/Vic3/Delete_Button_Active_Vic3.png").getImage();
+    public static Image DeleteButton_Vic3 = new ImageIcon("launcher/images/new/Vic3/Delete_Button_Vic3.png").getImage();
     public static Image Loading_Screen = new ImageIcon("launcher/images/Loading_Screen.png").getImage();
     public static Image Loading_Progressbar = new ImageIcon("launcher/images/Loading_Progressbar.png").getImage();
 
@@ -222,36 +245,75 @@ public class Graphic  {
 
         if(language_russian || change_lang) {
 
+            //смена на англ
+
+
+            ENG_Button = new ImageIcon("launcher/images/new/Vic3/RUS_Button_Vic3.png").getImage();
+            ENG_Button_Active = new ImageIcon("launcher/images/new/Vic3/RUS_Button_Active_Vic3.png").getImage();
+
+
+
+
+
+
+
+
+
+            Lang_Icon = new ImageIcon("launcher/images/new/Vic2/RUS_Button.png").getImage();
+            Lang_Icon_Active = new ImageIcon("launcher/images/new/Vic2/RUS_Button_Active.png").getImage();
+
+
             advice = new ImageIcon("launcher/images/ENG/advice.png").getImage();
 
             advice_3 = new ImageIcon("launcher/images/ENG/advice_3.png").getImage();
             advice_back = new ImageIcon("launcher/images/ENG/advice_back.png").getImage();
 
+
+
+            Prefab_260x120_Button = new ImageIcon("launcher/images/new/Vic2/LaunchG_ENG.png").getImage();
+            Prefab_260x120_Button_Active = new ImageIcon("launcher/images/new/Vic2/LaunchG_ENG_Active.png").getImage();
+
+            install_button = new ImageIcon("launcher/images/new/Vic2/InstallTBT_ENG.png").getImage();
+            install_button_selected = new ImageIcon("launcher/images/new/Vic2/InstallTBT_ENG_Active.png").getImage();
+
+            mod_1_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_1_ENG.png").getImage();
+            mod_1_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_1_ENG_Active.png").getImage();
+
+            mod_2_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_2_ENG.png").getImage();
+            mod_2_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_2_ENG_Active.png").getImage();
+
+            mod_3_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_3_ENG.png").getImage();
+            mod_3_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_3_ENG_Active.png").getImage();
+
+
+
             advice_delete = new ImageIcon("launcher/images/ENG/advice_delete.png").getImage();
-            base_mod_launch_button = new ImageIcon("launcher/images/ENG/base_mod_launch_button.png").getImage();
-            base_mod_launch_button_3 = new ImageIcon("launcher/images/ENG/base_mod_launch_button_3.png").getImage();
-            base_mod_launch_button_selected = new ImageIcon("launcher/images/ENG/base_mod_launch_button_selected.png").getImage();
-            base_mod_launch_button_selected_3 = new ImageIcon("launcher/images/ENG/base_mod_launch_button_selected_3.png").getImage();
+
+            base_mod_launch_button_3 = new ImageIcon("launcher/images/new/Vic3/RunNVBMTBT_ENG.png").getImage();
+            base_mod_launch_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/RunNVBMTBT_ENG_Active.png").getImage();
+
+
             Discord_Desc = new ImageIcon("launcher/images/ENG/Discord_Desc.png").getImage();
 
             DLC_Desc = new ImageIcon("launcher/images/ENG/DLC_Desc.png").getImage();
-            doddf_mod_launch_button = new ImageIcon("launcher/images/ENG/doddf_mod_launch_button.png").getImage();
-            doddf_mod_launch_button_selected = new ImageIcon("launcher/images/ENG/doddf_mod_launch_button_selected.png").getImage();
-            ENG_Button = new ImageIcon("launcher/images/ENG/ENG_Button.png").getImage();
-            ENG_Button_Active = new ImageIcon("launcher/images/ENG/ENG_Button_Active.png").getImage();
+
+
+
             Has_Ping_Desc = new ImageIcon("launcher/images/ENG/Has_Ping_Desc.png").getImage();
 
-            install_button = new ImageIcon("launcher/images/ENG/install_button.png").getImage();
-            install_button_3 = new ImageIcon("launcher/images/ENG/install_button_3.png").getImage();
-            install_button_selected = new ImageIcon("launcher/images/ENG/install_button_selected.png").getImage();
-            install_button_selected_3 = new ImageIcon("launcher/images/ENG/install_button_selected_3.png").getImage();
+
+            install_button_3 = new ImageIcon("launcher/images/new/Vic3/InstallTBT_Vic3_ENG.png").getImage();
+            install_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/InstallTBT_Vic3_ENG_Active.png").getImage();
+
+
             IPB_Desc = new ImageIcon("launcher/images/ENG/IPB_Desc.png").getImage();
 
             No_Ping_Desc = new ImageIcon("launcher/images/ENG/No_Ping_Desc.png").getImage();
-            play_button = new ImageIcon("launcher/images/ENG/play_button.png").getImage();
-            play_button_3 = new ImageIcon("launcher/images/ENG/play_button_3.png").getImage();
-            play_button_selected = new ImageIcon("launcher/images/ENG/play_button_selected.png").getImage();
-            play_button_selected_3 = new ImageIcon("launcher/images/ENG/play_button_selected_3.png").getImage();
+
+            play_button_3 = new ImageIcon("launcher/images/new/Vic3/LaunchG_Vic3_ENG.png").getImage();
+            play_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/LaunchG_Vic3_ENG_Active.png").getImage();
+
+
             advice_2 = new ImageIcon("launcher/images/ENG/advice_2.png").getImage();
 
             Quote_Downloading = new ImageIcon("launcher/images/ENG/Quote_Downloading.png").getImage();
@@ -264,6 +326,14 @@ public class Graphic  {
             Graphic.change_lang = false;
         } else {
 
+            //смена на рус
+
+            Lang_Icon = new ImageIcon("launcher/images/new/Vic2/ENG_Button.png").getImage();
+            Lang_Icon_Active = new ImageIcon("launcher/images/new/Vic2/ENG_Button_Active.png").getImage();
+
+            ENG_Button = new ImageIcon("launcher/images/new/Vic3/ENG_Button_Vic3.png").getImage();
+            ENG_Button_Active = new ImageIcon("launcher/images/new/Vic3/ENG_Button_Active_Vic3.png").getImage();
+
 
             advice = new ImageIcon("launcher/images/advice.png").getImage();
 
@@ -271,31 +341,48 @@ public class Graphic  {
             advice_back = new ImageIcon("launcher/images/advice_back.png").getImage();
 
             advice_delete = new ImageIcon("launcher/images/advice_delete.png").getImage();
-            base_mod_launch_button = new ImageIcon("launcher/images/base_mod_launch_button.png").getImage();
-            base_mod_launch_button_3 = new ImageIcon("launcher/images/base_mod_launch_button_3.png").getImage();
-            base_mod_launch_button_selected = new ImageIcon("launcher/images/base_mod_launch_button_selected.png").getImage();
-            base_mod_launch_button_selected_3 = new ImageIcon("launcher/images/base_mod_launch_button_selected_3.png").getImage();
+
+            Prefab_260x120_Button = new ImageIcon("launcher/images/new/Vic2/LaunchG_RUS.png").getImage();
+            Prefab_260x120_Button_Active = new ImageIcon("launcher/images/new/Vic2/LaunchG_RUS_Active.png").getImage();
+
+            install_button = new ImageIcon("launcher/images/new/Vic2/InstallTBT_RUS.png").getImage();
+            install_button_selected = new ImageIcon("launcher/images/new/Vic2/InstallTBT_RUS_Active.png").getImage();
+
+            mod_1_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_1_RUS.png").getImage();
+            mod_1_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_1_RUS_Active.png").getImage();
+
+            mod_2_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_2_RUS.png").getImage();
+            mod_2_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_2_RUS_Active.png").getImage();
+
+            mod_3_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_3_RUS.png").getImage();
+            mod_3_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_3_RUS_Active.png").getImage();
+
+            base_mod_launch_button_3 = new ImageIcon("launcher/images/new/Vic3/RunNVBMTBT_RUS.png").getImage();
+            base_mod_launch_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/RunNVBMTBT_RUS_Active.png").getImage();
+
+
             Discord_Desc = new ImageIcon("launcher/images/Discord_Desc.png").getImage();
 
             DLC_Desc = new ImageIcon("launcher/images/DLC_Desc.png").getImage();
-            doddf_mod_launch_button = new ImageIcon("launcher/images/doddf_mod_launch_button.png").getImage();
-            doddf_mod_launch_button_selected = new ImageIcon("launcher/images/doddf_mod_launch_button_selected.png").getImage();
-            ENG_Button = new ImageIcon("launcher/images/ENG_Button.png").getImage();
-            ENG_Button_Active = new ImageIcon("launcher/images/ENG_Button_Active.png").getImage();
+
+
+
             Has_Ping_Desc = new ImageIcon("launcher/images/Has_Ping_Desc.png").getImage();
 
-            install_button = new ImageIcon("launcher/images/install_button.png").getImage();
-            install_button_3 = new ImageIcon("launcher/images/install_button_3.png").getImage();
-            install_button_selected = new ImageIcon("launcher/images/install_button_selected.png").getImage();
-            install_button_selected_3 = new ImageIcon("launcher/images/install_button_selected_3.png").getImage();
+
+            install_button_3 = new ImageIcon("launcher/images/new/Vic3/InstallTBT_Vic3_RUS.png").getImage();
+            install_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/InstallTBT_Vic3_RUS_Active.png").getImage();
+
             IPB_Desc = new ImageIcon("launcher/images/IPB_Desc.png").getImage();
 
             No_Ping_Desc = new ImageIcon("launcher/images/No_Ping_Desc.png").getImage();
-            play_button = new ImageIcon("launcher/images/play_button.png").getImage();
-            play_button_3 = new ImageIcon("launcher/images/play_button_3.png").getImage();
-            play_button_selected = new ImageIcon("launcher/images/play_button_selected.png").getImage();
-            play_button_selected_3 = new ImageIcon("launcher/images/play_button_selected_3.png").getImage();
+
+            play_button_3 = new ImageIcon("launcher/images/new/Vic3/LaunchG_Vic3_RUS.png").getImage();
+            play_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/LaunchG_Vic3_RU_ActiveS.png").getImage();
+
+
             advice_2 = new ImageIcon("launcher/images/advice_2.png").getImage();
+
 
 
             Quote_Downloading = new ImageIcon("launcher/images/Quote_Downloading.png").getImage();

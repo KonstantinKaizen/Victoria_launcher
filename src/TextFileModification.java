@@ -20,8 +20,12 @@ public class TextFileModification {
             //To replace a line in a file
             //String newtext = oldtext.replaceAll("This is test string 20000", "blah blah blah");
 
-            FileWriter writer = new FileWriter(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\settings.txt");
-            writer.write(newtext);writer.close();
+            System.out.println("copying ip");
+            System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + path);
+
+            FileWriter writer = new FileWriter(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + path);
+            writer.write(newtext);
+            writer.close();
         }
         catch (IOException ioe)
         {

@@ -18,22 +18,24 @@ public class Thread_download_game extends Thread{
     @Override
     public void run() {
 
-        is_loading = true;
-        System.out.println("is loading");
 
 
 
+            is_loading = true;
+            System.out.println("is loading");
 
-        try {
-            Utility.download(link,folder_name);
-        } catch (IOException e) {
-            System.out.println("error loading");
-            throw new RuntimeException(e);
-        } finally {
-            System.out.println("finished - is loading false");
-            is_loading = false;
 
-        }
+            try {
+                Utility.download(link, folder_name);
+            } catch (IOException e) {
+                System.out.println("error loading");
+                throw new RuntimeException(e);
+            } finally {
+                System.out.println("finished - is loading false");
+                is_loading = false;
+
+            }
+
 
 
 
