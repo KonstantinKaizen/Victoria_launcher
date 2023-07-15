@@ -25,7 +25,7 @@ public class ping extends Thread{
 
 
             InetAddress address = InetAddress.getByName(ping);
-            layout_mp.list_entity_mp.get(num).isAvailable = address.isReachable(100);
+            layout_mp.list_entity_mp.get(num).isAvailable = address.isReachable(500);
 
 
 
@@ -42,10 +42,10 @@ public class ping extends Thread{
 
 
             InetAddress address = InetAddress.getByName(server_ip);
-            return address.isReachable(100);
+            return true;
         } catch (Exception e){
 
-            return false;
+            return true;
 
         }
 

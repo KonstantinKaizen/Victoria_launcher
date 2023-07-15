@@ -133,6 +133,27 @@ public class Utility {
         directory.delete();
     } // удалить дерикторию рекурсивно
 
+
+    public static void deleteFolder(File folder, String folderToExclude) {
+        if (folder.exists()) {
+            File[] files = folder.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        if (!file.getName().equals(folderToExclude)) {
+                            deleteFolder(file, folderToExclude); // Рекурсивный вызов для удаления вложенных папок
+                        }
+                    } else {
+                        file.delete(); // Удаление файла
+                    }
+                }
+            }
+            if (!folder.getName().equals(folderToExclude)) {
+                folder.delete(); // Удаление пустой папки
+            }
+        }
+    }
+
     public static void deleteDirectory(File directory) {
 
         // if the file is directory or not

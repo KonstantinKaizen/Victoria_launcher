@@ -745,8 +745,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
                     }
                 } finally {
-                    Main.frame.enable();
-                    Utility.alert("Ошибка загрузки","Download error");
+                    Main.frame.enable(true);
                 }
 
 
@@ -767,13 +766,19 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 Main.frame.enable(false);
 
+
+
                 if(!ping.check_server_ping()){
                     Main.frame.enable(true);
                     Utility.alert("Проверьте соединение с сетью или используйте VPN.","Check your network connection or use a VPN.");
                     return;
                 }
 
+
                 Utility.deleteDirectory(new File("Victoria 2"));
+                //Utility.copyDirectory("Victoria 2\\mod","mod");
+
+
 
 
 
@@ -946,6 +951,13 @@ public class Launcher extends JPanel implements ActionListener  {
                 Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\map"));
 
 
+                try {
+                    Utility.copyDirectory(new File("mod"),new File("Victoria 2\\mod"));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                Utility.deleteDirectory(new File("mod"));
+
 
 
 
@@ -1091,7 +1103,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
             if(vic_2_launcher_selected && e.getX()>140 && e.getY()>527 && e.getX()<384 && e.getY() < 575 && !paintComponent.multi_player){
 
-                try {
+
                     System.out.println("запуск мода 3");
                     File file1 = new File("Victoria 2/3.bat");
                     if (!file1.exists()) {
@@ -1160,10 +1172,7 @@ public class Launcher extends JPanel implements ActionListener  {
                 Main.frame.enable();
 
                  */
-                } finally {
-                    Main.frame.enable();
-                    Utility.alert("Ошибка загрузки","Download error");
-                }
+
 
             } //  запуск мода 3
 
@@ -1230,17 +1239,37 @@ public class Launcher extends JPanel implements ActionListener  {
                     throw new RuntimeException(ex);
                 }finally {
                     try {
-                        Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\BDSHFM\\settings.txt"));
+                        Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\0\\settings.txt"));
+
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     } finally {
                         try {
-                            Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\DoDDF\\settings.txt"));
+                            Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1\\settings.txt"));
                         } catch (IOException ex) {
                             throw new RuntimeException(ex);
                         } finally {
+                            try {
+                                Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\2\\settings.txt"));
+                            } catch (IOException ex) {
+                                throw new RuntimeException(ex);
+                            } finally {
 
-                            Utility.alert("Настройки сброшены","settings reseted");
+                                try {
+                                    Files.delete(Paths.get(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\3\\settings.txt"));
+                                } catch (IOException ex) {
+                                    throw new RuntimeException(ex);
+                                } finally {
+
+                                    Utility.alert("Настройки сброшены","settings reseted");
+
+                                }
+
+
+
+                            }
+
+
                         }
                     }
 
