@@ -1869,6 +1869,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
                 Desktop desktop = Desktop.getDesktop();
                 File file = new File("Victoria 2");
+                Main.frame.enable(false);
 
                 try {
                     desktop.open(new File("launcher\\V3_Clear.bat"));
@@ -1977,6 +1978,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
                         Main.load_frame.dispose();
                         System.out.println("vic 3 download ended");
+                        Main.frame.enable(true);
 
 
 
@@ -2071,6 +2073,7 @@ public class Launcher extends JPanel implements ActionListener  {
             if(vic_3_launcher_selected && e.getX()>80 && e.getY()>428 && e.getX()<128 && e.getY() < 474){
 
                 Desktop desktop = Desktop.getDesktop();
+                Main.frame.enable(false);
 
                 try {
                     desktop.open(new File("launcher\\V3_Clear.bat"));
@@ -2139,6 +2142,7 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
                         Main.load_frame.dispose();
+                        Main.frame.enable(true);
 
 
 
