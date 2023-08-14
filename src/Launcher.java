@@ -1282,9 +1282,12 @@ public class Launcher extends JPanel implements ActionListener  {
 
 
 
+
+
                     System.out.println("скачать мод базы");
 
                     Main.frame.enable(false);
+
 
                 if(!ping.check_server_ping()){
                     Main.frame.enable(true);
@@ -1292,9 +1295,11 @@ public class Launcher extends JPanel implements ActionListener  {
                     return;
                 }
 
+                //Utility.deleteDirectory(new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Paradox Interactive\\Victoria II\\1"));
+
                     Desktop desktop = Desktop.getDesktop();
                     File file = new File("Victoria 2");
-                    Utility.deleteDirectory(new File("Victoria 2\\mod\\3"));
+                    Utility.deleteDirectory(new File("Victoria 2\\mod\\1"));
 
                     try {
                         //desktop.open(new File("launcher\\V2_Clear.bat"));
