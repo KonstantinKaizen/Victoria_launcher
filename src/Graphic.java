@@ -53,17 +53,30 @@ public class Graphic  {
     public static boolean mod_1_launch_b = false;
     public static boolean mod_2_launch_b = false;
     public static boolean mod_3_launch_b = false;
+
+    public static boolean mod_4_launch_b = false;
     public static boolean clean_button_1_b = false;
     public static boolean clean_button_2_b = false;
     public static boolean clean_button_3_b = false;
     public static boolean clean_button_4_b = false;
 
+    public static boolean clean_button_5_b = false;
+
+    public static boolean vk_b = false;
+    public static boolean ec_b = false;
+    public static boolean war_b = false;
+
 
 
     public static boolean reset_button_b = false;
+
+
+    public static boolean download_button_0_b = false;
     public static boolean download_button_1_b = false;
     public static boolean download_button_2_b = false;
     public static boolean download_button_3_b = false;
+
+    public static boolean download_button_4_b = false;
 
     public static boolean download_mod_b_3 = false;
 
@@ -113,9 +126,23 @@ public class Graphic  {
 
 
 
+    public static Image VK_DESK = new ImageIcon("launcher/images/VK_Desc_RUS.png").getImage();
 
+    public static Image ECO_DESK = new ImageIcon("launcher/images/EcAn_Desc_RUS.png").getImage();
+
+    public static Image WAR_DESK = new ImageIcon("launcher/images/WarAn_Desc_RUS.png").getImage();
 
     //VIC 2 BUTTONS
+
+    public static Image war_button = new ImageIcon("launcher/images/WarAn_Button.png").getImage();
+    public static Image war_button_selected = new ImageIcon("launcher/images/WarAn_Button_Active.png").getImage();
+
+    public static Image ec_button = new ImageIcon("launcher/images/EcAn_Button.png").getImage();
+    public static Image ec_button_selected = new ImageIcon("launcher/images/EcAn_Button_Active.png").getImage();
+
+
+    public static Image vk_button = new ImageIcon("launcher/images/VK_Button.png").getImage();
+    public static Image vk_button_selected = new ImageIcon("launcher/images/VK_Button_Active.png").getImage();
     public static Image background_1 = new ImageIcon("launcher/images/background_4.png").getImage();
 
     public static Image background_2 = new ImageIcon("launcher/images/background_4_1.png").getImage();
@@ -143,6 +170,10 @@ public class Graphic  {
 
     public static Image mod_3_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_3_RUS.png").getImage();
     public static Image mod_3_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_3_RUS_Active.png").getImage();
+
+    public static Image mod_4_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_4_RUS.png").getImage();
+    public static Image mod_4_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_4_RUS_Active.png").getImage();
+
     public static Image reset_button = new ImageIcon("launcher/images/new/Vic2/ResetSettings_Button.png").getImage();
     public static Image reset_button_selected = new ImageIcon("launcher/images/new/Vic2/ResetSettings_Button_Active.png").getImage();
 
@@ -285,6 +316,9 @@ public class Graphic  {
             mod_3_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_3_ENG.png").getImage();
             mod_3_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_3_ENG_Active.png").getImage();
 
+            mod_4_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_4_ENG.png").getImage();
+            mod_4_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_4_ENG_Active.png").getImage();
+
 
 
             advice_delete = new ImageIcon("launcher/images/ENG/advice_delete.png").getImage();
@@ -318,6 +352,14 @@ public class Graphic  {
 
             Quote_Downloading = new ImageIcon("launcher/images/ENG/Quote_Downloading.png").getImage();
             Quote_Unzipping = new ImageIcon("launcher/images/ENG/Quote_Unzipping.png").getImage();
+
+
+
+            VK_DESK = new ImageIcon("launcher/images/ENG/VK_Desc_ENG.png").getImage();
+
+            ECO_DESK = new ImageIcon("launcher/images/ENG/EcAn_Desc_ENG.png").getImage();
+
+            WAR_DESK = new ImageIcon("launcher/images/ENG/WarAn_Desc_ENG.png").getImage();
 
 
 
@@ -357,6 +399,9 @@ public class Graphic  {
             mod_3_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_3_RUS.png").getImage();
             mod_3_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_3_RUS_Active.png").getImage();
 
+            mod_4_launch_button = new ImageIcon("launcher/images/new/Vic2/RunMod_4_RUS.png").getImage();
+            mod_4_launch_button_selected = new ImageIcon("launcher/images/new/Vic2/RunMod_4_RUS_Active.png").getImage();
+
             base_mod_launch_button_3 = new ImageIcon("launcher/images/new/Vic3/RunNVBMTBT_RUS.png").getImage();
             base_mod_launch_button_selected_3 = new ImageIcon("launcher/images/new/Vic3/RunNVBMTBT_RUS_Active.png").getImage();
 
@@ -387,6 +432,12 @@ public class Graphic  {
 
             Quote_Downloading = new ImageIcon("launcher/images/Quote_Downloading.png").getImage();
             Quote_Unzipping = new ImageIcon("launcher/images/Quote_Unzipping.png").getImage();
+
+            VK_DESK = new ImageIcon("launcher/images/VK_Desc_RUS.png").getImage();
+
+            ECO_DESK = new ImageIcon("launcher/images/EcAn_Desc_RUS.png").getImage();
+
+            WAR_DESK = new ImageIcon("launcher/images/WarAn_Desc_RUS.png").getImage();
 
             language_russian = true;
             Utility.givenWritingStringToFile_whenUsingFileOutputStream_thenCorrect("rus","launcher\\lang.txt");

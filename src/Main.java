@@ -37,6 +37,10 @@ public  class Main   {
 
     public static String victoria_2_3_mod = "http://194.147.148.18/index.php/s/003/download/003.zip";
 
+    public static String victoria_2_4_mod = "http://194.147.148.18/index.php/s/004/download/004.zip";
+
+    public static String victoria_2_5_mod = "http://194.147.148.18/index.php/s/005/download/005.zip";
+
 
 
 
@@ -58,7 +62,7 @@ public  class Main   {
 
     public static boolean the_choice_is_made = false;
     public static int width = 516-8;
-    public static int height = 783;
+    public static int height = 800;
     public static JFrame frame;
     public static JFrame load_frame;
 
@@ -67,7 +71,7 @@ public  class Main   {
 
 
         frame = new JFrame();
-        frame.setTitle("launcher 2/3 "+"09.08.2023");
+        frame.setTitle("launcher 2/3 "+"12.09.2023:17:12");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(width,height);
         frame.setLocationRelativeTo(null);
@@ -99,6 +103,8 @@ public  class Main   {
         Language.sync_language("Victoria 2\\localisation\\");
         Language.sync_language("Victoria 2\\mod\\DoDDF\\localisation\\");
         Language.sync_language("Victoria 2\\mod\\STAHL_MOD\\localisation\\");
+
+        CheckDateModification.checkDateModification();
 
 
 

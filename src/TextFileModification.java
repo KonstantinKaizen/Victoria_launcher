@@ -14,14 +14,8 @@ public class TextFileModification {
                 oldtext += line + "\r\n";
             }
             reader.close();
-            // replace a word in a file
+
             String newtext = oldtext.replaceAll("lasthost.*", string);
-
-            //To replace a line in a file
-            //String newtext = oldtext.replaceAll("This is test string 20000", "blah blah blah");
-
-            System.out.println("copying ip");
-            System.out.println(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + path);
 
             FileWriter writer = new FileWriter(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + path);
             writer.write(newtext);

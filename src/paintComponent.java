@@ -35,8 +35,8 @@ public class paintComponent {
 
 
             if(!Graphic.back) {
-                g.drawImage(Graphic.back_vic2, 34, 623, launcher);
-            } else g.drawImage(Graphic.back_vic2_active, 34, 623, launcher);
+                g.drawImage(Graphic.back_vic2, 69, 698, launcher);
+            } else g.drawImage(Graphic.back_vic2_active, 69, 698, launcher);
             g.setFont(new Font("Cambria", Font.ROMAN_BASELINE, 20));
             g.setColor(Color.ORANGE);
 
@@ -245,10 +245,10 @@ public class paintComponent {
 
 
             if (!Graphic.ip_button) {
-                g.drawImage(Graphic.IP_Browser_OpenButton, 81, 235, launcher);
+                g.drawImage(Graphic.IP_Browser_OpenButton, 69, 234, launcher);
 
             } else {
-                g.drawImage(Graphic.IP_Browser_OpenButton_Active, 81, 235, launcher);
+                g.drawImage(Graphic.IP_Browser_OpenButton_Active, 69, 234, launcher);
             }
 
 
@@ -256,35 +256,33 @@ public class paintComponent {
 
 
             if(!Graphic.change_language_button_b) {
-                g.drawImage(Graphic.Lang_Icon, 394, 235, launcher);
+                g.drawImage(Graphic.Lang_Icon, 382, 234, launcher);
             } else {
-                g.drawImage(Graphic.Lang_Icon_Active, 394, 235, launcher);
+                g.drawImage(Graphic.Lang_Icon_Active, 382, 234, launcher);
 
-            }
+            } // LANGUAGE
 
 
 
 
             if(!Graphic.delete) {
-                g.drawImage(Graphic.delete_all, 396, 623, launcher);
-            } else g.drawImage(Graphic.delete_all_active, 396, 623, launcher);
+                g.drawImage(Graphic.delete_all, 382, 698, launcher);
+            } else g.drawImage(Graphic.delete_all_active, 382, 698, launcher);
 
 
 
 
             if(!Graphic.play_button_b) {
 
-                g.drawImage(Graphic.Prefab_260x120_Button, 139, 179, launcher);
+                g.drawImage(Graphic.Prefab_260x120_Button, 127, 292, launcher);
 
             } else {
-                g.drawImage(Graphic.Prefab_260x120_Button_Active, 139, 179, launcher);
+                g.drawImage(Graphic.Prefab_260x120_Button_Active, 127, 292, launcher);
 
             }
 
 
-            if(!Graphic.install_button_b) {
-                g.drawImage(Graphic.install_button, 139, 293, launcher);
-            } else g.drawImage(Graphic.install_button_selected, 139, 293, launcher);
+
 
 /*
             if(!Graphic.mod_1_launch_b) {
@@ -293,62 +291,118 @@ public class paintComponent {
 
  */
 
+            if(!Graphic.vk_b) {
+                g.drawImage(Graphic.vk_button, 225, 698, launcher);
+            } else {
+                g.drawImage(Graphic.vk_button_selected, 225, 698, launcher);
+
+            } // VK
+
+            if(!Graphic.ec_b) {
+                g.drawImage(Graphic.ec_button, 283, 640, launcher);
+            } else g.drawImage(Graphic.ec_button_selected, 283, 640, launcher); // eco analyzer
+
+            if(!Graphic.war_b) {
+                g.drawImage(Graphic.war_button, 225, 640, launcher);
+            } else g.drawImage(Graphic.war_button_selected, 225, 640, launcher); // war analyzer
+
 
             if(!Graphic.mod_1_launch_b) {
-                g.drawImage(Graphic.mod_1_launch_button, 139, 409, launcher);
-            } else g.drawImage(Graphic.mod_1_launch_button_selected, 139, 409, launcher);
+                g.drawImage(Graphic.mod_1_launch_button, 127, 408, launcher);
+            } else g.drawImage(Graphic.mod_1_launch_button_selected, 127, 408, launcher);
 
             if(!Graphic.mod_2_launch_b) {
-                g.drawImage(Graphic.mod_2_launch_button, 139, 467, launcher);
-            } else g.drawImage(Graphic.mod_2_launch_button_selected, 139, 467, launcher);
+                g.drawImage(Graphic.mod_2_launch_button, 127, 466, launcher);
+            } else g.drawImage(Graphic.mod_2_launch_button_selected, 127, 466, launcher);
 
             if(!Graphic.mod_3_launch_b) {
-                g.drawImage(Graphic.mod_3_launch_button, 139, 467+58, launcher);
-            } else g.drawImage(Graphic.mod_3_launch_button_selected, 139, 467+58, launcher);
+                g.drawImage(Graphic.mod_3_launch_button, 127, 466+58, launcher);
+            } else g.drawImage(Graphic.mod_3_launch_button_selected, 127, 466+58, launcher);
+
+            if(!Graphic.mod_4_launch_b) {
+                g.drawImage(Graphic.mod_4_launch_button, 127, 466+58+58, launcher);
+            } else g.drawImage(Graphic.mod_4_launch_button_selected, 127, 466+58+58, launcher);
+
 
             if(!Graphic.clean_button_1_b) {
-                g.drawImage(Graphic.clean_button, 394, 293, launcher);
-            } else g.drawImage(Graphic.clean_button_selected, 394, 293, launcher);
+                g.drawImage(Graphic.clean_button, 382, 293, launcher);
+            } else g.drawImage(Graphic.clean_button_selected, 382, 293, launcher);//CACHE
 
             if(!Graphic.clean_button_2_b) {
-                g.drawImage(Graphic.clean_button, 394, 409, launcher);
-            } else g.drawImage(Graphic.clean_button_selected, 394, 409, launcher);
+                g.drawImage(Graphic.clean_button, 382, 409, launcher);
+            } else g.drawImage(Graphic.clean_button_selected, 382, 409, launcher);//CACHE
 
             if(!Graphic.clean_button_3_b) {
-                g.drawImage(Graphic.clean_button, 394, 467, launcher);
-            } else g.drawImage(Graphic.clean_button_selected, 394, 467, launcher);
+                g.drawImage(Graphic.clean_button, 382, 467, launcher);
+            } else g.drawImage(Graphic.clean_button_selected, 382, 467, launcher);//CACHE
 
             if(!Graphic.clean_button_4_b) {
-                g.drawImage(Graphic.clean_button, 394, 467+58, launcher);
-            } else g.drawImage(Graphic.clean_button_selected, 394, 467+58, launcher);
+                g.drawImage(Graphic.clean_button, 382, 467+58, launcher);
+            } else g.drawImage(Graphic.clean_button_selected, 382, 467+58, launcher);//CACHE
+
+            if(!Graphic.clean_button_5_b) {
+                g.drawImage(Graphic.clean_button, 382, 467+58+58, launcher);
+            } else {
+                g.drawImage(Graphic.clean_button_selected, 382, 467 + 58 + 58, launcher);
+                g.drawImage(Graphic.advice_3,Launcher.x-207,Launcher.y,launcher);
+
+            }//CACHE 5
 
 
             if(!Graphic.reset_button_b) {
-                g.drawImage(Graphic.reset_button, 81, 293, launcher);
-            } else g.drawImage(Graphic.reset_button_selected, 81, 293, launcher);
+                g.drawImage(Graphic.reset_button, 167, 640, launcher);
+            } else g.drawImage(Graphic.reset_button_selected, 167, 640, launcher);
 
 
+
+            if(!Graphic.install_button_b) {
+                g.drawImage(Graphic.install_button, 127, 234, launcher);
+            } else g.drawImage(Graphic.install_button_selected, 127, 234, launcher);// скачать игру
+
+
+
+            if(!Graphic.download_button_0_b) {
+                g.drawImage(Graphic.download_button, 69, 234+58, launcher);
+            } else {
+                g.drawImage(Graphic.download_button_selected, 69, 234 + 58, launcher);
+                g.drawImage(Graphic.advice,Launcher.x,Launcher.y,launcher);
+            }
 
             if(!Graphic.download_button_1_b) {
-                g.drawImage(Graphic.download_button, 81, 409, launcher);
-            } else g.drawImage(Graphic.download_button_selected, 81, 409, launcher);
+                g.drawImage(Graphic.download_button, 69, 408, launcher);
+            } else g.drawImage(Graphic.download_button_selected, 69, 408, launcher);
 
             if(!Graphic.download_button_2_b) {
-                g.drawImage(Graphic.download_button, 81, 467, launcher);
-            }else g.drawImage(Graphic.download_button_selected, 81, 467, launcher);
+                g.drawImage(Graphic.download_button, 69, 466, launcher);
+            }else g.drawImage(Graphic.download_button_selected, 69, 466, launcher);
 
             if(!Graphic.download_button_3_b) {
-                g.drawImage(Graphic.download_button, 81, 467+58, launcher);
-            }else g.drawImage(Graphic.download_button_selected, 81, 467+58, launcher);
+                g.drawImage(Graphic.download_button, 69, 466+58, launcher);
+            }else g.drawImage(Graphic.download_button_selected, 69, 466+58, launcher);
+
+            if(!Graphic.download_button_4_b) {
+                g.drawImage(Graphic.download_button, 69, 466+58+58, launcher);
+            }else {
+                g.drawImage(Graphic.download_button_selected, 69, 466 + 58 + 58, launcher);
+                g.drawImage(Graphic.advice,Launcher.x,Launcher.y,launcher);
+            }
 
 
             if(!Graphic.discord_button_b) {
-                g.drawImage(Graphic.discord_button, 124, 560+50, launcher);
-            } else g.drawImage(Graphic.discord_button_selected, 124, 560+50, launcher);
+                g.drawImage(Graphic.discord_button, 283, 698, launcher);
+            } else g.drawImage(Graphic.discord_button_selected, 283, 698, launcher);
 
 
             //подсказки
-            if(Graphic.discord_button_b) g.drawImage(Graphic.Discord_Desc, Launcher.x-150, Launcher.y, launcher);
+            if(Graphic.discord_button_b) g.drawImage(Graphic.Discord_Desc, Launcher.x-150, Launcher.y-43, launcher);
+
+            if(Graphic.vk_b) g.drawImage(Graphic.VK_DESK,Launcher.x-100,Launcher.y-45,launcher);
+
+            if(Graphic.ec_b) g.drawImage(Graphic.ECO_DESK,Launcher.x-200,Launcher.y-45,launcher);
+
+            if(Graphic.war_b) g.drawImage(Graphic.WAR_DESK,Launcher.x-100,Launcher.y-45,launcher);
+
+             // VK
 
 
 
@@ -426,13 +480,13 @@ public class paintComponent {
 
 
             if(!Graphic.delete) {
-                g.drawImage(Graphic.DeleteButton_Vic3, 396, 623, launcher);
-            } else g.drawImage(Graphic.DeleteButton_Active_Vic3, 396, 623, launcher);
+                g.drawImage(Graphic.DeleteButton_Vic3, 382, 698-2, launcher);
+            } else g.drawImage(Graphic.DeleteButton_Active_Vic3, 382, 698-2, launcher);
 
 
             if(!Graphic.back) {
-                g.drawImage(Graphic.back_vic3, 34, 623, launcher);
-            } else g.drawImage(Graphic.back_vic3_active, 34, 623, launcher);
+                g.drawImage(Graphic.back_vic3, 69-9, 698-5, launcher);
+            } else g.drawImage(Graphic.back_vic3_active, 69-9, 698-5, launcher);
 
             if(!Graphic.launch_game_b_3) {
                 g.drawImage(Graphic.play_button_3, 127, 232-7, launcher);
@@ -472,14 +526,22 @@ public class paintComponent {
 
 
             if(!Graphic.discord_button_b) {
-                g.drawImage(Graphic.discord_button, 124, 560+50, launcher);
-            } else g.drawImage(Graphic.discord_button_selected, 124, 560+50, launcher);
+                g.drawImage(Graphic.discord_button, 283, 698, launcher);
+            } else g.drawImage(Graphic.discord_button_selected, 283, 698-2, launcher);
+
+            if(!Graphic.vk_b) {
+                g.drawImage(Graphic.vk_button, 225, 698, launcher);
+            } else g.drawImage(Graphic.vk_button_selected, 225, 698, launcher);
+
+
 
 
 
             if(Graphic.back) g.drawImage(Graphic.advice_back,Launcher.x,Launcher.y-45,launcher);
+
+
             if(Graphic.delete) g.drawImage(Graphic.advice_delete,Launcher.x-190,Launcher.y-48,launcher);
-            if(Graphic.discord_button_b) g.drawImage(Graphic.Discord_Desc, Launcher.x-150, Launcher.y, launcher);
+            if(Graphic.discord_button_b) g.drawImage(Graphic.Discord_Desc, Launcher.x-150, Launcher.y-45, launcher);
             if(Graphic.DLCButton_Vic3_b) g.drawImage(Graphic.DLC_Desc, Launcher.x, Launcher.y, launcher);
 
 
