@@ -71,7 +71,7 @@ public  class Main   {
 
 
         frame = new JFrame();
-        frame.setTitle("launcher 2/3 "+"12.09.2023:17:12");
+        frame.setTitle("launcher 2/3 "+"09.10.2023_20:19");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(width,height);
         frame.setLocationRelativeTo(null);

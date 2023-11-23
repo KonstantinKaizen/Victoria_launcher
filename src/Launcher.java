@@ -564,6 +564,9 @@ public class Launcher extends JPanel implements ActionListener  {
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\4\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(0 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\5\\settings.txt");
+
                     System.out.println("file modifed");
                     Utility.alert("IP изменен","IP changed");
 
@@ -583,6 +586,8 @@ public class Launcher extends JPanel implements ActionListener  {
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\4\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(1 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\5\\settings.txt");
                     System.out.println("file modifed");
                     Utility.alert("IP изменен","IP changed");
 
@@ -599,6 +604,8 @@ public class Launcher extends JPanel implements ActionListener  {
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\4\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(2 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\5\\settings.txt");
                     System.out.println("file modifed");
                     Utility.alert("IP изменен","IP changed");
 
@@ -615,6 +622,8 @@ public class Launcher extends JPanel implements ActionListener  {
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\4\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(3 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\5\\settings.txt");
                     System.out.println("file modifed");
                     Utility.alert("IP изменен","IP changed");
 
@@ -631,6 +640,8 @@ public class Launcher extends JPanel implements ActionListener  {
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\4\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(4 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\5\\settings.txt");
                     System.out.println("file modifed");
                     Utility.alert("IP изменен","IP changed");
 
@@ -647,6 +658,8 @@ public class Launcher extends JPanel implements ActionListener  {
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\1\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\2\\settings.txt");
                     TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\3\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\4\\settings.txt");
+                    TextFileModification.modifyFile("lasthost=\""+layout_mp.list_entity_mp.get(5 + layout_mp.page).ip+"\"","\\Paradox Interactive\\Victoria II\\5\\settings.txt");
                     System.out.println("file modifed");
                     Utility.alert("IP изменен","IP changed");
 
@@ -2149,7 +2162,7 @@ public class Launcher extends JPanel implements ActionListener  {
                                         public void run() {
 
 
-                                            new Main(Main.victoria_2_5_mod, "4.zip", "Victoria 2\\mod\\5");
+                                            new Main(Main.victoria_2_5_mod, "5.zip", "Victoria 2\\mod\\5");
 
 
                                             Thread_download_game thread_download_game = new Thread_download_game(Main.victoria_2_5_mod, "5.zip");
