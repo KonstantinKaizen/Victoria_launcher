@@ -22,24 +22,26 @@ public  class Main   {
 
     //public static String dlc_link = "http://46.8.29.39/index.php/s/azz3xbxbNWQocKJ/download";
 
-    public static String dlc_link = "http://194.147.148.18/index.php/s/DLC/download/DLC.zip";
+    public static String dlc_link = "http://194.147.115.29/index.php/s/DLC/download/DLC.zip";
 
-    public static String victoria_3_link = "http://194.147.148.18/index.php/s/Victoria3/download/Victoria3.zip";
+    public static String victoria_3_link = "http://194.147.115.29/index.php/s/Victoria3/download/Victoria3.zip";
 
-    public static String victoria_3_nvmb = "http://194.147.148.18/index.php/s/NVBM/download/NVBM.zip";
-
-
+    public static String victoria_3_nvmb = "http://194.147.115.29/index.php/s/NVBM/download/NVBM.zip";
 
 
-    public static String victoria_2_link = "http://194.147.148.18/index.php/s/Victoria2/download/000.zip";
-    public static String victoria_2_1_mod = "http://194.147.148.18/index.php/s/001/download/001.zip";
-    public static String victoria_2_2_mod = "http://194.147.148.18/index.php/s/002/download/002.zip";
 
-    public static String victoria_2_3_mod = "http://194.147.148.18/index.php/s/003/download/003.zip";
 
-    public static String victoria_2_4_mod = "http://194.147.148.18/index.php/s/004/download/004.zip";
 
-    public static String victoria_2_5_mod = "http://194.147.148.18/index.php/s/005/download/005.zip";
+
+    public static String victoria_2_link = "http://194.147.115.29/index.php/s/000/download";
+    public static String victoria_2_1_mod = "http://194.147.115.29/index.php/s/001/download";
+    public static String victoria_2_2_mod = "http://194.147.115.29/index.php/s/002/download";
+
+    public static String victoria_2_3_mod = "http://194.147.115.29/index.php/s/003/download";
+
+    public static String victoria_2_4_mod = "http://194.147.115.29/index.php/s/004/download";
+
+    public static String victoria_2_5_mod = "http://194.147.115.29/index.php/s/005/download";
 
 
 
@@ -71,7 +73,7 @@ public  class Main   {
 
 
         frame = new JFrame();
-        frame.setTitle("launcher 2/3 "+"09.10.2023_20:19");
+        frame.setTitle("launcher 2/3 "+"15.02.2024_19:56");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(width,height);
         frame.setLocationRelativeTo(null);
